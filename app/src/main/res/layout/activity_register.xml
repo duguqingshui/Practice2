@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="40dp"
+        android:layout_gravity="center_horizontal">
+        <ImageView
+            android:id="@+id/iv_headimg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@mipmap/ig1"
+            android:layout_gravity="center"/>
+        <GridView
+            android:id="@+id/gridview_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="90dp"
+            android:numColumns="4"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            android:visibility="gone">
+        </GridView>
+        <EditText
+            android:id="@+id/et_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入账号" />
+
+        <EditText
+            android:id="@+id/et_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:password="true"
+            android:hint="请输入密码" />
+
+        <EditText
+            android:id="@+id/et_repass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:password="true"
+            android:hint="重复密码" />
+
+        <EditText
+            android:id="@+id/et_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入昵称" />
+
+        <Button
+            android:id="@+id/bt_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
