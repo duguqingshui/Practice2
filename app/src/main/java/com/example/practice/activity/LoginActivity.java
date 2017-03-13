@@ -30,7 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText et_account;
     private EditText et_password;
     private Button bt_login;
-    private Button bt_register;
     private Intent intent;
     private ServiceConnection mConnection;
     private ReceiveService.sendBinder sendMsg;
@@ -47,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         et_account = (EditText) findViewById(R.id.et_account);
         et_password = (EditText) findViewById(R.id.et_password);
         bt_login = (Button) findViewById(R.id.bt_login);
-        bt_register = (Button) findViewById(R.id.bt_register);
 
         //绑定服务
         intent = new Intent(this, ReceiveService.class);
@@ -100,14 +98,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        bt_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //进入注册页面
-                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     /**
