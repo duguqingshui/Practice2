@@ -3,4 +3,37 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="bg_actionBar">#1c50a1</color>
+    <color name="bg_statusBar">#1976d2</color>
+    <color name="bg_window">#f9f9f9</color>
+
+    <color name="main_color">#1c50a1</color>
+    <color name="transparent">#00000000</color>
+    <color name="hint_color">#cccccc</color>   <!-- 提示,二级标签文字颜色 -->
+    <color name="color_hint">#cccccc</color>   <!-- 提示,二级标签文字颜色 -->
+    <color name="color_divider">#444444</color> <!-- 分割线,禁用背景颜色 -->
+    <color name="color_black">#575757</color>    <!-- 黑色字体颜色 -->
+    <color name="color_orange">#ffae11</color> <!-- 橘黄色字体颜色字体 -->
+    <color name="black">#FF000000</color>
+    <color name="white_color">#ffffffff</color><!-- 透明 -->
+    <color name="color_red">#f00</color>
+    <color name="white">#ffffffff</color><!-- 透明 -->
+    <!-- Commons -->
+    <color name="background_app">#dedede</color>
+
+    <color name="background_list_back">#e3e3e3</color>
+    <color name="background_list_front">#ffffff</color>
+    <color name="text_title">#444444</color>
+    <color name="text_description">#7e7e7e</color>
+
+    <color name="line">#ffbcbcbc</color>
+
+    <color name="background_new_tag">#ff0000</color>
+    <color name="text_new_tag">#ffffff</color>
+
+    <color name="text_gray">#575757</color> <!-- 字体颜色 -->
+    <color name="main_bg_color">#f6f6f6</color> <!-- 页面背影颜色 -->
+    <color name="main_text_color">#575757</color> <!-- 字体颜色 -->
+    <color name="main_click_gray">#F8F8F8</color> <!-- 点击变灰色 -->
+    <color name="main_spliter_color">#d0d0d0</color> <!-- 灰色分割线 -->
 </resources>

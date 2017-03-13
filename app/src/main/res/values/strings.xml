@@ -1,3 +1,106 @@
 <resources>
-    <string name="app_name">Practice</string>
+    <string name="app_name">微聊</string>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">Open</string>
+    <string name="del">删除</string>
+    <string name="upd">修改</string>
+    <string name="googlePlay">Google Play</string>
+    <string name="uninstall">Uninstall</string>
+
+    <string name="cantOpen">Can\'t open this application</string>
+    <string name="settings">Settings</string>
+    <string name="mode">Swipe Mode</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="both">Both</string>
+    <string name="leftAction">Left Action</string>
+    <string name="reveal">Reveal</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="choice">Choice</string>
+    <string name="rightAction">Right Action</string>
+    <string name="rightOffset">Right Offset (%1$s dp)</string>
+    <string name="leftOffset">Left Offset (%1$s dp)</string>
+    <string name="dp">dp</string>
+    <string name="animationTime">Animation Time (Default: 0)</string>
+    <string name="milliseconds">Milliseconds</string>
+    <string name="openOnLongPress">Open On Long Press</string>
+
+    <string name="about">About</string>
+    <string name="aboutMessage">This is just a simple demo for the Open Source SwipeListView Android Library by 47 Degrees. Find all source, documentation and packaged downloads at GitHub. Cheers!</string>
+    <string name="ok">Ok</string>
+
+    <string name="visit47">Visit 47deg</string>
+    <string name="goToGitHub">Go to GitHub</string>
+
+    <string name="dontShow">Don\'t show this message again</string>
+    <string name="others">Others</string>
+
+    <string name="loading">Loading</string>
+
+    <string name="newTag">New!</string>
+    <string name="discard">Discard</string>
+
+
+    <string name="setting_about_test_version">检测新版本</string>
+    <string name="setting_about_newapk">您使用的为最新版本</string>
+    <string name="setting_about_connectnet">请连接网络后进行检测</string>
+
+    <!--MenuFragment-->
+    <string name="Personalized_signature">个性签名</string>
+    <string name="my_album">我的相册</string>
+    <string name="my_wallet">我的钱包</string>
+    <string name="exchange_skin">切换皮肤</string>
+    <string name="my_expression">我的表情</string>
+    <string name="common_about">关于</string>
+    <string name="common_exit">退出登录</string>
+    <string name="common_exit_app">再按一次退出程序</string>
+
+    <!--UserInfo-->
+    <string name="perinfo_title">个人信息</string>
+    <string name="user_head_image">头像</string>
+    <string name="user_name">昵称</string>
+    <string name="user_id">ID&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="user_account">账号</string>
+    <string name="user_sex">性别</string>
+    <string name="user_age">年龄</string>
+    <string name="user_birthday">生日</string>
+    <!--message remind -->
+    <string name="message_remind">消息提醒</string>
+    <string name="message_notice">接受消息通知</string>
+    <string name="message_sound">声音</string>
+    <string name="message_vibration">振动</string>
+    <!--nodistrub-->
+    <string name="nodistrub">勿扰模式</string>
+    <string name="nodistrub_content">开启后，在设定时间段内收到新消息时不会响铃或振动</string>
+    <string name="start_time">开始时间</string>
+    <string name="end_time">结束时间</string>
+    <!--privateandsafe-->
+    <string name="privateandsafe">隐私与安全</string>
+    <string name="add_check">加我为朋友需验证</string>
+    <string name="gesture_lock">手势锁</string>
+    <string name="change_pass">修改密码</string>
+    <!--normaiSetting-->
+    <string name="normalsetting">通用设置</string>
+    <string name="cross_screen">开启横屏</string>
+    <string name="setting_textsize">设置字体大小</string>
+    <string name="shoot">拍摄</string>
+    <string name="photo">照片</string>
+    <string name="video">视频</string>
+    <string name="statisticalflow">流量统计</string>
+    <!-- 通用 Dialog-->
+    <string name="common_reminder">提示</string>
+    <string name="exit_login_content">您确定退出登录</string>
+    <string name="submint_exit">确定退出</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_close">关闭</string>
+    <string name="common_yes">确定</string>
+    <!-- 性别选择器 Dialog-->
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
 </resources>

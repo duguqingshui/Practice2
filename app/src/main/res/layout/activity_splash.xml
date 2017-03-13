@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bc2"
+    android:orientation="vertical"
+    android:id="@+id/fl_root">
 
-    <ImageView
-        android:id="@+id/iv_start"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@mipmap/bc1"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="10dp"
+        >
+        <Button
+            android:id="@+id/bt_to_login"
+            style="@style/style_all_wrap"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="登录"
+            android:layout_weight="1"
+            android:background="@color/white_color"
+            />
+        <Button
+            android:id="@+id/bt_to_newuser"
+            style="@style/style_all_wrap"
+            android:padding="16dp"
+            android:text="新用户"
+            android:textColor="@color/white_color"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:background="@color/black"
+            />
+        />
+    </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
