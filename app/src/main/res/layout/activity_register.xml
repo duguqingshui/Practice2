@@ -39,7 +39,7 @@
             style="@style/editText"
             android:drawableLeft="@drawable/user_login_userlogo"
             android:inputType="number"
-            android:hint="请输入账号" />
+            android:hint="@string/input_account" />
         <View
             style="@style/style_listDivider"
             android:paddingLeft="@dimen/margin_boundary"
@@ -49,7 +49,7 @@
             android:id="@+id/et_pass"
             style="@style/editText"
             android:drawableLeft="@drawable/user_login_pswlogolo"
-            android:hint="请输入密码"/>
+            android:hint="@string/input_psw"/>
         <View
             style="@style/style_listDivider"
             android:paddingLeft="@dimen/margin_boundary"
@@ -59,7 +59,7 @@
             android:id="@+id/et_repass"
             style="@style/editText"
             android:drawableLeft="@drawable/user_login_pswlogolo"
-            android:hint="重复密码" />
+            android:hint="@string/input_next_psw" />
         <View
             style="@style/style_listDivider"
             android:paddingLeft="@dimen/margin_boundary"
@@ -69,7 +69,7 @@
             android:id="@+id/et_nickname"
             style="@style/editText"
             android:drawableLeft="@drawable/user_login_userlogo"
-            android:hint="请输入昵称" />
+            android:hint="@string/input_name" />
         <View
             style="@style/style_listDivider"
             android:paddingLeft="@dimen/margin_boundary"
@@ -79,7 +79,7 @@
             android:id="@+id/et_birthday"
             style="@style/editText"
             android:drawableLeft="@drawable/user_login_userlogo"
-            android:hint="请输入生日" />
+            android:hint="@string/input_birthday" />
         <View
             style="@style/style_listDivider"
             android:paddingLeft="@dimen/margin_boundary"
@@ -91,6 +91,6 @@
         style="@style/style_btn_sel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="注册"/>
+        android:text="@string/register"/>
 
 </LinearLayout>

@@ -18,7 +18,7 @@
             style="@style/style_all_wrap"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="登录"
+            android:text="@string/login"
             android:layout_weight="1"
             android:background="@color/white_color"
             />
@@ -26,7 +26,7 @@
             android:id="@+id/bt_to_newuser"
             style="@style/style_all_wrap"
             android:padding="16dp"
-            android:text="新用户"
+            android:text="@string/new_user"
             android:textColor="@color/white_color"
             android:layout_weight="1"
             android:layout_marginRight="10dp"
