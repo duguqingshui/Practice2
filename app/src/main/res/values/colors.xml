@@ -7,7 +7,7 @@
     <color name="bg_statusBar">#1976d2</color>
     <color name="bg_window">#f9f9f9</color>
 
-    <color name="main_color">#1c50a1</color>
+    <color name="main_color">#575757</color>
     <color name="transparent">#00000000</color>
     <color name="hint_color">#cccccc</color>   <!-- 提示,二级标签文字颜色 -->
     <color name="color_hint">#cccccc</color>   <!-- 提示,二级标签文字颜色 -->

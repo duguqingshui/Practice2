@@ -4,6 +4,8 @@
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
 
+    <string name="login_user">登录账号</string>
+    <string name="register_user">注册账号</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open</string>
     <string name="del">删除</string>

@@ -9,7 +9,7 @@
         android:id="@+id/rg_group"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@drawable/abc_ab_bottom_solid_dark_holo"
+        android:background="@color/main_color"
         android:gravity="center"
         android:orientation="horizontal">
 

@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().hide();
         ll_info = (LinearLayout) findViewById(R.id.ll_info);
         tv_nickname = (TextView) findViewById(R.id.tv_nickname);
         tv_onlinecount = (TextView) findViewById(R.id.tv_onlinecount);
