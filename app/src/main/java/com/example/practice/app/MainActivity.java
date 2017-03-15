@@ -10,7 +10,9 @@ import android.content.ServiceConnection;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -20,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,11 +32,14 @@ import android.widget.Toast;
 
 import com.example.practice.R;
 import com.example.practice.adapter.ImageAdapter;
+import com.example.practice.app.home.HomeFragment;
+import com.example.practice.app.home.MenuFragment;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.view.swipelistview.Bind;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -65,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
     private  boolean isOrNot=false;
     private ArrayList<Account> mOnlineList;//在线集合
     private ArrayList<Account> mUnonlineList;//离线集合
+    private MenuFragment menuFragment;
+    private HomeFragment homeFragment;
+    @Bind(R.id.containerMenu)
+    FrameLayout containerMenu;
+    @Bind(R.id.drawerLayout)
+    DrawerLayout drawerLayout;
+    //布局管理器
+    private FragmentManager fManager;
 
     public Integer[] mThumbIds={//显示的图片数组
             R.mipmap.ig1, R.mipmap.camera, R.mipmap.folder, R.mipmap.ic_launcher, R.mipmap.music, R.mipmap.picture, R.mipmap.video,
@@ -76,6 +90,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().hide();
+
+        fManager = getSupportFragmentManager();
+        String settTag = String.valueOf(R.id.containerMenu);
+        if (savedInstanceState != null) {
+            menuFragment = (MenuFragment) fManager.findFragmentByTag(settTag);
+        }
+        if (homeFragment == null) {
+            menuFragment = new MenuFragment();
+            fManager.beginTransaction()
+                    .add(R.id.containerMenu, menuFragment, settTag)
+                    .commit();
+        }
         ll_info = (LinearLayout) findViewById(R.id.ll_info);
         tv_nickname = (TextView) findViewById(R.id.tv_nickname);
         tv_onlinecount = (TextView) findViewById(R.id.tv_onlinecount);
