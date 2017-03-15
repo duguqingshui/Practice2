@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View style="@style/style_listDivider" />
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <View style="@style/style_listDivider" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/txt_switchbutton"
+                android:text="@string/nodistrub"/>
+            <com.mychat.view.MyToggleButton
+                style="@style/style_height_match"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+        <TextView
+            style="@style/txt_switchbutton"
+            android:text="@string/nodistrub_content"
+            android:textSize="@dimen/size12"/>
+    </LinearLayout>
+    <View style="@style/style_listDivider" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
+        <TextView
+            style="@style/txt_switchbutton"
+            android:text="@string/start_time"/>
+        <TextView
+            android:id="@+id/start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="16dp"
+            android:textSize="@dimen/size14"
+            android:gravity="center"
+            android:text="12:21"
+            />
+    </LinearLayout>
+    <View style="@style/style_listDivider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white">
+        <TextView
+            style="@style/txt_switchbutton"
+            android:text="@string/end_time"/>
+        <TextView
+            android:id="@+id/end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="16dp"
+            android:textSize="@dimen/size14"
+            android:gravity="center"
+            android:text="12:21"
+            />
+    </LinearLayout>
+    <View style="@style/style_listDivider" />
+
+</LinearLayout>

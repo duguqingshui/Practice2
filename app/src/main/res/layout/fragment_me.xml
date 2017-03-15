@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.tao.mychat.view.MeItemView
+            android:id="@+id/miv_personal_info"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+        </com.tao.mychat.view.MeItemView>
+        <com.tao.mychat.view.MeItemView
+            android:id="@+id/miv_remind"
+            android:layout_marginBottom="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+        </com.tao.mychat.view.MeItemView>
+
+        <com.tao.mychat.view.MeItemView
+            android:id="@+id/miv_chatSettting"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+        </com.tao.mychat.view.MeItemView>
+
+        <com.tao.mychat.view.MeItemView
+            android:id="@+id/miv_noDistrub"
+            android:layout_marginBottom="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+        </com.tao.mychat.view.MeItemView>
+
+        <com.tao.mychat.view.MeItemView
+            android:id="@+id/miv_private"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+        </com.tao.mychat.view.MeItemView>
+
+        <com.tao.mychat.view.MeItemView
+            android:id="@+id/miv_public"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+        </com.tao.mychat.view.MeItemView>
+
+        <com.tao.mychat.view.MeItemView
+            android:id="@+id/miv_trafficStatistics"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+        </com.tao.mychat.view.MeItemView>
+    </LinearLayout>
+
+</ScrollView>

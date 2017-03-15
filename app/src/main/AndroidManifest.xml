@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name=".app.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,15 +21,25 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.MainActivity"></activity>
-        <activity android:name=".activity.LoginActivity"></activity>
-        <activity android:name=".activity.RegisterActivity"></activity>
-        <activity android:name=".activity.ChatActivity"
+        <activity android:name=".app.MainActivity"></activity>
+        <activity android:name=".app.LoginActivity"></activity>
+        <activity android:name=".app.RegisterActivity"></activity>
+        <activity android:name=".app.ChatActivity"
             android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity android:name=".app.album.AblumActivity"></activity>
+        <activity android:name=".app.exchangeskin.ExchangeSkinActicity"></activity>
+        <activity android:name=".app.wallet.WalletActivity"></activity>
+        <activity android:name=".app.setting.about.AboutActivity"></activity>
+        <activity android:name=".app.setting.nodistrub.NoDistrubActivity"></activity>
+        <activity android:name=".app.setting.normal.NormalActivity"></activity>
+        <activity android:name=".app.setting.privateandsafe.PrivateAndSafe"></activity>
+        <activity android:name=".app.setting.remind.RemindActivity"></activity>
+        <activity android:name=".app.setting.statistics.StatisticalFlowActivity"></activity>
 
         <service android:name=".service.ReceiveService"></service>
 
-        <receiver android:name=".activity.ChatActivity$MyBroadcastReceiver"></receiver>
+        <receiver android:name=".app.ChatActivity$MyBroadcastReceiver"></receiver>
 
     </application>
 

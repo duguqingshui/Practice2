@@ -2,16 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="center"-->
-    <!--android:padding="10dp"-->
-    <!--android:background="#0f0"-->
-    <!--android:text="主界面"-->
-    <!--android:textSize="24dp" />-->
-
+    <include layout="@layout/top1"
+        />
     <LinearLayout
         android:id="@+id/ll_info"
         android:layout_width="match_parent"
@@ -80,6 +72,9 @@
     <ListView
         android:id="@+id/lv_friends"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_weight="1"></ListView>
 
+    <include layout="@layout/top2"
+        />
 </LinearLayout>

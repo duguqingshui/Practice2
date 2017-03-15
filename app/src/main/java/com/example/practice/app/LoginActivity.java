@@ -1,4 +1,4 @@
-package com.example.practice.activity;
+package com.example.practice.app;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;

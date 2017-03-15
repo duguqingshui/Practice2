@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View style="@style/style_listDivider" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            >
+            <TextView
+                style="@style/txt_switchbutton"
+                android:text="@string/message_notice"/>
+            <com.mychat.view.MyToggleButton
+                android:id="@+id/sb_notice"
+                style="@style/style_height_match"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View style="@style/style_listDivider" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            style="@style/txt_switchbutton"
+            android:text="@string/message_sound"/>
+        <com.mychat.view.MyToggleButton
+            android:id="@+id/sb_sound"
+            style="@style/style_height_match"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+    <View style="@style/style_listDivider" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            style="@style/txt_switchbutton"
+            android:text="@string/message_vibration"/>
+        <com.mychat.view.MyToggleButton
+            android:id="@+id/sb_vibration"
+            style="@style/style_height_match"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+    <View style="@style/style_listDivider" />
+</LinearLayout>

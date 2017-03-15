@@ -1,6 +1,5 @@
-package com.example.practice.activity;
+package com.example.practice.app;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -8,17 +7,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.example.practice.R;
 import com.example.practice.service.ReceiveService;
-import com.example.practice.utils.Constant;
-import com.example.practice.utils.SpUtils;
 
 /**
  * Created by AMOBBS on 2016/11/15.
