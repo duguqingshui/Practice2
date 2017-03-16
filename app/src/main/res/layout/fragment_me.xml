@@ -7,61 +7,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <com.tao.mychat.view.MeItemView
+        <com.example.practice.view.MeItemView
             android:id="@+id/miv_personal_info"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             >
-        </com.tao.mychat.view.MeItemView>
-        <com.tao.mychat.view.MeItemView
+        </com.example.practice.view.MeItemView>
+        <com.example.practice.view.MeItemView
             android:id="@+id/miv_remind"
             android:layout_marginBottom="1dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             >
-        </com.tao.mychat.view.MeItemView>
+        </com.example.practice.view.MeItemView>
 
-        <com.tao.mychat.view.MeItemView
+        <com.example.practice.view.MeItemView
             android:id="@+id/miv_chatSettting"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             >
-        </com.tao.mychat.view.MeItemView>
+        </com.example.practice.view.MeItemView>
 
-        <com.tao.mychat.view.MeItemView
+        <com.example.practice.view.MeItemView
             android:id="@+id/miv_noDistrub"
             android:layout_marginBottom="1dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             >
-        </com.tao.mychat.view.MeItemView>
+        </com.example.practice.view.MeItemView>
 
-        <com.tao.mychat.view.MeItemView
+        <com.example.practice.view.MeItemView
             android:id="@+id/miv_private"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             >
-        </com.tao.mychat.view.MeItemView>
+        </com.example.practice.view.MeItemView>
 
-        <com.tao.mychat.view.MeItemView
+        <com.example.practice.view.MeItemView
             android:id="@+id/miv_public"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             >
-        </com.tao.mychat.view.MeItemView>
+        </com.example.practice.view.MeItemView>
 
-        <com.tao.mychat.view.MeItemView
+        <com.example.practice.view.MeItemView
             android:id="@+id/miv_trafficStatistics"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             >
-        </com.tao.mychat.view.MeItemView>
+        </com.example.practice.view.MeItemView>
     </LinearLayout>
 
 </ScrollView>

@@ -6,14 +6,14 @@
     android:background="#fff"
     android:clickable="true"
     android:orientation="vertical"
-    tools:context=".app.home.HomeActivity">
+    tools:context=".app.MainActivity">
 
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <com.tao.mychat.widget.swipelistview.SwipeListView
+        <com.example.practice.view.swipelistview.SwipeListView
             android:id="@+id/id_swipelistview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

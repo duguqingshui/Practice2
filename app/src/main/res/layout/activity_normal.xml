@@ -22,7 +22,7 @@
                 style="@style/txt_switchbutton"
                 android:text="@string/cross_screen" />
 
-            <com.mychat.view.MyToggleButton
+            <com.example.practice.view.MyToggleButton
                 style="@style/style_height_match"
                 android:layout_gravity="center" />
         </LinearLayout>
@@ -63,7 +63,7 @@
                 style="@style/txt_switchbutton"
                 android:text="@string/photo" />
 
-            <com.mychat.view.MyToggleButton
+            <com.example.practice.view.MyToggleButton
                 style="@style/style_height_match"
                 android:layout_gravity="center" />
         </LinearLayout>
@@ -81,7 +81,7 @@
             style="@style/txt_switchbutton"
             android:text="@string/video" />
 
-        <com.mychat.view.MyToggleButton
+        <com.example.practice.view.MyToggleButton
             style="@style/style_height_match"
             android:layout_gravity="center" />
     </LinearLayout>
