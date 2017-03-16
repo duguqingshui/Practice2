@@ -13,7 +13,7 @@ import com.example.practice.R;
 import com.example.practice.app.LoginActivity;
 import com.example.practice.app.album.AblumActivity;
 import com.example.practice.app.exchangeskin.ExchangeSkinActicity;
-import com.example.practice.app.setting.about.AboutActivity;
+import com.example.practice.app.about.AboutActivity;
 import com.example.practice.app.wallet.WalletActivity;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.SelfDialog;

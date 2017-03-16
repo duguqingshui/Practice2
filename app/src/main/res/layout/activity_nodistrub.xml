@@ -18,7 +18,7 @@
             <TextView
                 style="@style/txt_switchbutton"
                 android:text="@string/nodistrub"/>
-            <com.mychat.view.MyToggleButton
+            <com.example.practice.view.MyToggleButton
                 style="@style/style_height_match"
                 android:layout_gravity="center"
                 />

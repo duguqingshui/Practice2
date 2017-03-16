@@ -1,4 +1,4 @@
-package com.example.practice.app.setting.about;
+package com.example.practice.app.about;
 
 import android.app.Activity;
 import android.os.Bundle;

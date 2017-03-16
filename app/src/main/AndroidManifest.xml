@@ -30,7 +30,7 @@
         <activity android:name=".app.album.AblumActivity"></activity>
         <activity android:name=".app.exchangeskin.ExchangeSkinActicity"></activity>
         <activity android:name=".app.wallet.WalletActivity"></activity>
-        <activity android:name=".app.setting.about.AboutActivity"></activity>
+        <activity android:name=".app.about.AboutActivity"></activity>
         <activity android:name=".app.setting.nodistrub.NoDistrubActivity"></activity>
         <activity android:name=".app.setting.normal.NormalActivity"></activity>
         <activity android:name=".app.setting.privateandsafe.PrivateAndSafe"></activity>

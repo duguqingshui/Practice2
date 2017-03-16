@@ -18,7 +18,7 @@
             <TextView
                 style="@style/txt_switchbutton"
                 android:text="@string/message_notice"/>
-            <com.mychat.view.MyToggleButton
+            <com.example.practice.view.MyToggleButton
                 android:id="@+id/sb_notice"
                 style="@style/style_height_match"
                 android:layout_gravity="center"
@@ -36,7 +36,7 @@
         <TextView
             style="@style/txt_switchbutton"
             android:text="@string/message_sound"/>
-        <com.mychat.view.MyToggleButton
+        <com.example.practice.view.MyToggleButton
             android:id="@+id/sb_sound"
             style="@style/style_height_match"
             android:layout_gravity="center"
@@ -52,7 +52,7 @@
         <TextView
             style="@style/txt_switchbutton"
             android:text="@string/message_vibration"/>
-        <com.mychat.view.MyToggleButton
+        <com.example.practice.view.MyToggleButton
             android:id="@+id/sb_vibration"
             style="@style/style_height_match"
             android:layout_gravity="center"
