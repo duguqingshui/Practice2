@@ -13,7 +13,6 @@ import android.os.IBinder;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -40,7 +39,6 @@ import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
-import com.example.practice.view.swipelistview.Bind;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -74,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Account> mUnonlineList;//离线集合
     private MenuFragment menuFragment;
     private HomeFragment homeFragment;
-    @Bind(R.id.containerMenu)
     FrameLayout containerMenu;
-    @Bind(R.id.drawerLayout)
     DrawerLayout drawerLayout;
     //布局管理器
     private FragmentManager fManager;
@@ -89,8 +85,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
         //初始化 actionbar
-        initActionbar();
+        //initActionbar();
 
         fManager = getSupportFragmentManager();
         String settTag = String.valueOf(R.id.containerMenu);
@@ -184,13 +181,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void initActionbar() {
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.show();
-        actionBar.setHomeButtonEnabled(false);
-        actionBar.setDisplayHomeAsUpEnabled(false);
-        setTitle(R.string.login_user);
-    }
+//    private void initActionbar() {
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.show();
+//        actionBar.setHomeButtonEnabled(false);
+//        actionBar.setDisplayHomeAsUpEnabled(false);
+//        setTitle(R.string.login_user);
+//    }
 
     @Override
     protected void onStart() {
