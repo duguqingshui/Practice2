@@ -36,4 +36,6 @@
     <color name="main_text_color">#575757</color> <!-- 字体颜色 -->
     <color name="main_click_gray">#F8F8F8</color> <!-- 点击变灰色 -->
     <color name="main_spliter_color">#d0d0d0</color> <!-- 灰色分割线 -->
+    <color name="item_text_color">#575757</color>  <!-- item字体颜色 -->
+
 </resources>

@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.example.practice.R;
 import com.example.practice.service.ReceiveService;
+import com.example.practice.utils.Constant;
+import com.example.practice.utils.SpUtils;
 
 /**
  * Created by AMOBBS on 2016/11/15.
@@ -20,6 +23,7 @@ import com.example.practice.service.ReceiveService;
 public class SplashActivity extends AppCompatActivity {
     private FrameLayout fl_root;
     private Button bt_to_login,bt_to_newuser;
+    private   String account;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,6 @@ public class SplashActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         //开启服务
         startService(new Intent(this, ReceiveService.class));
-
         // 初始化UI
         initUI();
         //初始化数据
@@ -43,6 +46,34 @@ public class SplashActivity extends AppCompatActivity {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
         alphaAnimation.setDuration(3000);
         fl_root.startAnimation(alphaAnimation);
+
+        alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                if(!"".equals(account)){
+                }else {
+                  bt_to_newuser.setVisibility(View.GONE);
+                    bt_to_login.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                //动画结束后跳转到登录界面
+                account = SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, "");
+                if(!"".equals(account)){
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                }else {
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                }
+                finish();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 
     private void initData() {

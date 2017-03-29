@@ -1,75 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/style_activity_bg"
-    android:gravity="center_horizontal"
-    >
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <ImageView
-        android:id="@+id/head"
-        android:layout_width="@dimen/icon_big"
-        android:layout_height="@dimen/icon_big"
-        android:layout_marginTop="@dimen/margin_boundary"
-        android:src="@mipmap/ic_launcher" />
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small5"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textColor="@color/main_text_color" />
-
-    <TextView
-        android:id="@+id/view_version_tv"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small5"
-        android:gravity="center"
-        android:textColor="@color/main_text_color" />
-
-    <TextView
-        android:id="@+id/view_tcp_tv"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small5"
-        android:gravity="center"
-        android:textColor="@color/main_text_color" />
-
-    <View
+        android:background="@color/white"
+        android:paddingTop="@dimen/margin_twenty_seven"
+        android:src="@mipmap/ic_launcher"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/margin_big"
-        android:background="@color/main_click_gray" />
+        android:layout_height="90dp"
+         />
+
+    <TextView
+        android:id="@+id/tv_version_number"
+        android:padding="@dimen/margin_seventeen"
+        android:background="@color/white"
+        android:textSize="@dimen/size18"
+        android:textColor="@color/item_text_color"
+        android:text="版本号：v2.1.5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/margin_seventeen"
+        android:background="@color/white"
+        android:textSize="@dimen/size18"
+        android:textColor="@color/item_text_color"
+        android:text="@string/string_about"
+        android:paddingTop="@dimen/margin_seventeen"
+        android:paddingLeft="@dimen/margin_seventeen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:background="@color/white"
+        android:textSize="@dimen/size14"
+        android:lineSpacingExtra="@dimen/margin_seventeen"
+        android:textColor="@color/item_text_color"
+        android:text="@string/string_about_content"
+        android:padding="@dimen/margin_seventeen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_marginTop="@dimen/margin_seventeen"
+        android:background="@color/white"
+        android:textSize="@dimen/size18"
+        android:textColor="@color/item_text_color"
+        android:text="@string/string_connection"
+        android:paddingTop="@dimen/margin_seventeen"
+        android:paddingLeft="@dimen/margin_seventeen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView13"/>
 
     <LinearLayout
-        style="@style/listItem_layout_style"
-        android:onClick="onClickNewVersion">
+        android:paddingTop="@dimen/margin_twenty"
+        android:paddingLeft="@dimen/margin_seventeen"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="25dp"
-            android:text="@string/setting_about_test_version"
-            android:textSize="20sp"/>
-
-        <ImageView
-            android:id="@+id/view_redpoint_im"
+            android:textSize="@dimen/size14"
+            android:textColor="@color/item_text_color"
+            android:text="公司网址："
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:visibility="gone" />
+            android:layout_height="wrap_content"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/margin_boundary"
-            android:src="@drawable/setting_arrow" />
+        <TextView
+            android:textSize="@dimen/size14"
+            android:textColor="@color/item_text_color"
+            android:text="www.microcardio.com"
+            android:autoLink="web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
-    <View
+    <LinearLayout
+        android:background="@color/white"
+        android:padding="@dimen/margin_seventeen"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/main_click_gray" />
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="@dimen/size14"
+            android:textColor="@color/item_text_color"
+            android:text="客服电话："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textSize="@dimen/size14"
+            android:textColor="@color/item_text_color"
+            android:text="400-600-8810"
+            android:autoLink="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
 </LinearLayout>

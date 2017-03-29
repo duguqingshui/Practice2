@@ -51,4 +51,23 @@
     <dimen name="numberpicker_title_height">60dp</dimen>
     <dimen name="numberpicker_btn_width">80dp</dimen>
     <dimen name="numberpicker_height">400dp</dimen>
+
+
+    <!-- space between -->
+    <dimen name="margin_seven">7dp</dimen>
+    <dimen name="margin_thirteen">13dp</dimen>
+    <dimen name="margin_seventeen">17dp</dimen>
+    <dimen name="margin_twenty">20dp</dimen>
+    <dimen name="margin_twenty_four">24dp</dimen>
+    <dimen name="margin_twenty_seven">27dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!-- space between -->
+    <dimen name="margin_fourteen">14dp</dimen>
+    <dimen name="margin_twenty_six">26dp</dimen>
+    <dimen name="margin_middle_1">30dp</dimen>
+    <dimen name="margib_big">35dp</dimen>
+    <dimen name="margin_bigger">60dp</dimen>
+    <dimen name="margib_huge">100dp</dimen>
+    <dimen name="margib_mix">180dp</dimen>
 </resources>

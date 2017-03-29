@@ -30,13 +30,13 @@
         <activity android:name=".app.album.AblumActivity"></activity>
         <activity android:name=".app.exchangeskin.ExchangeSkinActicity"></activity>
         <activity android:name=".app.wallet.WalletActivity"></activity>
-        <activity android:name=".app.about.AboutActivity"></activity>
         <activity android:name=".app.setting.nodistrub.NoDistrubActivity"></activity>
         <activity android:name=".app.setting.normal.NormalActivity"></activity>
         <activity android:name=".app.setting.privateandsafe.PrivateAndSafe"></activity>
         <activity android:name=".app.setting.remind.RemindActivity"></activity>
         <activity android:name=".app.setting.statistics.StatisticalFlowActivity"></activity>
-
+        <activity android:name=".app.setting.user.UserEditActivity"></activity>
+        <activity android:name=".app.about.AboutActivity"></activity>
         <service android:name=".service.ReceiveService"></service>
 
         <receiver android:name=".app.ChatActivity$MyBroadcastReceiver"></receiver>
