@@ -3,86 +3,90 @@
     android:id="@+id/drawerLayout"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <FrameLayout
+        android:id="@+id/containerMain"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <include layout="@layout/top1"
-            />
-        <LinearLayout
-            android:id="@+id/ll_info"
+        android:layout_height="wrap_content">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-            <ImageView
-                android:id="@+id/iv_headimg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <LinearLayout
-                android:layout_width="0dp"
+                android:id="@+id/ll_info"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_gravity="center">
-                <TextView
-                    android:id="@+id/tv_nickname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="昵称"
-                    android:textSize="24dp"
-                    android:paddingLeft="20dp"
-                    android:paddingBottom="5dp"/>
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:id="@+id/iv_headimg"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    />
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="5dp">
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
                     <TextView
-                        android:id="@+id/tv_onlinecount"
-                        android:layout_width="0dp"
+                        android:id="@+id/tv_nickname"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="在线人数："/>
-                    <TextView
-                        android:id="@+id/tv_friendscount"
-                        android:layout_width="0dp"
+                        android:text="昵称"
+                        android:textSize="24dp"
+                        android:paddingLeft="20dp"
+                        android:paddingBottom="5dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="好友人数："/>
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp">
+                        <TextView
+                            android:id="@+id/tv_onlinecount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="在线人数："/>
+                        <TextView
+                            android:id="@+id/tv_friendscount"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="好友人数："/>
+                    </LinearLayout>
                 </LinearLayout>
+
             </LinearLayout>
+            <GridView
+                android:id="@+id/gridview_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnWidth="90dp"
+                android:numColumns="4"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:stretchMode="columnWidth"
+                android:gravity="center"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#000"/>
 
+            <ListView
+                android:id="@+id/lv_friends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></ListView>
+
+            <include layout="@layout/top2"
+                />
         </LinearLayout>
-        <GridView
-            android:id="@+id/gridview_img"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnWidth="90dp"
-            android:numColumns="4"
-            android:verticalSpacing="10dp"
-            android:horizontalSpacing="10dp"
-            android:stretchMode="columnWidth"
-            android:gravity="center"
-            android:visibility="gone"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="#000"/>
-
-        <ListView
-            android:id="@+id/lv_friends"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"></ListView>
-
-        <include layout="@layout/top2"
-            />
-    </LinearLayout>
+    </FrameLayout>
     <FrameLayout
         android:id="@+id/containerMenu"
         android:layout_width="@dimen/drawer_width"

@@ -15,6 +15,8 @@ import com.example.practice.app.album.AblumActivity;
 import com.example.practice.app.exchangeskin.ExchangeSkinActicity;
 import com.example.practice.app.about.AboutActivity;
 import com.example.practice.app.wallet.WalletActivity;
+import com.example.practice.utils.Constant;
+import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.SelfDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -86,6 +88,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                 selfDialog.setYesOnclickListener("确定", new SelfDialog.onYesOnclickListener() {
                     @Override
                     public void onYesClick() {
+                        //清空当前账号
+                        SpUtils.putString(getContext(),Constant.LOGIN_ACCOUNT, "");
                         startActivity(new Intent(getActivity(), LoginActivity.class));
                         selfDialog.dismiss();
                     }

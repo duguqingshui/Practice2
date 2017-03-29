@@ -13,6 +13,7 @@ import android.os.IBinder;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -88,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        getSupportActionBar().hide();
+        //初始化 actionbar
+        initActionbar();
 
         fManager = getSupportFragmentManager();
         String settTag = String.valueOf(R.id.containerMenu);
@@ -181,6 +182,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initActionbar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.show();
+        actionBar.setHomeButtonEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        setTitle(R.string.login_user);
     }
 
     @Override
