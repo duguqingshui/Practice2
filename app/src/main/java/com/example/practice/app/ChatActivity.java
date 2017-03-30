@@ -309,7 +309,7 @@ public class ChatActivity extends AppCompatActivity {
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
         mReceiver = new MyBroadcastReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.practice.activity.MyBroadcastReceiver");
+        filter.addAction("com.example.practice.app.MyBroadcastReceiver");
         localBroadcastManager.registerReceiver(mReceiver, filter);
     }
 

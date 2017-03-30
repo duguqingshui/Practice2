@@ -145,7 +145,7 @@ public class AddressBookFragment extends Fragment {
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         mReceiver = new MyBroadcastReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.practice.app.home.contacts.MyBroadcastReceiver");
+        filter.addAction("com.example.practice.app.MyBroadcastReceiver");
         localBroadcastManager.registerReceiver(mReceiver, filter);
     }
 
