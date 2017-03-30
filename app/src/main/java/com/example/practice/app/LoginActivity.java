@@ -36,9 +36,13 @@ import java.util.Date;
 
 public class LoginActivity extends AppCompatActivity implements OnClickListener{
     private Button bt_login;
-    private EditText usernameEdit;
-    private EditText passwordEdit;
-    private Button usernameClearBtn;
+    @BindView(R.id.et_account)
+    EditText usernameEdit;
+    @BindView(R.id.et_password)
+    EditText passwordEdit;
+    @BindView(R.id.bt_user_clear)
+    Button usernameClearBtn;
+    @BindView(R.id.bt_psw_clear)
     Button passwordClearBtn;
     private Intent intent;
     private ServiceConnection mConnection;
@@ -52,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.show();
@@ -59,7 +64,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         actionBar.setDisplayHomeAsUpEnabled(false);
         setTitle(R.string.login_user);
         initView();
-        ButterKnife.bind(this);
 
         //绑定服务
         intent = new Intent(this, ReceiveService.class);
@@ -77,14 +81,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         };
         bindService(intent, mConnection, BIND_AUTO_CREATE);
 
-        initData();
     }
 
     private void initView() {
-         usernameEdit=(EditText)findViewById(R.id.et_account);
-         passwordEdit=(EditText)findViewById(R.id.et_password);
-         usernameClearBtn=(Button) findViewById(R.id.bt_user_clear);
-         passwordClearBtn=(Button) findViewById(R.id.bt_psw_clear);
         bt_login = (Button) findViewById(R.id.bt_login);
         InputWatcher inputWatcher = new InputWatcher(usernameClearBtn, usernameEdit);
         usernameEdit.addTextChangedListener(inputWatcher);
@@ -111,23 +110,17 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         //结束广播
         localBroadcastManager.unregisterReceiver(mReceiver);
     }
+    @OnClick(R.id.bt_login)
+    public void OnloginClick(){
+        if (checkInput()){
+            Account acc = new Account(account, password, null, 0);
 
-    private void initData() {
-        bt_login.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkInput()){
-                    Account acc = new Account(account, password, null, 0);
-
-                    Message msg = new Message(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT);
-                    //调用服务的方法登录账号
-                    sendMsg.sendMessage(msg);
-                }
-
-            }
-        });
-
+            Message msg = new Message(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT);
+            //调用服务的方法登录账号
+            sendMsg.sendMessage(msg);
+        }
     }
+
     private boolean checkInput() {
         account = usernameEdit.getText().toString();
         if (TextUtils.isEmpty(account)) {
