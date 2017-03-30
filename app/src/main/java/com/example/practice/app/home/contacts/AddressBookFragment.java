@@ -1,29 +1,22 @@
-package com.example.practice.fragment;
+package com.example.practice.app.home.contacts;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ExpandableListView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -36,7 +29,6 @@ import com.example.practice.R;
 import com.example.practice.adapter.ImageAdapter;
 import com.example.practice.app.ChatActivity;
 import com.example.practice.app.LoginActivity;
-import com.example.practice.app.MainActivity;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
@@ -48,8 +40,6 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import static android.content.Context.BIND_AUTO_CREATE;
 
 /**
  * Created by AMOBBS on 2017/2/7.
@@ -66,7 +56,7 @@ public class AddressBookFragment extends Fragment {
     private LinearLayout ll_info;
     private String account;
     private String nickname;
-    private MyBaseAdapter mAdapter;
+    private AddressBookAdapter mAdapter;
     private  int  headimg;
     private LocalBroadcastManager localBroadcastManager;
     private MyBroadcastReceiver mReceiver;
@@ -169,65 +159,6 @@ public class AddressBookFragment extends Fragment {
         //结束广播
         localBroadcastManager.unregisterReceiver(mReceiver);
     }
-
-
-
-    public class MyBaseAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return list.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return list.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (convertView == null) {
-                convertView = View.inflate(getContext().getApplicationContext(), R.layout.activity_friend, null);
-                holder = new ViewHolder();
-                holder.tv_nickname = (TextView) convertView.findViewById(R.id.tv_nickname);
-                holder.tv_state = (TextView) convertView.findViewById(R.id.tv_state);
-                holder.iv_photo= (ImageView) convertView.findViewById(R.id.iv_photo);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-
-            String name = list.get(position).getNickname();
-            int state = list.get(position).getState();
-            int headimg=list.get(position).getHeadimg();
-            holder.iv_photo.setImageResource(headimg);
-
-            holder.tv_nickname.setText("昵称： " + name);
-            if (state == 1) {
-                holder.tv_state.setText("状态： onLine");
-                holder.tv_nickname.setTextColor(Color.RED);
-                holder.tv_state.setTextColor(Color.RED);
-            } else {
-                holder.tv_state.setText("状态： offLine");
-                holder.tv_nickname.setTextColor(Color.GRAY);
-                holder.tv_state.setTextColor(Color.GRAY);
-            }
-            return convertView;
-        }
-    }
-
-    static class ViewHolder {
-        TextView tv_nickname;
-        TextView tv_state;
-        ImageView iv_photo;
-    }
-
     /**
      * 修改昵称的对话框
      */
@@ -318,7 +249,7 @@ public class AddressBookFragment extends Fragment {
                     mUnonlineList.add(acc);
                 }
             }
-            mAdapter = new MyBaseAdapter();
+            mAdapter = new AddressBookAdapter(list);
             lv_friends.setAdapter(mAdapter);
             tv_friendscount.setText("好友人数 :" + list.size());
             int count = mOnlineList.size() + 1;

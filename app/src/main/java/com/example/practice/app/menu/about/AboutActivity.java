@@ -1,6 +1,5 @@
-package com.example.practice.app.about;
+package com.example.practice.app.menu.about;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;

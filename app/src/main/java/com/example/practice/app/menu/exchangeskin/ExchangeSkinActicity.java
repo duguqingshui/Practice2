@@ -1,4 +1,4 @@
-package com.example.practice.app.exchangeskin;
+package com.example.practice.app.menu.exchangeskin;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.example.practice.app.wallet;
+package com.example.practice.app.menu.wallet;
 
 import android.app.Activity;
 import android.os.Bundle;

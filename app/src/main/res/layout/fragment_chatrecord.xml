@@ -6,7 +6,7 @@
     android:background="#fff"
     android:clickable="true"
     android:orientation="vertical"
-    tools:context=".app.MainActivity">
+    tools:context=".app.home.MainActivity">
 
 
     <FrameLayout

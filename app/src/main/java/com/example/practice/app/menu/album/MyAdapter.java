@@ -1,4 +1,4 @@
-package com.example.practice.app.album;
+package com.example.practice.app.menu.album;
 
 import android.content.Context;
 import android.graphics.Color;

@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.example.practice.R;
 import com.example.practice.app.LoginActivity;
-import com.example.practice.app.album.AblumActivity;
-import com.example.practice.app.exchangeskin.ExchangeSkinActicity;
-import com.example.practice.app.about.AboutActivity;
-import com.example.practice.app.wallet.WalletActivity;
+import com.example.practice.app.menu.album.AblumActivity;
+import com.example.practice.app.menu.exchangeskin.ExchangeSkinActicity;
+import com.example.practice.app.menu.about.AboutActivity;
+import com.example.practice.app.menu.wallet.WalletActivity;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
