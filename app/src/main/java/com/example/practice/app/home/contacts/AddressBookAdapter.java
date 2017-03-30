@@ -70,10 +70,10 @@ public class AddressBookAdapter extends BaseAdapter {
         }
         return convertView;
     }
+    class ViewHolder {
+        TextView tv_nickname;
+        TextView tv_state;
+        ImageView iv_photo;
+    }
+}
 
-}
-class ViewHolder {
-    TextView tv_nickname;
-    TextView tv_state;
-    ImageView iv_photo;
-}

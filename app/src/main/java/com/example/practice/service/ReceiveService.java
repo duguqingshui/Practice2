@@ -42,7 +42,7 @@ public class ReceiveService extends Service {
                             String backMsg = din.readUTF();
                             Log.i("要返回的消息", backMsg);
                             //发送广播
-                            Intent intent = new Intent("com.practice.activity.MyBroadcastReceiver");
+                            Intent intent = new Intent("com.practice.app.home.contacts.MyBroadcastReceiver");
                             intent.putExtra("backMsg", backMsg);
                             localBroadcastManager.sendBroadcast(intent);
                         }

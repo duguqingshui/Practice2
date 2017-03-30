@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
@@ -34,6 +35,7 @@ import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.view.MCToast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -60,22 +62,26 @@ public class AddressBookFragment extends Fragment {
     private  int  headimg;
     private LocalBroadcastManager localBroadcastManager;
     private MyBroadcastReceiver mReceiver;
-    private Intent intent;
-    private ServiceConnection mConnection;
-    private ReceiveService.sendBinder sendMsg;
     private List<Account> list;
     private  boolean isOrNot=false;
     private ArrayList<Account> mOnlineList;//在线集合
     private ArrayList<Account> mUnonlineList;//离线集合
+    private ReceiveService.sendBinder sendMsg;
     public Integer[] mThumbIds={//显示的图片数组
             R.mipmap.ig1, R.mipmap.camera, R.mipmap.folder, R.mipmap.ic_launcher, R.mipmap.music, R.mipmap.picture, R.mipmap.video,
             R.mipmap.i3, R.mipmap.i4,R.mipmap.i5,R.mipmap.i6,R.mipmap.i7, R.mipmap.i8
     };
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //注册广播接收器
         view = inflater.inflate(R.layout.fragment_addressbook, container, false);
         initView();
         return view;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     private void initView() {
@@ -120,16 +126,6 @@ public class AddressBookFragment extends Fragment {
             }
         });
 
-
-
-        //点击头像所在布局，弹出对话框，可以修改昵称信息
-        ll_info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                infoDialog();
-            }
-        });
-
         //响应listview条目点击事件
         lv_friends.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -149,7 +145,7 @@ public class AddressBookFragment extends Fragment {
         localBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         mReceiver = new MyBroadcastReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.practice.activity.MyBroadcastReceiver");
+        filter.addAction("com.practice.app.home.contacts.MyBroadcastReceiver");
         localBroadcastManager.registerReceiver(mReceiver, filter);
     }
 
@@ -158,75 +154,6 @@ public class AddressBookFragment extends Fragment {
         super.onPause();
         //结束广播
         localBroadcastManager.unregisterReceiver(mReceiver);
-    }
-    /**
-     * 修改昵称的对话框
-     */
-    private void infoDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        final AlertDialog dialog = builder.create();
-        final View view = View.inflate(getContext(), R.layout.modify_info_dialog, null);
-        dialog.setView(view);
-        dialog.show();
-
-        Button bt_submit = (Button) view.findViewById(R.id.bt_submit);
-        Button bt_cancel = (Button) view.findViewById(R.id.bt_cancel);
-        bt_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String loginNickname = SpUtils.getString(getContext().getApplicationContext(), Constant.LOGIN_NICKNAME, "");
-                EditText et_name = (EditText) view.findViewById(R.id.et_name);
-                String modifyNickname = et_name.getText().toString();//修改后的昵称
-
-                Account acc = new Account(null, null, loginNickname, 0);
-                Message msg = new Message(Constant.CMD_NOTIFY_NAME, acc, null, modifyNickname, new Date(), Constant.CHAT);
-                sendMsg.sendMessage(msg);
-                SpUtils.putString(getContext().getApplicationContext(), Constant.LOGIN_NICKNAME, modifyNickname);
-                tv_nickname.setText(modifyNickname);
-                dialog.dismiss();
-            }
-        });
-        bt_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-    }
-    /**
-     * 退出对话框
-     * @return
-     */
-    private void exitDialog(){
-        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
-        final AlertDialog dialog=builder.create();
-        final View  view=View.inflate(getContext(), R.layout.exit_dialog_layout, null);
-        dialog.setView(view);
-        dialog.show();
-
-        final Button bt_submit=(Button)view. findViewById(R.id.bt_submit);
-        Button bt_cancel=(Button) view.findViewById(R.id.bt_cancel);
-        bt_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String loginNickname = SpUtils.getString(getContext().getApplicationContext(), Constant.LOGIN_NICKNAME, "");
-                Account acc = new Account(null, null, loginNickname, 1);
-                Message msg = new Message(Constant.CMD_EXIT, acc, null, loginNickname, new Date(),Constant.CHAT);
-                //调用服务的方法登录账号
-                sendMsg.sendMessage(msg);
-                Intent it=new Intent(getContext().getApplicationContext(), LoginActivity.class);
-                startActivity(it);
-                dialog.dismiss();
-            }
-        });
-        bt_cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
     }
     /**
      * 获取后台服务ReceiveService发过来的数据
@@ -249,11 +176,11 @@ public class AddressBookFragment extends Fragment {
                     mUnonlineList.add(acc);
                 }
             }
-            mAdapter = new AddressBookAdapter(list);
-            lv_friends.setAdapter(mAdapter);
-            tv_friendscount.setText("好友人数 :" + list.size());
-            int count = mOnlineList.size() + 1;
-            tv_onlinecount.setText("在线人数 ：" + count);
+                mAdapter = new AddressBookAdapter(list);
+                lv_friends.setAdapter(mAdapter);
+                tv_friendscount.setText("好友人数 :" + list.size());
+                int count = mOnlineList.size() + 1;
+                tv_onlinecount.setText("在线人数 ：" + count);
         }
     }
 
