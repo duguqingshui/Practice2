@@ -62,7 +62,7 @@ public class AddressBookFragment extends Fragment {
     private  int  headimg;
     private LocalBroadcastManager localBroadcastManager;
     private MyBroadcastReceiver mReceiver;
-    private List<Account> list;
+    private List<Account> list=new ArrayList<Account>();
     private  boolean isOrNot=false;
     private ArrayList<Account> mOnlineList;//在线集合
     private ArrayList<Account> mUnonlineList;//离线集合
@@ -149,12 +149,20 @@ public class AddressBookFragment extends Fragment {
         localBroadcastManager.registerReceiver(mReceiver, filter);
     }
 
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        //结束广播
+//        localBroadcastManager.unregisterReceiver(mReceiver);
+//    }
+
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onDestroy() {
+        super.onDestroy();
         //结束广播
         localBroadcastManager.unregisterReceiver(mReceiver);
     }
+
     /**
      * 获取后台服务ReceiveService发过来的数据
      */
@@ -165,7 +173,9 @@ public class AddressBookFragment extends Fragment {
 
             String receiveMsg = intent.getStringExtra("backMsg");
             Gson gson = new Gson();
-            list = gson.fromJson(receiveMsg, new TypeToken<List<Account>>(){}.getType());
+            if (list.size()==0&&list!=null){
+                list = gson.fromJson(receiveMsg, new TypeToken<List<Account>>(){}.getType());
+            }
             mOnlineList = new ArrayList<Account>();
             mUnonlineList = new ArrayList<Account>();
             for (Account acc : list) {

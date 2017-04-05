@@ -40,7 +40,9 @@
         <service android:name=".service.ReceiveService"></service>
 
         <receiver android:name=".app.ChatActivity$MyBroadcastReceiver"></receiver>
-
+        <receiver android:name=".app.home.contacts.AddressBookFragment$MyBroadcastReceiver"></receiver>
+        <receiver android:name=".app.LoginActivity$MyBroadcastReceiver"></receiver>
+        <receiver android:name=".app.RegisterActivity$MyBroadcastReceiver"></receiver>
     </application>
 
 </manifest>

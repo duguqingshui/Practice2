@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
     //通讯录
-    public static AddressBookFragment addressBookFragment;
+    private  AddressBookFragment addressBookFragment;
     //消息记录
     private ChatRecordFragment chatRecordFragment;
     //设置
@@ -61,11 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
     //布局管理器
     private FragmentManager fManager;
-
-    public Integer[] mThumbIds={//显示的图片数组
-            R.mipmap.ig1, R.mipmap.camera, R.mipmap.folder, R.mipmap.ic_launcher, R.mipmap.music, R.mipmap.picture, R.mipmap.video,
-            R.mipmap.i3, R.mipmap.i4,R.mipmap.i5,R.mipmap.i6,R.mipmap.i7, R.mipmap.i8
-    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -201,10 +196,6 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-    /**
-     * 获取后台服务ReceiveService发过来的数据
-     */
-
     @Override
     protected void onDestroy() {
         super.onDestroy();

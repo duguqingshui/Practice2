@@ -95,16 +95,15 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
         //注册广播接收器
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
         mReceiver = new MyBroadcastReceiver();
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.practice.activity.MyBroadcastReceiver");
+        filter.addAction("com.example.practice.app.MyBroadcastReceiver");
         localBroadcastManager.registerReceiver(mReceiver, filter);
     }
-
     @Override
     protected void onPause() {
         super.onPause();
