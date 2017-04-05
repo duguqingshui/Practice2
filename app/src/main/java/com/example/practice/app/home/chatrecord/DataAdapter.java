@@ -1,4 +1,4 @@
-package com.example.practice.adapter;
+package com.example.practice.app.home.chatrecord;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,18 +11,20 @@ import android.widget.TextView;
 
 
 import com.example.practice.R;
+import com.example.practice.doman.Message;
 import com.example.practice.view.swipelistview.SwipeListView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataAdapter extends BaseAdapter
 {
 
-    private List<String> mDatas;
+    private List<Message> mDatas=new ArrayList<Message>();
     private LayoutInflater mInflater;
     private SwipeListView mSwipeListView ;
 
-    public DataAdapter(Context context, List<String> datas , SwipeListView swipeListView)
+    public DataAdapter(Context context, List<Message> datas , SwipeListView swipeListView)
     {
         this.mDatas = datas;
         mInflater = LayoutInflater.from(context);
@@ -51,10 +53,12 @@ public class DataAdapter extends BaseAdapter
     public View getView(final int position, View convertView, ViewGroup parent)
     {
         convertView = mInflater.inflate(R.layout.swipelistview_item, null);
+        TextView content = (TextView) convertView.findViewById(R.id.id_text);
+        TextView receivername = (TextView) convertView.findViewById(R.id.receivername);
 
-        TextView tv = (TextView) convertView.findViewById(R.id.id_text);
         Button del = (Button) convertView.findViewById(R.id.id_remove);
-        tv.setText(mDatas.get(position));
+        content.setText(mDatas.get(position).getContent());
+        receivername.setText("safd");
         del.setOnClickListener(new OnClickListener()
         {
             @Override

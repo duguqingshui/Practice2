@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".app.home.MainActivity">
 
-
+    <include layout="@layout/top1"></include>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >

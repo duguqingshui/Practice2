@@ -1,19 +1,38 @@
 package com.example.practice.app.home.chatrecord;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import com.example.practice.R;
-import com.example.practice.adapter.DataAdapter;
+import com.example.practice.app.ChatActivity;
+import com.example.practice.app.home.MainActivity;
+import com.example.practice.app.home.contacts.AddressBookFragment;
+import com.example.practice.doman.Message;
+import com.example.practice.utils.Constant;
+import com.example.practice.utils.HttpUtils;
 import com.example.practice.view.swipelistview.BaseSwipeListViewListener;
 import com.example.practice.view.swipelistview.SwipeListView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,14 +44,14 @@ public class ChatRecordFragment extends Fragment {
     protected static final String TAG = "Activity";
     private SwipeListView mSwipeListView;
     private DataAdapter mAdapter;
-    private List<String> mDatas;
+    private List<Message> mDatas=new ArrayList<Message>();
     private View view;
+    private LocalBroadcastManager localBroadcastManager;
+    private MyBroadcastReceiver mReceiver;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_chatrecord, container, false);
-        initDatas();
-        System.out.println("集合大小："+mDatas.size());
         mSwipeListView = (SwipeListView)view.findViewById(R.id.id_swipelistview);
 
         mAdapter = new DataAdapter(getContext(), mDatas , mSwipeListView);
@@ -131,10 +150,70 @@ public class ChatRecordFragment extends Fragment {
         });
         return view;
     }
-    private void initDatas()
-    {
-        mDatas = new ArrayList<String>();
-        for (int i = 'A'; i <= 'Z'; i++)
-            mDatas.add((char) i + "");
+    @Override
+    public void onStart() {
+        super.onStart();
+        //注册广播接收器
+        localBroadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        mReceiver = new MyBroadcastReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("com.example.practice.app.MyBroadcastReceiver");
+        localBroadcastManager.registerReceiver(mReceiver, filter);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        //结束广播
+        localBroadcastManager.unregisterReceiver(mReceiver);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        mAdapter.notifyDataSetChanged();
+    }
+    //    private void initDatas()
+//    {
+//        mDatas = new ArrayList<String>();
+//        for (int i = 'A'; i <= 'Z'; i++)
+//            mDatas.add((char) i + "");
+//    }
+    /**
+     * 获取后台服务ReceiveService发过来的数据
+     */
+    public class MyBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            String chatInfo = intent.getStringExtra("backMsg");
+            Log.i("收到的消息chatActivity", chatInfo);
+            if (!TextUtils.isEmpty(chatInfo)) {
+                JsonReader reader = new JsonReader(new StringReader(chatInfo));
+                reader.setLenient(true);
+                mDatas = new Gson().fromJson(reader, new TypeToken<List<Message>>(){}.getType());
+                for(final Message message : mDatas){
+                    if(message.getType() != Constant.CHAT){
+                        //如果消息类型不是语音
+                        //eg--http://192.168.0.109:8080/LoadServlet/r1481187782643.amr
+                        //eg--http://192.168.0.109:8080/LoadServlet/p1481269307460.jpg
+                        try {
+                            String name = message.getContent().split("/")[4];
+                            File saveFile = new File(Environment.getExternalStorageDirectory().getCanonicalFile()+"/"+name);
+                            if(!saveFile.exists() || saveFile == null){
+                                HttpUtils.downLodaFile(message.getContent(), saveFile);
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+//                mAdapter = new DataAdapter();
+//                lv_message.setAdapter(mAdapter);
+//                mAdapter.notifyDataSetChanged();
+//                lv_message.setSelection(msgList.size() - 1);
+            } else {
+                Toast.makeText(getActivity(), "会话记录获取失败", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
