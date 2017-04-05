@@ -1,4 +1,4 @@
-package com.example.practice.fragment;
+package com.example.practice.app.home.chatrecord;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -1,7 +1,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="60dp" >
+    android:layout_height="60dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:id="@+id/id_back"
@@ -16,8 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="4dp"
-            android:text="Delete"
-            android:textColor="#fff" >
+            android:text="@string/del"
+            android:textColor="#fff"
+            android:background="@color/color_red">
         </Button>
     </LinearLayout>
 
@@ -25,19 +27,43 @@
         android:id="@+id/id_front"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffffff" >
-
-        <TextView
-            android:id="@+id/id_text"
+        android:background="#ffffffff"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:gravity="center|left">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/id_headimg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/icon"
+            app:riv_oval="true"
+            android:layout_marginLeft="10dp"/>
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_marginLeft="10dp"
-            android:gravity="center_vertical"
-            android:minHeight="?android:attr/listPreferredItemHeight"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#000"
-            android:textSize="25sp" >
-        </TextView>
+            android:layout_weight="0.75">
+            <TextView
+                android:id="@+id/receivername"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="张三"/>
+            <TextView
+                android:id="@+id/id_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:layout_weight="1"
+                android:text="你好">
+            </TextView>
+        </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>

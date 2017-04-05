@@ -10,6 +10,9 @@
     <string name="input_account">请输入用户名</string>
     <string name="input_psw">请输入密码</string>
     <string name="no_login">无法登录？</string>
+    <!-- 清空 内容button-->
+    <dimen name="clear_icon_small">26dp</dimen>
+
     <!--Register 注册-->
     <string name="register_user">注册账号</string>
     <string name="input_next_psw">请输入重复密码</string>
@@ -119,6 +122,5 @@
     <string name="setting_about_test_version">检测新版本</string>
     <string name="setting_about_newapk">您使用的为最新版本</string>
     <string name="setting_about_connectnet">请连接网络后进行检测</string>
-    <!-- 清空 内容button-->
-    <dimen name="clear_icon_small">26dp</dimen>
+
 </resources>

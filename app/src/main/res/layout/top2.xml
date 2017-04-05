@@ -18,7 +18,6 @@
             style="@style/Bottom_Tab_Style"
             android:drawableTop="@drawable/tab_message_selector"
             android:text="消息"
-            android:checked="true"
             android:onClick="clickMenu"
             />
         <RadioButton
@@ -27,6 +26,7 @@
             android:drawableTop="@drawable/tab_addressbook_selector"
             android:text="通讯录"
             android:onClick="clickMenu"
+            android:checked="true"
             />
         <RadioButton
             android:id="@+id/rb_setting"
