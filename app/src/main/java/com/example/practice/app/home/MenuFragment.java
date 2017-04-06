@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.practice.R;
 import com.example.practice.app.LoginActivity;
 import com.example.practice.app.menu.album.AblumActivity;
+import com.example.practice.app.menu.emijj.ExpressionActivity;
 import com.example.practice.app.menu.exchangeskin.ExchangeSkinActicity;
 import com.example.practice.app.menu.about.AboutActivity;
 import com.example.practice.app.menu.wallet.WalletActivity;
@@ -76,6 +77,9 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.exchange_skin:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), ExchangeSkinActicity.class);
+                break;
+            case R.id.my_expression:
+                MCIntent.sendIntentFromAnimLeft(getActivity(), ExpressionActivity.class);
                 break;
             case R.id.aboutButton:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), AboutActivity.class);

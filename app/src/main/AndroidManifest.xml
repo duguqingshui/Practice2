@@ -37,8 +37,11 @@
         <activity android:name=".app.setting.statistics.StatisticalFlowActivity"></activity>
         <activity android:name=".app.setting.user.UserEditActivity"></activity>
         <activity android:name=".app.menu.about.AboutActivity"></activity>
-        <service android:name=".service.ReceiveService"></service>
+        <activity android:name=".app.menu.emijj.ExpressionActivity"></activity>
 
+        <!--服务 -->
+        <service android:name=".service.ReceiveService"></service>
+        <!-- 广播-->
         <receiver android:name=".app.ChatActivity$MyBroadcastReceiver"></receiver>
         <receiver android:name=".app.home.contacts.AddressBookFragment$MyBroadcastReceiver"></receiver>
         <receiver android:name=".app.LoginActivity$MyBroadcastReceiver"></receiver>
