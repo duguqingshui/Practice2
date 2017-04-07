@@ -15,12 +15,16 @@ import com.example.practice.app.menu.album.AblumActivity;
 import com.example.practice.app.menu.emijj.ExpressionActivity;
 import com.example.practice.app.menu.exchangeskin.ExchangeSkinActicity;
 import com.example.practice.app.menu.about.AboutActivity;
+import com.example.practice.app.menu.game.luckypan.LuckpanActivity;
 import com.example.practice.app.menu.wallet.WalletActivity;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.SelfDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by AMOBBS on 2017/2/22.
@@ -36,6 +40,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
     TextView my_expression;
     TextView aboutButton;
     TextView exitButton;
+    TextView my_game;
     private SelfDialog selfDialog;
     private View view;
     @Nullable
@@ -56,7 +61,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         my_expression=(TextView)view.findViewById(R.id.my_expression);
         aboutButton=(TextView)view.findViewById(R.id.aboutButton);
         exitButton=(TextView)view.findViewById(R.id.exitButton);
-
+        my_game=(TextView)view.findViewById(R.id.my_game);
+        my_game.setOnClickListener(this);
          my_album.setOnClickListener(this);
          my_wallet.setOnClickListener(this);
          exchange_skin.setOnClickListener(this);
@@ -80,6 +86,9 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.my_expression:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), ExpressionActivity.class);
+                break;
+            case R.id.my_game:
+                MCIntent.sendIntentFromAnimLeft(getActivity(), LuckpanActivity.class);
                 break;
             case R.id.aboutButton:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), AboutActivity.class);

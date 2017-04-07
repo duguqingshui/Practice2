@@ -14,6 +14,7 @@ import com.example.practice.app.setting.normal.NormalActivity;
 import com.example.practice.app.setting.privateandsafe.PrivateAndSafe;
 import com.example.practice.app.setting.remind.RemindActivity;
 import com.example.practice.app.setting.statistics.StatisticalFlowActivity;
+import com.example.practice.app.setting.user.UserEditActivity;
 import com.example.practice.view.MeItemView;
 
 
@@ -53,7 +54,7 @@ public class MeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(),
-                        RemindActivity.class));
+                        UserEditActivity.class));
             }
         });
     }

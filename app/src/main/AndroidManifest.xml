@@ -20,24 +20,46 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <!--主页对应功能 -->
+        <!--主页 -->
         <activity android:name=".app.home.MainActivity"></activity>
+        <!--登录 -->
         <activity android:name=".app.LoginActivity"></activity>
+        <!--注册 -->
         <activity android:name=".app.RegisterActivity"></activity>
+        <!--聊天室 -->
         <activity android:name=".app.ChatActivity"
             android:windowSoftInputMode="stateHidden"></activity>
 
+        <!--侧边菜单 -->
+        <!--我的相册 -->
         <activity android:name=".app.menu.album.AblumActivity"></activity>
+        <!--换肤-->
         <activity android:name=".app.menu.exchangeskin.ExchangeSkinActicity"></activity>
+        <!--我的钱包 -->
         <activity android:name=".app.menu.wallet.WalletActivity"></activity>
-        <activity android:name=".app.setting.nodistrub.NoDistrubActivity"></activity>
-        <activity android:name=".app.setting.normal.NormalActivity"></activity>
-        <activity android:name=".app.setting.privateandsafe.PrivateAndSafe"></activity>
-        <activity android:name=".app.setting.remind.RemindActivity"></activity>
-        <activity android:name=".app.setting.statistics.StatisticalFlowActivity"></activity>
-        <activity android:name=".app.setting.user.UserEditActivity"></activity>
+        <!--关于 -->
         <activity android:name=".app.menu.about.AboutActivity"></activity>
+        <!--我的表情包 -->
         <activity android:name=".app.menu.emijj.ExpressionActivity"></activity>
+        <!--游戏 -->
+        <!--抽奖转盘 -->
+        <activity android:name=".app.menu.game.luckypan.LuckpanActivity"></activity>
+
+        <!--设置 -->
+        <!--勿扰模式-->
+        <activity android:name=".app.setting.nodistrub.NoDistrubActivity"></activity>
+        <!--通用设置 -->
+        <activity android:name=".app.setting.normal.NormalActivity"></activity>
+        <!--隐私与安全-->
+        <activity android:name=".app.setting.privateandsafe.PrivateAndSafe"></activity>
+        <!--提醒通知-->
+        <activity android:name=".app.setting.remind.RemindActivity"></activity>
+        <!--流量统计-->
+        <activity android:name=".app.setting.statistics.StatisticalFlowActivity"></activity>
+        <!--个人信息 -->
+        <activity android:name=".app.setting.user.UserEditActivity"></activity>
+
 
         <!--服务 -->
         <service android:name=".service.ReceiveService"></service>
