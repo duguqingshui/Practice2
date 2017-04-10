@@ -19,6 +19,9 @@ import android.widget.Toast;
 
 import com.example.practice.R;
 import com.example.practice.app.home.MainActivity;
+import com.example.practice.utils.Constant;
+import com.example.practice.utils.SpUtils;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,6 +35,8 @@ import butterknife.ButterKnife;
  */
 
 public class UserEditActivity extends AppCompatActivity implements View.OnClickListener {
+    @BindView(R.id.user_headimage)
+    RoundedImageView user_headimage;
     @BindView(R.id.user_name)
     TextView user_name;
     @BindView(R.id.user_account)
@@ -67,8 +72,16 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initView() {
+        String account=SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, null);
+        String nickname=SpUtils.getString(getApplicationContext(), Constant.LOGIN_NICKNAME, null);
+        int  img=SpUtils.getInt(getApplicationContext(), "headimg", 0);
+
+        user_name.setText(nickname);
+        user_account.setText(account);
+        user_headimage.setImageResource(img);
         findViewById(R.id.edit_Birthday).setOnClickListener(this);
         findViewById(R.id.edit_sex).setOnClickListener(this);
+
     }
 
     @Override

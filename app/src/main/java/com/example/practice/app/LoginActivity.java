@@ -223,12 +223,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_PASSWORD, password);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_NICKNAME, nickname);
                 SpUtils.putInt(getApplicationContext(), "headimg", img);
-                act.setAccount(account);
-                act.setPassword(password);
-                act.setNickname(nickname);
-                act.setHeadimg(img);
-                System.out.println("账户1："+act.getAccount());
-                System.out.println("昵称1："+act.getNickname());
                 //登陆成功，进入主页面
                 Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent1);
