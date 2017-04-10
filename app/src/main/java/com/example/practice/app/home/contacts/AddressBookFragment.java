@@ -165,7 +165,9 @@ public class AddressBookFragment extends Fragment {
 
     @Override
     public void onResume() {
-        mAdapter.notifyDataSetChanged();
+        if (mAdapter!=null){
+            mAdapter.notifyDataSetChanged();
+        }
         super.onResume();
     }
 

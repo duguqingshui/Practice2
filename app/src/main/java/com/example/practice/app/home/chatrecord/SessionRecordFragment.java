@@ -186,7 +186,7 @@ public class SessionRecordFragment extends Fragment {
         public void onReceive(Context context, Intent intent) {
 
             String chatInfo = intent.getStringExtra("backMsg");
-            Log.i("收到的消息chatActivity", chatInfo);
+            Log.i("收到的消息chatActivity1", chatInfo);
             if (!TextUtils.isEmpty(chatInfo)) {
                 JsonReader reader = new JsonReader(new StringReader(chatInfo));
                 reader.setLenient(true);
@@ -207,10 +207,10 @@ public class SessionRecordFragment extends Fragment {
                         }
                     }
                 }
-//                mAdapter = new DataAdapter();
-//                lv_message.setAdapter(mAdapter);
-//                mAdapter.notifyDataSetChanged();
-//                lv_message.setSelection(msgList.size() - 1);
+                mAdapter = new DataAdapter(getActivity(),mDatas,mSwipeListView);
+                mSwipeListView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
+                mSwipeListView.setSelection(mDatas.size() - 1);
             } else {
                 Toast.makeText(getActivity(), "会话记录获取失败", Toast.LENGTH_SHORT).show();
             }

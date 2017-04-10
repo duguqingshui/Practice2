@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <item
+        android:id="@+id/edit"
+        android:icon="@drawable/icon_edit"
+        android:showAsAction="always"
+        android:title="编辑"
+        app:showAsAction="always"
+        tools:ignore="AppCompatResource"></item>
+    <item
+        android:id="@+id/save"
+        android:icon="@drawable/action_save_info"
+        android:title="保存"
+        app:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource"
+        >
+    </item>
+</menu>

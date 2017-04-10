@@ -52,41 +52,29 @@
             style="@style/txt_user_info"
             android:text="@string/user_name"
             />
-        <EditText
+        <TextView
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <EditText
+            android:id="@+id/edit_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:visibility="gone"
             />
         <ImageView
-            android:id="@+id/iv_edit_name"
+            android:id="@+id/edit_name"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/margin_boundary"
             android:paddingRight="@dimen/margin_boundary"
             android:src="@drawable/ic_edit"
+            android:visibility="gone"
             />
     </LinearLayout>
     <View style="@style/style_listDivider" />
-    <LinearLayout
-        android:id="@+id/layout_head"
-        style="@style/style_width_match"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        >
-        <TextView
-            android:padding="16dp"
-            style="@style/txt_user_info"
-            android:text="@string/user_id"
-            />
-        <TextView
-            android:id="@+id/user_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-    </LinearLayout>
     <View style="@style/style_listDivider" />
     <LinearLayout
         style="@style/style_width_match"
@@ -125,12 +113,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
         <ImageView
-            android:id="@+id/bt_edit_sex"
+            android:id="@+id/edit_sex"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/margin_boundary"
             android:paddingRight="@dimen/margin_boundary"
             android:src="@drawable/ic_edit"
+            android:visibility="gone"
+
             />
     </LinearLayout>
     <View style="@style/style_listDivider" />
@@ -173,12 +163,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
         <ImageView
-            android:id="@+id/bt_edit_Birthday"
+            android:id="@+id/edit_Birthday"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingLeft="@dimen/margin_boundary"
             android:paddingRight="@dimen/margin_boundary"
             android:src="@drawable/ic_edit"
+            android:visibility="gone"
             />
     </LinearLayout>
     <View style="@style/style_listDivider" />
