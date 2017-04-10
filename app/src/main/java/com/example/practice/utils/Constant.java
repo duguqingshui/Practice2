@@ -46,7 +46,7 @@ public class Constant {
     /**
      * 服务器端的IP地址
      */
-    public static final String SERVER_IP_ADDRESS = "192.168.0.115";
+    public static final String SERVER_IP_ADDRESS = "192.168.0.114";
 
     /**
      * 服务器的端口地址
@@ -66,6 +66,7 @@ public class Constant {
     public static final int CMD_NOTIFY_NAME = 5;    //修改昵称
     public static final int CMD_GETFRIEND_INFO = 6; //获取好友信息
     public static final int CMD_EXIT = 7;//退出登录
+    public static final int CMD_SESSIONRECORD=8; //获取会话记录
 
     //消息类型
     public static final int CHAT = 0;          //聊天

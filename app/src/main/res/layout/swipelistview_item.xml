@@ -44,13 +44,26 @@
             android:orientation="vertical"
             android:layout_marginLeft="10dp"
             android:layout_weight="0.75">
-            <TextView
-                android:id="@+id/receivername"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="张三"
-                android:gravity="center_vertical"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/receivername"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="张三"
+                    android:gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="11-11"
+                    android:gravity="center"/>
+            </LinearLayout>
             <TextView
                 android:id="@+id/id_text"
                 android:layout_width="match_parent"
@@ -59,10 +72,9 @@
                 android:minHeight="?android:attr/listPreferredItemHeight"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#000"
-                android:textSize="25sp"
+                android:textSize="16sp"
                 android:layout_weight="1"
-                android:text="你好">
-            </TextView>
+                android:text="你好"/>
         </LinearLayout>
 
     </LinearLayout>

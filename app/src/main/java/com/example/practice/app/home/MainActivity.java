@@ -18,7 +18,7 @@ import com.example.practice.R;
 import com.example.practice.app.home.contacts.AddressBookFragment;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
-import com.example.practice.app.home.chatrecord.ChatRecordFragment;
+import com.example.practice.app.home.chatrecord.SessionRecordFragment;
 import com.example.practice.fragment.MeFragment;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     //通讯录
     private  AddressBookFragment addressBookFragment;
-    //消息记录
-    private ChatRecordFragment chatRecordFragment;
+    //会话记录
+    private SessionRecordFragment sessionRecordFragment;
     //设置
     private MeFragment meFragment;
     private String account;
@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 sendMsg = (ReceiveService.sendBinder) service;
                 //初始化数据
                 getFriendsData();
+                //获取会话记录
+                getSessionRecord();
             }
 
             @Override
@@ -102,6 +104,13 @@ public class MainActivity extends AppCompatActivity {
         };
         bindService(intent, mConnection, BIND_AUTO_CREATE);
     }
+
+    private void getSessionRecord() {
+        Account acc = new Account(account, null, nickname, 0);
+        Message msg = new Message(Constant.CMD_SESSIONRECORD, acc, null, null, new Date(), Constant.CHAT);
+        sendMsg.sendMessage(msg);
+    }
+
     /**
      * 初始化Listview布局，添加好友数据
      */
@@ -129,8 +138,8 @@ public class MainActivity extends AppCompatActivity {
      * @param trans
      */
     private void hideFrament(FragmentTransaction trans) {
-        if(chatRecordFragment!=null){
-            trans.hide(chatRecordFragment);
+        if(sessionRecordFragment!=null){
+            trans.hide(sessionRecordFragment);
         }
         if(addressBookFragment!=null){
             trans.hide(addressBookFragment);
@@ -147,12 +156,12 @@ public class MainActivity extends AppCompatActivity {
     private void setFragment(int vID, FragmentTransaction trans) {
         switch (vID){
             case R.id.rb_message:
-                if (chatRecordFragment==null){
-                    chatRecordFragment=new ChatRecordFragment();
-                    trans.add(R.id.containerMain,chatRecordFragment);
+                if (sessionRecordFragment==null){
+                    sessionRecordFragment=new SessionRecordFragment();
+                    trans.add(R.id.containerMain,sessionRecordFragment);
                 }
                 else {
-                    trans.show(chatRecordFragment);
+                    trans.show(sessionRecordFragment);
                 }
                 break;
             case R.id.rb_addressbook:

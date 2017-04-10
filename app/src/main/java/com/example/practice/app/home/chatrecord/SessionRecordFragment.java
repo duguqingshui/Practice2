@@ -40,7 +40,7 @@ import java.util.List;
  * Created by AMOBBS on 2017/2/7.
  */
 
-public class ChatRecordFragment extends Fragment {
+public class SessionRecordFragment extends Fragment {
     protected static final String TAG = "Activity";
     private SwipeListView mSwipeListView;
     private DataAdapter mAdapter;
