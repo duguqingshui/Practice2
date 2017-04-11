@@ -1,4 +1,4 @@
-package com.example.practice.app.menu.game;
+package com.example.practice.app.menu.game.luckypan;
 
 import android.content.Context;
 import android.graphics.Bitmap;

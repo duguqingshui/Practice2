@@ -12,10 +12,10 @@ import android.widget.TextView;
 import com.example.practice.R;
 import com.example.practice.app.LoginActivity;
 import com.example.practice.app.menu.album.AblumActivity;
-import com.example.practice.app.menu.emijj.ExpressionActivity;
 import com.example.practice.app.menu.exchangeskin.ExchangeSkinActicity;
 import com.example.practice.app.menu.about.AboutActivity;
 import com.example.practice.app.menu.game.luckypan.LuckpanActivity;
+import com.example.practice.app.menu.game.wuziqi.WuziqiActivity;
 import com.example.practice.app.menu.wallet.WalletActivity;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
@@ -58,7 +58,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         my_album=(TextView)view.findViewById(R.id.my_album);
         my_wallet=(TextView)view.findViewById(R.id.my_wallet);
         exchange_skin=(TextView)view.findViewById(R.id.exchange_skin);
-        my_expression=(TextView)view.findViewById(R.id.my_expression);
         aboutButton=(TextView)view.findViewById(R.id.aboutButton);
         exitButton=(TextView)view.findViewById(R.id.exitButton);
         my_game=(TextView)view.findViewById(R.id.my_game);
@@ -66,7 +65,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
          my_album.setOnClickListener(this);
          my_wallet.setOnClickListener(this);
          exchange_skin.setOnClickListener(this);
-         my_expression.setOnClickListener(this);
          aboutButton.setOnClickListener(this);
          exitButton.setOnClickListener(this);
     }
@@ -84,11 +82,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
             case R.id.exchange_skin:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), ExchangeSkinActicity.class);
                 break;
-            case R.id.my_expression:
-                MCIntent.sendIntentFromAnimLeft(getActivity(), ExpressionActivity.class);
-                break;
             case R.id.my_game:
-                MCIntent.sendIntentFromAnimLeft(getActivity(), LuckpanActivity.class);
+                MCIntent.sendIntentFromAnimLeft(getActivity(), WuziqiActivity.class);
                 break;
             case R.id.aboutButton:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), AboutActivity.class);

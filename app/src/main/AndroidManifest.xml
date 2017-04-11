@@ -40,11 +40,11 @@
         <activity android:name=".app.menu.wallet.WalletActivity"></activity>
         <!--关于 -->
         <activity android:name=".app.menu.about.AboutActivity"></activity>
-        <!--我的表情包 -->
-        <activity android:name=".app.menu.emijj.ExpressionActivity"></activity>
         <!--游戏 -->
         <!--抽奖转盘 -->
         <activity android:name=".app.menu.game.luckypan.LuckpanActivity"></activity>
+        <!-- 五子棋-->
+        <activity android:name=".app.menu.game.wuziqi.WuziqiActivity"></activity>
 
         <!--设置 -->
         <!--勿扰模式-->

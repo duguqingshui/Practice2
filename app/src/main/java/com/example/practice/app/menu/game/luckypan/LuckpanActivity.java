@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.practice.R;
-import com.example.practice.app.menu.game.LuckyPanView;
 
 /**
  * Created by AMOBBS on 2017/4/6.

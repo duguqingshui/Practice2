@@ -4,7 +4,7 @@
     android:background="#ffffff"
     android:layout_height="match_parent" >
 
-    <com.example.practice.app.menu.game.LuckyPanView
+    <com.example.practice.app.menu.game.luckypan.LuckyPanView
         android:id="@+id/id_luckypan"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
