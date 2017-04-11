@@ -20,6 +20,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@drawable/add" />
+        <ImageView
+            android:id="@+id/image_face"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/image_add"
+            android:src="@drawable/btn_chat_emo_selector" />
         <EditText
             android:id="@+id/et_message"
             android:layout_width="0dp"
@@ -62,6 +70,10 @@
             android:text="图片"
             />
     </RadioGroup>
+    <include
+        android:id="@+id/chat_face_container"
+        layout="@layout/chat_face_container"
+        android:visibility="gone" />
     <Button
         android:id="@+id/bt_record"
         android:layout_width="match_parent"

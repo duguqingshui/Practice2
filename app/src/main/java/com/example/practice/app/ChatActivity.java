@@ -19,9 +19,11 @@ import android.os.IBinder;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -40,8 +42,10 @@ import android.widget.Toast;
 import com.example.practice.R;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
+import com.example.practice.emoji.FaceVPAdapter;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
+import com.example.practice.utils.ExpressionUtil;
 import com.example.practice.utils.HttpUtils;
 import com.example.practice.utils.SpUtils;
 import com.google.gson.Gson;
@@ -51,13 +55,17 @@ import com.google.gson.stream.JsonReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by AMOBBS on 2016/11/17.
  */
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * 上传路径
      */
@@ -73,8 +81,11 @@ public class ChatActivity extends AppCompatActivity {
     private RadioButton rb_camera;
     private RadioGroup rg_group;
 
+    private ViewPager mViewPager;
+    private LinearLayout chat_face_container, chat_add_container;
     private ListView lv_message;
-    private ImageView iv_add;
+    private ImageView image_face;
+    private ImageView image_add;
     private EditText et_message;
     private Button bt_send,bt_record;
     private String nickname;
@@ -90,6 +101,8 @@ public class ChatActivity extends AppCompatActivity {
     private String account;
     private boolean isShowOrNot = false;
     private int headimg,friend_headimg;
+    @BindView(R.id.face_dots_container)
+    LinearLayout mDotsLayout;
     //录音
     private MediaPlayer mPlay = null;
     private MediaRecorder mRecorder = null;
@@ -102,12 +115,19 @@ public class ChatActivity extends AppCompatActivity {
     private String picPath;
     private String picName;
     private String picDownLoadUrl;
+
+    //表情图标每页6列4行
+    private int columns = 6;
+    private int rows = 4;
+    //每页显示的表情view
+    private List<View> views = new ArrayList<View>();
+    //表情列表
+    private List<String> staticFacesList;
+    private LayoutInflater inflater;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-
-
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);}
@@ -117,22 +137,15 @@ public class ChatActivity extends AppCompatActivity {
             //显示系统的返回键
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
-        lv_message = (ListView) findViewById(R.id.lv_message);
-        iv_add = (ImageView) findViewById(R.id.iv_add);
-        et_message = (EditText) findViewById(R.id.et_message);
-        bt_send = (Button) findViewById(R.id.bt_send);
-
-        rg_group = (RadioGroup) findViewById(R.id.rg_group);
-        rb_record=(RadioButton)findViewById(R.id.rb_record);
-        rb_camera=(RadioButton)findViewById(R.id.rb_camera);
-        rb_picture=(RadioButton)findViewById(R.id.rb_picture);
-
-        bt_record = (Button) findViewById(R.id.bt_record);//开始录音按钮
+        inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        staticFacesList = ExpressionUtil.initStaticFaces(this);
+        //初始化控件
+        initView();
         //将标题设置为好友的昵称
         nickname = SpUtils.getString(this, Constant.CHAT_NICKNAME, "");
         setTitle(nickname);
-
+        //初始化表情
+        initViewPager();
         //获取当前登录用户的昵称
         loginNickname = SpUtils.getString(this, Constant.LOGIN_NICKNAME, "");
         Log.i("当前登录用户的昵称", loginNickname+",好友昵称 ："+nickname);
@@ -182,7 +195,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
         //点击左侧添加图标
-        iv_add.setOnClickListener(new View.OnClickListener() {
+        image_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isShowOrNot == false) {
@@ -289,6 +302,28 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
     }
+    //初始化控件
+    private void initView() {
+        lv_message = (ListView) findViewById(R.id.lv_message);
+        image_add = (ImageView) findViewById(R.id.iv_add);//更多图标
+        image_face=(ImageView)findViewById(R.id.image_face); //表情图标
+        chat_face_container = (LinearLayout) findViewById(R.id.chat_face_container);//表情布局
+        chat_add_container = (LinearLayout) findViewById(R.id.rg_group);//更多
+        et_message = (EditText) findViewById(R.id.et_message);
+        bt_send = (Button) findViewById(R.id.bt_send);
+
+        rg_group = (RadioGroup) findViewById(R.id.rg_group);
+        rb_record=(RadioButton)findViewById(R.id.rb_record);
+        rb_camera=(RadioButton)findViewById(R.id.rb_camera);
+        rb_picture=(RadioButton)findViewById(R.id.rb_picture);
+        image_face.setOnClickListener(this);//表情按钮
+        bt_record = (Button) findViewById(R.id.bt_record);//开始录音按钮
+        mViewPager = (ViewPager) findViewById(R.id.face_viewpager);
+        mViewPager.setOnPageChangeListener(new PageChange());
+        ButterKnife.bind(this);
+        //表情下小圆点
+        mDotsLayout = (LinearLayout) findViewById(R.id.face_dots_container);
+    }
 
     /**
      * 加载聊天记录
@@ -326,6 +361,32 @@ public class ChatActivity extends AppCompatActivity {
         super.onPause();
         //结束广播
         localBroadcastManager.unregisterReceiver(mReceiver);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.image_face://点击表情按钮
+                if (chat_add_container.getVisibility() == View.VISIBLE) {
+                    chat_add_container.setVisibility(View.GONE);
+                }
+                if (chat_face_container.getVisibility() == View.GONE) {
+                    chat_face_container.setVisibility(View.VISIBLE);
+                } else {
+                    chat_face_container.setVisibility(View.GONE);
+                }
+                break;
+            case R.id.iv_add://点击加号按钮
+                if (chat_face_container.getVisibility() == View.VISIBLE) {
+                    chat_face_container.setVisibility(View.GONE);
+                }
+                if (chat_add_container.getVisibility() == View.GONE) {
+                    chat_add_container.setVisibility(View.VISIBLE);
+                } else {
+                    chat_add_container.setVisibility(View.GONE);
+                }
+                break;
+        }
     }
 
     /**
@@ -633,5 +694,51 @@ public class ChatActivity extends AppCompatActivity {
         String fileName = tempFile.getName();//文件
         String SuffixName = fileName.substring(fileName.lastIndexOf(".")+1);//后缀名
         return fileName;
+    }
+    /**
+     * 表情页切换时，底部小圆点
+     *
+     * @param position
+     * @return
+     */
+    private ImageView dotsItem(int position) {
+        View layout = inflater.inflate(R.layout.dot_image, null);
+        ImageView iv = (ImageView) layout.findViewById(R.id.face_dot);
+        iv.setId(position);
+        return iv;
+    }
+    /**
+     * 初始化表情
+     */
+    private void initViewPager() {
+        int pagesize = ExpressionUtil.getPagerCount(staticFacesList.size(), columns, rows);
+        // 获取页数
+        for (int i = 0; i < pagesize; i++) {
+            views.add(ExpressionUtil.viewPagerItem(this, i, staticFacesList, columns, rows, et_message));
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(16, 16);
+            mDotsLayout.addView(dotsItem(i), params);
+        }
+        FaceVPAdapter mVpAdapter = new FaceVPAdapter(views);
+        mViewPager.setAdapter(mVpAdapter);
+    }
+    /**
+     * 表情页改变时，dots效果也要跟着改变
+     */
+    class PageChange implements ViewPager.OnPageChangeListener {
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+        }
+
+        @Override
+        public void onPageSelected(int arg0) {
+            for (int i = 0; i < mDotsLayout.getChildCount(); i++) {
+                mDotsLayout.getChildAt(i).setSelected(false);
+            }
+            mDotsLayout.getChildAt(arg0).setSelected(true);
+        }
     }
 }
