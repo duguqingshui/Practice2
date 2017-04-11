@@ -1,4 +1,4 @@
-package com.example.practice.app.home.chatrecord;
+package com.example.practice.app.home.sessionrecord;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -18,9 +18,6 @@ import android.widget.Toast;
 
 
 import com.example.practice.R;
-import com.example.practice.app.ChatActivity;
-import com.example.practice.app.home.MainActivity;
-import com.example.practice.app.home.contacts.AddressBookFragment;
 import com.example.practice.doman.Message;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.HttpUtils;

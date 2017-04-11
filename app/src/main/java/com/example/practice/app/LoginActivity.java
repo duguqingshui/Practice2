@@ -218,7 +218,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 String headinmg = receiveMsg.split(",")[1];
 
                 int img = Integer.parseInt(headinmg);
-                System.out.println("发送者头像L"+img);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_ACCOUNT, account);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_PASSWORD, password);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_NICKNAME, nickname);

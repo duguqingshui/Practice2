@@ -1,4 +1,4 @@
-package com.example.practice.app.home.chatrecord;
+package com.example.practice.app.home.sessionrecord;
 
 import android.content.Context;
 import android.view.LayoutInflater;
