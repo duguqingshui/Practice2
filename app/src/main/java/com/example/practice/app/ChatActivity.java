@@ -1,5 +1,7 @@
 package com.example.practice.app;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -18,6 +20,7 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -102,6 +105,7 @@ public class ChatActivity extends AppCompatActivity {
     private String picPath;
     private String picName;
     private String picDownLoadUrl;
+    int notifyId = 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -556,6 +560,7 @@ public class ChatActivity extends AppCompatActivity {
                         //eg--http://192.168.0.109:8080/LoadServlet/p1481269307460.jpg
                         try {
                             String name = message.getContent().split("/")[4];
+                            getNotification(getApplicationContext(),name);
                             File saveFile = new File(Environment.getExternalStorageDirectory().getCanonicalFile()+"/"+name);
                             if(!saveFile.exists() || saveFile == null){
                                 HttpUtils.downLodaFile(message.getContent(), saveFile);
@@ -563,6 +568,10 @@ public class ChatActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+                    }
+                    else {
+                        String content=message.getContent();
+                        getNotification(getApplicationContext(),content);
                     }
                 }
                 mAdapter = new MyAdapter();
@@ -634,4 +643,25 @@ public class ChatActivity extends AppCompatActivity {
         String SuffixName = fileName.substring(fileName.lastIndexOf(".")+1);//后缀名
         return fileName;
     }
+
+    //获取最新消息通知
+    public Context getNotification(Context context, String content){
+        //获取通知系统服务
+        NotificationManager mNotificationManager= (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+        /** Notification构造器 */
+        NotificationCompat.Builder mBuilder=new NotificationCompat.Builder(this);
+        mBuilder.setContentTitle("测试标题")
+                .setContentText(content)
+                .setTicker("测试通知来啦")//通知首次出现在通知栏，带上升动画效果的
+                .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
+                .setPriority(Notification.PRIORITY_DEFAULT)//设置该通知优先级
+//				.setAutoCancel(true)//设置这个标志当用户单击面板就可以让通知将自动取消
+                .setOngoing(false)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
+                .setDefaults(Notification.DEFAULT_VIBRATE)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合：
+                //Notification.DEFAULT_ALL  Notification.DEFAULT_SOUND 添加声音 // requires VIBRATE permission
+                .setSmallIcon(R.mipmap.ic_launcher);
+        mNotificationManager.notify(notifyId, mBuilder.build());
+        return context;
+    }
+
 }
