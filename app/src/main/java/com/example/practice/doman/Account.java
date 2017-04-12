@@ -11,6 +11,44 @@ public class Account {
     public String nickname;//昵称
     public int state;       //状态
     public int headimg;//头像
+    public int sex;//性别
+    public String birthday;//出生年月日
+    public String sign;//个性签名
+
+    public Account(String account, String password, String nickname, int state, int headimg, int sex, String birthday, String sign) {
+        this.account = account;
+        this.password = password;
+        this.nickname = nickname;
+        this.state = state;
+        this.headimg = headimg;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.sign = sign;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
+    }
 
     public int getHeadimg() {
         return headimg;
@@ -77,6 +115,9 @@ public class Account {
                 ", nickname='" + nickname + '\'' +
                 ", state=" + state +
                 ", headimg=" + headimg +
+                ", sex=" + sex +
+                ", birthday='" + birthday + '\'' +
+                ", sign='" + sign + '\'' +
                 '}';
     }
 }

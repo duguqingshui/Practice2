@@ -80,6 +80,7 @@
     <string name="user_sex">性别</string>
     <string name="user_age">年龄</string>
     <string name="user_birthday">生日</string>
+    <string name="user_sign">个性签名</string>
     <!--message remind  消息提醒-->
     <string name="message_remind">消息提醒</string>
     <string name="message_notice">接受消息通知</string>

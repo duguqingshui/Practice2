@@ -22,10 +22,27 @@ public class Constant {
     public static final String LOGIN_PASSWORD = "login_password";
 
     /**
+     * 记录当前账号的登录的头像
+     */
+    public static final String LOGIN_HEADIMAGE = "login_headimage";
+    /**
      * 记录当前登录账号的昵称
      */
     public static final String LOGIN_NICKNAME = "login_nickname";
+    /**
+     * 记录当前登录的性别
+     */
+    public static final String LOGIN_SEX = "login_sex";
 
+    /**
+     * 记录当前账号的生日
+     */
+    public static final String LOGIN_BIRTHDAY = "login_birthday";
+
+    /**
+     * 记录当前登录账号的个性签名
+     */
+    public static final String LOGIN_SIGN = "login_sign";
     /**
      * 记录聊天时好友的昵称
      */

@@ -98,9 +98,8 @@ public class AddressBookFragment extends Fragment {
         tv_nickname.setTextColor(Color.BLUE);
         iv_headimg=(ImageView)view.findViewById(R.id.iv_headimg);
 
-        headimg=SpUtils.getInt(getContext().getApplicationContext(),"headimg",1);
+        headimg=SpUtils.getInt(getContext().getApplicationContext(),Constant.LOGIN_HEADIMAGE,1);
         iv_headimg.setImageResource(headimg);
-        System.out.println("发送者头像M"+headimg);
         gridview=(GridView)view.findViewById(R.id.gridview_img);
         iv_headimg.setOnClickListener(new View.OnClickListener() {
             @Override

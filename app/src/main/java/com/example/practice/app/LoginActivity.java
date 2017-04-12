@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         if (checkInput()){
             Account acc = new Account(account, password, null, 0);
 
-            Message msg = new Message(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT);
+            Message msg = new Message(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT,2,null,null);
             //调用服务的方法登录账号
             sendMsg.sendMessage(msg);
         }
@@ -211,17 +211,23 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
             String receiveMsg = intent.getStringExtra("backMsg");
             Log.i("收到的消息LoginActivity123", receiveMsg);
             String nickname = receiveMsg.split(",")[0];
-            Toast.makeText(getApplicationContext(), receiveMsg.split(",")[2], Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), receiveMsg.split(",")[5], Toast.LENGTH_SHORT).show();
 
-            if("登录成功".equals(receiveMsg.split(",")[2])){
-                //记录登录账号、密码、昵称
+            if("登录成功".equals(receiveMsg.split(",")[5])){
                 String headinmg = receiveMsg.split(",")[1];
-
                 int img = Integer.parseInt(headinmg);
+                String loginsex= receiveMsg.split(",")[2];
+                int sex= Integer.parseInt(loginsex);
+                String birthday= receiveMsg.split(",")[3];
+                String sign= receiveMsg.split(",")[4];
+                //记录用户个人信息
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_ACCOUNT, account);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_PASSWORD, password);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_NICKNAME, nickname);
-                SpUtils.putInt(getApplicationContext(), "headimg", img);
+                SpUtils.putInt(getApplicationContext(),  Constant.LOGIN_HEADIMAGE, img);
+                SpUtils.putInt(getApplicationContext(), Constant.LOGIN_SEX, sex);
+                SpUtils.putString(getApplicationContext(), Constant.LOGIN_BIRTHDAY, birthday);
+                SpUtils.putString(getApplicationContext(),  Constant.LOGIN_SIGN, sign);
                 //登陆成功，进入主页面
                 Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent1);

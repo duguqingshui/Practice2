@@ -83,7 +83,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                 MCIntent.sendIntentFromAnimLeft(getActivity(), ExchangeSkinActicity.class);
                 break;
             case R.id.my_game:
-                MCIntent.sendIntentFromAnimLeft(getActivity(), WuziqiActivity.class);
+                MCIntent.sendIntentFromAnimLeft(getActivity(), LuckpanActivity.class);
                 break;
             case R.id.aboutButton:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), AboutActivity.class);

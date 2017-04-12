@@ -49,7 +49,7 @@ public class MeFragment extends Fragment {
     private void initPersonal_info() {
         MeItemView miv_personal_info = (MeItemView) view.findViewById(R.id.miv_personal_info);
         miv_personal_info.setImage(R.mipmap.icon);
-        miv_personal_info.setTitle("昵称");
+        miv_personal_info.setTitle("编辑资料");
         miv_personal_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

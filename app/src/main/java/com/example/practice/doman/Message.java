@@ -14,6 +14,43 @@ public class Message {
     public String content;
     public Date time;
     public int type;//发送类型
+    public int sex;//性别
+    public String birthday;//出生日期
+    public String sign;//个性签名
+
+    public int getSex() {
+        return sex;
+    }
+
+    public Message(int cmd, Account sender, Account receicer, String content, Date time, int type) {
+        this.cmd = cmd;
+        this.sender = sender;
+        this.receicer = receicer;
+        this.content = content;
+        this.time = time;
+        this.type = type;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
+    }
 
     public int getType() {
         return type;
@@ -69,15 +106,18 @@ public class Message {
         this.time = time;
     }
 
-    public Message(int cmd, Account sender, Account receicer, String content, Date time,int type) {
-
+    public Message(int cmd, Account sender, Account receicer, String content, Date time, int type, int sex, String birthday, String sign) {
         this.cmd = cmd;
         this.sender = sender;
         this.receicer = receicer;
         this.content = content;
         this.time = time;
         this.type = type;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.sign = sign;
     }
+
     @Override
     public String toString() {
         return "Message{" +
@@ -86,6 +126,10 @@ public class Message {
                 ", receicer=" + receicer +
                 ", content='" + content + '\'' +
                 ", time=" + time +
+                ", type=" + type +
+                ", sex=" + sex +
+                ", birthday='" + birthday + '\'' +
+                ", sign='" + sign + '\'' +
                 '}';
     }
 }
