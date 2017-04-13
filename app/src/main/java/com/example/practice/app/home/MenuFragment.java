@@ -16,7 +16,6 @@ import com.example.practice.app.menu.exchangeskin.ExchangeSkinActicity;
 import com.example.practice.app.menu.about.AboutActivity;
 import com.example.practice.app.menu.game.luckypan.LuckpanActivity;
 import com.example.practice.app.menu.game.wuziqi.WuziqiActivity;
-import com.example.practice.app.menu.wallet.WalletActivity;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
@@ -75,9 +74,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         switch (id){
             case R.id.my_album:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), AblumActivity.class);
-                break;
-            case R.id.my_wallet:
-                MCIntent.sendIntentFromAnimLeft(getActivity(), WalletActivity.class);
                 break;
             case R.id.exchange_skin:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), ExchangeSkinActicity.class);

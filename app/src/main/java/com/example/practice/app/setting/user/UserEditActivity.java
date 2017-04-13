@@ -23,8 +23,10 @@ import com.example.practice.R;
 import com.example.practice.app.home.MainActivity;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.utils.TimeUtils;
 import com.example.practice.utils.UserEditUtil;
 import com.example.practice.view.MyEditView;
+import com.example.practice.view.MyTimePickerDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.text.SimpleDateFormat;
@@ -50,7 +52,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.user_age)
     TextView user_age;
     @BindView(R.id.user_birthday)
-    MyEditView user_birthday;
+    TextView user_birthday;
     @BindView(R.id.edit_user_sign)
     EditText edit_user_sign;
     Date date=new Date();
@@ -93,7 +95,15 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.user_birthday:
-                UserEditUtil.showDatePicker(this, false, user_birthday);
+                final MyTimePickerDialog dialog = new MyTimePickerDialog(this, getResources().getColor(R.color.main_color));
+                dialog.show(new Date(), new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                        user_birthday.setText(TimeUtils.getBirthDay(dialog.getSelTime()));
+                    }
+                });
                 break;
             case R.id.user_sex:
                 showSexDialog();

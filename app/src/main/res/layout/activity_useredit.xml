@@ -127,12 +127,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:orientation="vertical">
-    <com.example.practice.view.MyEditView
+        android:orientation="horizontal"
+        android:background="@color/white">
+        <TextView
+            android:padding="16dp"
+            style="@style/txt_user_info"
+            android:text="@string/user_birthday"
+            />
+            <TextView
             android:id="@+id/user_birthday"
-            android:layout_height="wrap_content"
-            style="@style/input_myedit_style2"
-            app:title="@string/user_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
              />
     </LinearLayout>
     <View style="@style/style_listDivider" />
