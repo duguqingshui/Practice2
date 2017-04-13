@@ -110,7 +110,7 @@
     <string name="common_cancel">取消</string>
     <string name="common_close">关闭</string>
     <string name="common_yes">确定</string>
-    <!-- 性别选择器 Dialog-->
+    <string name="not_saved_prompt">信息未保存，确认放弃？</string>
     <string-array name="sex">
         <item>男</item>
         <item>女</item>

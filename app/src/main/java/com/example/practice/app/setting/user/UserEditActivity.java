@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import com.example.practice.R;
 import com.example.practice.app.home.MainActivity;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.view.datepicker.DatePickerDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.text.SimpleDateFormat;
@@ -37,8 +40,8 @@ import butterknife.ButterKnife;
 public class UserEditActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.user_headimage)
     RoundedImageView user_headimage;
-    @BindView(R.id.user_name)
-    TextView user_name;
+    @BindView(R.id.edit_user_name)
+    EditText edit_user_name;
     @BindView(R.id.user_account)
     TextView user_account;
     @BindView(R.id.user_sex)
@@ -47,13 +50,8 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     TextView user_age;
     @BindView(R.id.user_birthday)
     TextView user_birthday;
-
-    @BindView(R.id.edit_name)
-    ImageView edit_name;
-    @BindView(R.id.edit_sex)
-    ImageView edit_sex;
-    @BindView(R.id.edit_Birthday)
-    ImageView edit_Birthday;
+    @BindView(R.id.edit_user_sign)
+    EditText edit_user_sign;
     Date date=new Date();
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     private String selecttime;//选择的时间
@@ -66,6 +64,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
         ButterKnife.bind(this);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.perinfo_title);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.show();
         initView();
 
@@ -74,22 +73,28 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     private void initView() {
         String account=SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, null);
         String nickname=SpUtils.getString(getApplicationContext(), Constant.LOGIN_NICKNAME, null);
-        int  img=SpUtils.getInt(getApplicationContext(), "headimg", 0);
+        int  img=SpUtils.getInt(getApplicationContext(), Constant.LOGIN_HEADIMAGE, 0);
+        int sex= SpUtils.getInt(getApplicationContext(), Constant.LOGIN_SEX, 0);
+        String birthday=SpUtils.getString(getApplicationContext(), Constant.LOGIN_BIRTHDAY, null);
+        String sign= SpUtils.getString(getApplicationContext(),  Constant.LOGIN_SIGN, null);
 
-        user_name.setText(nickname);
+        edit_user_name.setText(nickname);
         user_account.setText(account);
         user_headimage.setImageResource(img);
-        findViewById(R.id.edit_Birthday).setOnClickListener(this);
-        findViewById(R.id.edit_sex).setOnClickListener(this);
-
+        user_sex.setText(getSex(sex));
+        user_birthday.setText(birthday);
+        edit_user_sign.setText(sign);
+        user_sex.setOnClickListener(this);
+        user_birthday.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.edit_Birthday:
+            case R.id.user_birthday:
+                DatePickerDialog.show();
                 break;
-            case R.id.edit_sex:
+            case R.id.user_sex:
                 showSexDialog();
                 break;
         }
@@ -148,22 +153,49 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.edit :
-                edit_sex.setVisibility(View.VISIBLE);
-                edit_name.setVisibility(View.VISIBLE);
-                edit_Birthday.setVisibility(View.VISIBLE);
-            break;
             case R.id.save :
-                edit_sex.setVisibility(View.GONE);
-                edit_name.setVisibility(View.GONE);
-                edit_Birthday.setVisibility(View.GONE);
                 Intent intent = new Intent();
                 intent.setClass(UserEditActivity.this, MainActivity.class);
                 UserEditActivity.this.startActivity(intent);
+                break;
+            case android.R.id.home:
+                exitConfirm();
                 break;
             default:
                 break;
         }
         return true;
+    }
+    public String getSex(int a){
+        String sex = null;
+        if (a==1){
+            sex="女";
+        }
+        else if (a==0){
+            sex="男";
+        }
+        return sex;
+    }
+    @Override
+    public void onBackPressed() {
+            exitConfirm();
+    }
+    private void exitConfirm(){
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.common_reminder)
+                .setMessage(R.string .not_saved_prompt)
+                .setPositiveButton(R.string.common_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.common_cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).create();
+        alertDialog.show();
     }
 }
