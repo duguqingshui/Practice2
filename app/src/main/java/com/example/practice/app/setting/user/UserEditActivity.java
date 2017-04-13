@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -157,6 +158,9 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
                 intent.setClass(UserEditActivity.this, MainActivity.class);
                 UserEditActivity.this.startActivity(intent);
                 break;
+            case android.R.id.home:
+                exitConfirm();
+                break;
             default:
                 break;
         }
@@ -171,5 +175,29 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
             sex="男";
         }
         return sex;
+    }
+
+    @Override
+    public void onBackPressed() {
+        exitConfirm();
+    }
+
+    private void exitConfirm(){
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.common_reminder)
+                .setMessage(R.string .not_saved_prompt)
+                .setPositiveButton(R.string.common_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.common_cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).create();
+        alertDialog.show();
     }
 }
