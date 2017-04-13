@@ -71,7 +71,7 @@
                     android:textSize="@dimen/size22"
                     android:text="@string/year" />
 
-                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                <com.example.practice.view.MyNumberPicker
                     android:id="@+id/year_pick"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -94,7 +94,7 @@
                     android:textSize="@dimen/size22"
                     android:text="@string/month" />
 
-                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                <com.example.practice.view.MyNumberPicker
                     android:id="@+id/month_pick"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -117,7 +117,7 @@
                     android:textSize="@dimen/size22"
                     android:text="@string/day" />
 
-                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                <com.example.practice.view.MyNumberPicker
                     android:id="@+id/day_pick"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -141,7 +141,7 @@
                     android:layout_gravity="center"
                     android:text="@string/hour" />
 
-                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                <com.example.practice.view.MyNumberPicker
                     android:id="@+id/hour_pick"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -165,7 +165,7 @@
                     android:layout_gravity="center"
                     android:text="@string/minute" />
 
-                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                <com.example.practice.view.MyNumberPicker
                     android:id="@+id/min_pick"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

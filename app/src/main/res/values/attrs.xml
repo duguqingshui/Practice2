@@ -87,4 +87,163 @@
         <attr name="isSingleLine"
             format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="RoundedImageView">
+        <attr name="rect_roundpx"
+            format="dimension"/>
+        <attr name="border_thickness"
+            format="dimension"/>
+        <attr name="border_inside_color"
+            format="color"/>
+        <attr name="border_outside_color"
+            format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="CropImageView">
+        <attr name="guidelines">
+            <enum name="on"
+                value="2"/>
+            <enum name="onTouch"
+                value="1"/>
+            <enum name="off"
+                value="0"/>
+        </attr>
+        <attr name="fixAspectRatio"
+            format="boolean"/>
+        <attr name="aspectRatioX"
+            format="integer"/>
+        <attr name="aspectRatioY"
+            format="integer"/>
+        <attr name="imageResource"
+            format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="Pillarchartview">
+        <attr name="insidecolor"
+            format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyBPEditView">
+        <attr name="titleT"
+            format="string"/>
+        <attr name="titlewidthT"
+            format="dimension"/>
+        <attr name="maxValueT"
+            format="integer"/>
+        <attr name="hintLeftT"
+            format="string"/>
+        <attr name="hintRightT"
+            format="string"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="My2EditView">
+        <attr name="title_2"
+            format="string"/>
+        <attr name="titlewidth_2"
+            format="dimension"/>
+        <attr name="titlesize_2"
+            format="dimension"/>
+        <attr name="hintconent1"
+            format="string"/>
+        <attr name="hintconent2"
+            format="string"/>
+        <attr name="intType"
+            format="boolean"/>
+        <attr name="intTypeRight"
+            format="boolean"/>
+        <attr name="intLength"
+            format="integer"/>
+        <attr name="leftLength"
+            format="integer"/>
+        <attr name="rightLength"
+            format="integer"/>
+        <attr name="maxLeft"
+            format="float"/>
+        <attr name="maxRight"
+            format="float"/>
+        <attr name="floatType"
+            format="boolean"/>
+        <attr name="floatLeft"
+            format="boolean"/>
+        <attr name="time"
+            format="boolean"/>
+        <attr name="tvleft"
+            format="boolean"/>
+        <attr name="tvright"
+            format="boolean"/>
+        <attr name="unitright"
+            format="string"/>
+        <attr name="unitleft"
+            format="string"/>
+        <attr name="tipTitleLeft"
+            format="string"/>
+        <attr name="tipTitleRight"
+            format="string"/>
+        <attr name="tipTitleLeftWidth"
+            format="dimension"/>
+        <attr name="tipTitleRightWidth"
+            format="dimension"/>
+        <attr name="tipTitleLeftSize"
+            format="dimension"/>
+        <attr name="tipTitleRightSize"
+            format="dimension"/>
+        <attr name="centerText"
+            format="string"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="MyEditListView">
+        <attr name="tit"
+            format="string"/>
+        <attr name="titwidth"
+            format="dimension"/>
+        <attr name="footerName"
+            format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyRadioView">
+        <attr name="titleRadio"
+            format="string"/>
+        <attr name="titlewidthRadio"
+            format="dimension"/>
+        <attr name="addtionRadio"
+            format="string"/>
+        <attr name="titlesizeRadio"
+            format="dimension"/>
+        <attr name="valuesizeRadio"
+            format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="MyAlbumEditView">
+        <attr name="albumTitle"
+            format="string"/>
+        <attr name="albumTitlewidth"
+            format="dimension"/>
+        <attr name="numColumns"
+            format="integer"/>
+        <attr name="imgSum"
+            format="integer"/>
+        <attr name="albumEditable"
+            format="boolean"/>
+        <attr name="type"
+            format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyImageGridView">
+        <attr name="myNumColumns"
+            format="integer"/>
+    </declare-styleable>
+
+    <!-- 公共的 -->
+    <declare-styleable name="MyViewStyle">
+        <attr name="myTitle"
+            format="string"/>
+        <attr name="myTitleWidth"
+            format="dimension"/>
+        <attr name="myContent"
+            format="string"/>
+        <attr name="myRowNum"
+            format="integer"/>
+    </declare-styleable>
 </resources>

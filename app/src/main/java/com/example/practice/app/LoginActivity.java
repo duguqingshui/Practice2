@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         if (checkInput()){
             Account acc = new Account(account, password, null, 0);
 
-            Message msg = new Message(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT,2,null,null);
+            Message msg = new Message(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT);
             //调用服务的方法登录账号
             sendMsg.sendMessage(msg);
         }

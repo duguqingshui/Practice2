@@ -91,7 +91,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.user_birthday:
-                UserEditUtil.showDatePicker(this, true, user_birthday);
+                UserEditUtil.showDatePicker(this, false, user_birthday);
                 break;
             case R.id.user_sex:
                 showSexDialog();

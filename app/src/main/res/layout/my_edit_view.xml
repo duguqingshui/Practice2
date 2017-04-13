@@ -20,7 +20,8 @@
         android:layout_gravity="fill"
         android:gravity="center"
         android:textSize="@dimen/size14"
-        android:padding="@dimen/margin_view" />
+        android:padding="@dimen/margin_view"
+        android:background="@color/white"/>
 
     <View style="@style/style_listDivider_vertical" />
     <com.example.practice.view.InterceptScrollEditView

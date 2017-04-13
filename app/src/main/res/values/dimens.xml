@@ -70,4 +70,6 @@
     <dimen name="margin_bigger">60dp</dimen>
     <dimen name="margib_huge">100dp</dimen>
     <dimen name="margib_mix">180dp</dimen>
+
+    <dimen name="survery_titlewidth_big">150dp</dimen><!-- 多了一个纵标题-->
 </resources>
