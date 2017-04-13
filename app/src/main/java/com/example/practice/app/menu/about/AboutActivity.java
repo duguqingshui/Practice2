@@ -1,6 +1,7 @@
 package com.example.practice.app.menu.about;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -19,8 +20,11 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         setContentView(R.layout.activity_about);
-        if (getSupportActionBar() != null){
-            getSupportActionBar().show();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.show();
+        if (actionBar!= null){
+            actionBar.show();
         }
         setTitle(R.string.common_about);
 

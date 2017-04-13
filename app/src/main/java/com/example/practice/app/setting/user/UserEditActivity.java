@@ -65,6 +65,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
         ButterKnife.bind(this);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.perinfo_title);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.show();
         initView();
 

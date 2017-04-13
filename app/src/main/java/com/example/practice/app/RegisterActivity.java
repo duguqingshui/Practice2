@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.show();
         actionBar.setHomeButtonEnabled(false);
-        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setTitle(R.string.register_user);
         if (getSupportActionBar() != null) {
             // 是否显示应用程序标题，默认为true

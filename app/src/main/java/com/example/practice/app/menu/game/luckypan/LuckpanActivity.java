@@ -1,11 +1,13 @@
 package com.example.practice.app.menu.game.luckypan;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.practice.R;
+import com.example.practice.app.menu.game.luckypan.view.LuckyPanView;
 
 /**
  * Created by AMOBBS on 2017/4/6.
@@ -20,7 +22,10 @@ public class LuckpanActivity extends AppCompatActivity{
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_luckpan);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.show();
+        setTitle(R.string.luackyPan);
         mLuckyPanView = (LuckyPanView) findViewById(R.id.id_luckypan);
         mStartBtn = (ImageView) findViewById(R.id.id_start_btn);
 

@@ -1,6 +1,7 @@
 package com.example.practice.app.setting.nodistrub;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.practice.R;
@@ -14,7 +15,9 @@ public class NoDistrubActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nodistrub);
-        getSupportActionBar().show();
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.show();
         setTitle(R.string.nodistrub);
     }
 }

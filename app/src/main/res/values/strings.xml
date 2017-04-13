@@ -116,7 +116,9 @@
         <item>男</item>
         <item>女</item>
     </string-array>
-
+    <!-- 游戏-->
+    <string name="luackyPan">幸运转盘</string>
+    <string name="Wuziqi">五子棋</string>
     <!--关于-->
     <string name="string_about">关于微聊</string>
     <string name="string_connection">联系我们</string>

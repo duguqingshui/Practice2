@@ -1,9 +1,10 @@
 package com.example.practice.app.menu.game.wuziqi;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
 import com.example.practice.R;
@@ -12,7 +13,7 @@ import com.example.practice.R;
  * Created by AMOBBS on 2017/4/11.
  */
 
-public class WuziqiActivity extends Activity {
+public class WuziqiActivity extends AppCompatActivity {
     private WuziqiPanel mGamePanel;
     private AlertDialog.Builder alertBuilder;
     private AlertDialog alertDialog;
@@ -22,7 +23,10 @@ public class WuziqiActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_wuziqi);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.show();
+        setTitle(R.string.Wuziqi);
         //游戏结束时弹出对话框
         alertBuilder = new AlertDialog.Builder(WuziqiActivity.this);
         alertBuilder.setPositiveButton("再来一局", new DialogInterface.OnClickListener() {
