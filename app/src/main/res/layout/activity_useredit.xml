@@ -136,7 +136,7 @@
             android:padding="16dp"
             android:text="@string/user_birthday" />
 
-        <TextView
+        <com.example.practice.view.MyEditView
             android:id="@+id/user_birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -124,5 +124,18 @@
     <string name="setting_about_test_version">检测新版本</string>
     <string name="setting_about_newapk">您使用的为最新版本</string>
     <string name="setting_about_connectnet">请连接网络后进行检测</string>
+    <!-- 单位 -->
+    <string name="common_time">时间</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="common_future_time">不能选择将来的时间,请重新选择</string>
+    <string name="common_first_dot">首位不能为小数点</string>
 
+    <string name="common_message">消息</string>
+    <!-- MCAlertDialog -->
+    <string name="mc_dialog_tip1">输出的</string>
+    <string name="mc_dialog_tip2">数字有误，范围在0-</string>
 </resources>

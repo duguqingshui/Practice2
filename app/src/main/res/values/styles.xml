@@ -287,4 +287,18 @@
         <item name="android:textSize">@dimen/size14</item>
         <item name="android:padding">16dp</item>
     </style>
+
+
+    <!-- my_dilaog layout -->
+    <style name="style_mydialog_parent" parent="style_tips_dialog">
+        <item name="android:layout_width">@dimen/width_dialog_layout</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/bg_window</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="AlertDialogCustom">
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

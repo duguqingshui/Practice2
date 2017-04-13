@@ -59,4 +59,32 @@
         <attr name="max_count_line"/>
         <attr name="max_win_count_piece"/>
     </declare-styleable>
+    <declare-styleable name="MyEditView">
+        <attr name="title"
+            format="string"/>
+        <attr name="hinttext"
+            format="string"/>
+        <attr name="unittext"
+            format="string"/>
+        <attr name="righticon"
+            format="boolean"/>
+        <attr name="titlewidth"
+            format="dimension"/>
+        <attr name="titlesize"
+            format="dimension"/>
+        <attr name="number"
+            format="boolean"/>
+        <attr name="numfloat"
+            format="boolean"/>
+        <attr name="conentLength"
+            format="integer"/>
+        <attr name="editAble"
+            format="boolean"/>
+        <attr name="titleBackground"
+            format="color"/>
+        <attr name="maxValue"
+            format="integer"/>
+        <attr name="isSingleLine"
+            format="boolean"/>
+    </declare-styleable>
 </resources>

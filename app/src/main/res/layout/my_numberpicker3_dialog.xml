@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/style_all_match" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/numberpicker_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/dialog_color"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/numberpicker_title_height" >
+
+            <Button
+                android:id="@+id/dialog_cancel_btn"
+                style="@style/size_style_22"
+                android:layout_width="@dimen/numberpicker_btn_width"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:text="@string/common_cancel"
+                android:textSize="@dimen/size22"
+                android:textColor="@drawable/press_while2gray_sel" />
+
+            <View
+                style="@style/style_listDivider_vertical"
+                android:layout_marginTop="2dp" />
+
+            <TextView
+                android:id="@+id/textView1"
+                style="@style/size_style_28_while"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/size22"
+                android:text="@string/common_time" />
+
+            <View
+                style="@style/style_listDivider_vertical"
+                android:layout_marginTop="2dp" />
+
+            <Button
+                android:id="@+id/dialog_finish_btn"
+                style="@style/size_style_22"
+                android:layout_width="@dimen/numberpicker_btn_width"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:textSize="@dimen/size22"
+                android:text="@string/common_yes"
+                android:textColor="@drawable/press_while2gray_sel" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/style_width_match"
+            android:layout_marginBottom="@dimen/margin_view"
+            android:layout_marginTop="@dimen/margin_view" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/size_style_26"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/size22"
+                    android:text="@string/year" />
+
+                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                    android:id="@+id/year_pick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <View
+                style="@style/style_listDivider_vertical"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/size_style_26"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/size22"
+                    android:text="@string/month" />
+
+                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                    android:id="@+id/month_pick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <View
+                style="@style/style_listDivider_vertical"
+                android:layout_marginRight="2dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/size_style_26"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/size22"
+                    android:text="@string/day" />
+
+                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                    android:id="@+id/day_pick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <View
+                style="@style/style_listDivider_vertical"
+                android:layout_marginRight="2dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    style="@style/size_style_26"
+                    android:layout_gravity="center"
+                    android:text="@string/hour" />
+
+                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                    android:id="@+id/hour_pick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+
+            <View
+                style="@style/style_listDivider_vertical"
+                android:layout_marginRight="2dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    style="@style/size_style_26"
+                    android:layout_gravity="center"
+                    android:text="@string/minute" />
+
+                <com.microcardio.wxdoctor.widget.picker.MyNumberPicker
+                    android:id="@+id/min_pick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/style_mydialog_parent">
+
+    <TextView
+        android:id="@+id/infoTextView"
+        style="@style/size_style_22_black"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_boundary"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/margin_small"
+        android:textSize="@dimen/size18"
+        android:textIsSelectable="true"/>
+
+    <View style="@style/style_listDivider"/>
+</LinearLayout>

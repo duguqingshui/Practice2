@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/style_width_match"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:paddingBottom="0.1dp"
+    android:paddingLeft="0.1dp"
+    android:paddingTop="0.1dp" >
+
+    <View
+        android:id="@+id/view_leftspile_tv"
+        style="@style/style_listDivider_vertical"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/view_title_tv"
+        style="@style/size_style_18_maincolor"
+        android:layout_marginTop="-1dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:gravity="center"
+        android:textSize="@dimen/size14"
+        android:padding="@dimen/margin_view" />
+
+    <View style="@style/style_listDivider_vertical" />
+    <com.example.practice.view.InterceptScrollEditView
+        android:id="@+id/view_conent_ed"
+        style="@style/size_style_18"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:ellipsize="middle"
+        android:gravity="top|left"
+        android:scrollbars="none"
+        android:textSize="@dimen/size14"
+        android:scrollbarFadeDuration="0"
+        android:fadeScrollbars="false"
+        android:padding="@dimen/margin_view" >
+
+    </com.example.practice.view.InterceptScrollEditView>
+
+    <TextView
+        android:id="@+id/view_conent_tv"
+        style="@style/size_style_18"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="2"
+        android:textSize="@dimen/size14"
+        android:paddingLeft="@dimen/margin_boundary"
+        android:visibility="gone" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/view_unit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/margin_view"
+        android:textSize="@dimen/size14"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/view_arrow_im"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/margin_view"
+        android:visibility="gone" />
+
+</LinearLayout>
