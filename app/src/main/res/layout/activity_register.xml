@@ -1,144 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="16dp"
-    android:weightSum="1">
-    <TextView
-        android:id="@+id/remind"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/remind"
-        android:textColor="@color/color_red"
-        android:layout_marginBottom="20dp"/>
-    <com.makeramen.roundedimageview.RoundedImageView
-        android:id="@+id/iv_headimg"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/icon"
-        app:riv_oval="true"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone"/>
-    <GridView
-        android:id="@+id/gridview_img"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnWidth="90dp"
-        android:numColumns="4"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:stretchMode="columnWidth"
-        android:gravity="center"
-        android:visibility="gone">
-    </GridView>
+    android:layout_height="match_parent">
     <LinearLayout
-        android:id="@+id/ll_account"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/white">
-        <EditText
-            android:id="@+id/et_account"
-            style="@style/editText"
-            android:drawableLeft="@drawable/user_login_userlogo"
-            android:inputType="number"
-            android:hint="@string/input_account" />
-        <View
-            style="@style/style_listDivider"
-            android:paddingLeft="@dimen/margin_boundary"
-            android:paddingRight="@dimen/margin_boundary"
-            />
-        <EditText
-            android:id="@+id/et_pass"
-            style="@style/editText"
-            android:drawableLeft="@drawable/user_login_pswlogolo"
-            android:hint="@string/input_psw"/>
-        <View
-            style="@style/style_listDivider"
-            android:paddingLeft="@dimen/margin_boundary"
-            android:paddingRight="@dimen/margin_boundary"
-            />
-        <EditText
-            android:id="@+id/et_repass"
-            style="@style/editText"
-            android:drawableLeft="@drawable/user_login_pswlogolo"
-            android:hint="@string/input_next_psw" />
-        <View
-            style="@style/style_listDivider"
-            android:paddingLeft="@dimen/margin_boundary"
-            android:paddingRight="@dimen/margin_boundary"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/ll_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/white"
-        android:visibility="gone">
-    <EditText
-        android:id="@+id/et_nickname"
-        style="@style/editText"
-        android:drawableLeft="@drawable/user_login_userlogo"
-        android:hint="@string/input_name" />
-        <View
-            style="@style/style_listDivider"
-            android:paddingLeft="@dimen/margin_boundary"
-            android:paddingRight="@dimen/margin_boundary"
-            />
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:weightSum="1">
         <TextView
-            android:id="@+id/et_sex"
-            style="@style/editText"
-            android:drawableLeft="@drawable/sex"
-            android:text="@string/input_sex"
-            android:gravity="center_vertical"
+            android:id="@+id/remind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/remind"
+            android:textColor="@color/color_red"
+            android:layout_marginBottom="20dp"/>
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_headimg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/icon"
+            app:riv_oval="true"
+            android:layout_marginBottom="20dp"
             />
-        <View
-            style="@style/style_listDivider"
-            android:paddingLeft="@dimen/margin_boundary"
-            android:paddingRight="@dimen/margin_boundary"
-            />
-    <TextView
-        android:id="@+id/et_birthday"
-        style="@style/editText"
-        android:drawableLeft="@drawable/birthday"
-        android:hint="@string/input_birthday"
-        android:gravity="center_vertical"/>
-        <View
-            style="@style/style_listDivider"
-            android:paddingLeft="@dimen/margin_boundary"
-            android:paddingRight="@dimen/margin_boundary"
-            />
-        <EditText
-            android:id="@+id/et_sign"
-            style="@style/editText"
-            android:drawableLeft="@drawable/sign"
-            android:hint="@string/input_sign"
-            android:gravity="center_vertical"/>
-    </LinearLayout>
-    <Button
-        android:id="@+id/bt_next"
-        android:layout_marginTop="20dp"
-        style="@style/style_btn_sel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        />
-    <Button
-        android:id="@+id/bt_register"
-        style="@style/style_btn_sel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:visibility="gone"/>
+        <GridView
+            android:id="@+id/gridview_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="90dp"
+            android:numColumns="4"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            android:visibility="gone">
+        </GridView>
+        <LinearLayout
+            android:id="@+id/ll_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white">
+            <EditText
+                android:id="@+id/et_account"
+                style="@style/editText"
+                android:drawableLeft="@drawable/user_login_userlogo"
+                android:inputType="number"
+                android:hint="@string/input_account"
+                android:maxLength="8"/>
+            <View
+                style="@style/style_listDivider"
+                android:paddingLeft="@dimen/margin_boundary"
+                android:paddingRight="@dimen/margin_boundary"
+                />
+            <EditText
+                android:id="@+id/et_pass"
+                style="@style/editText"
+                android:drawableLeft="@drawable/user_login_pswlogolo"
+                android:hint="@string/input_psw"/>
+            <View
+                style="@style/style_listDivider"
+                android:paddingLeft="@dimen/margin_boundary"
+                android:paddingRight="@dimen/margin_boundary"
+                />
+            <EditText
+                android:id="@+id/et_repass"
+                style="@style/editText"
+                android:drawableLeft="@drawable/user_login_pswlogolo"
+                android:hint="@string/input_next_psw" />
+            <View
+                style="@style/style_listDivider"
+                android:paddingLeft="@dimen/margin_boundary"
+                android:paddingRight="@dimen/margin_boundary"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_info"
+            android:textSize="@dimen/size16"/>
+        <LinearLayout
+            android:id="@+id/ll_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
 
-</LinearLayout>
+            <EditText
+                android:id="@+id/et_nickname"
+                style="@style/editText"
+                android:drawableLeft="@drawable/user_login_userlogo"
+                android:hint="@string/input_name" />
+
+            <View
+                style="@style/style_listDivider"
+                android:paddingLeft="@dimen/margin_boundary"
+                android:paddingRight="@dimen/margin_boundary" />
+
+            <TextView
+                android:id="@+id/et_sex"
+                style="@style/editText"
+                android:drawableLeft="@drawable/sex"
+                android:gravity="center_vertical"
+                android:text="@string/input_sex" />
+
+            <View
+                style="@style/style_listDivider"
+                android:paddingLeft="@dimen/margin_boundary"
+                android:paddingRight="@dimen/margin_boundary" />
+
+            <TextView
+                android:id="@+id/et_birthday"
+                style="@style/editText"
+                android:drawableLeft="@drawable/birthday"
+                android:gravity="center_vertical"
+                android:hint="@string/input_birthday" />
+
+            <View
+                style="@style/style_listDivider"
+                android:paddingLeft="@dimen/margin_boundary"
+                android:paddingRight="@dimen/margin_boundary" />
+
+            <EditText
+                android:id="@+id/et_sign"
+                style="@style/editText"
+                android:drawableLeft="@drawable/sign"
+                android:gravity="center_vertical"
+                android:hint="@string/input_sign" />
+        </LinearLayout>
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/bt_register"
+            style="@style/style_btn_sel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            />
+
+    </LinearLayout>
+</ScrollView>

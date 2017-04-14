@@ -1,8 +1,10 @@
 package com.example.practice.app;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -26,12 +28,16 @@ import android.widget.Toast;
 
 import com.example.practice.R;
 import com.example.practice.adapter.ImageAdapter;
+import com.example.practice.app.setting.user.UserEditActivity;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.utils.TimeUtils;
+import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
+import com.example.practice.view.MyTimePickerDialog;
 
 import java.util.Date;
 
@@ -63,8 +69,6 @@ public class RegisterActivity extends AppCompatActivity {
     TextView et_birthday;
     @BindView(R.id.et_sign)
     EditText et_sign;
-    @BindView(R.id.bt_next)
-    Button bt_next;
     @BindView(R.id.bt_register)
     Button bt_register;
 
@@ -153,11 +157,23 @@ public class RegisterActivity extends AppCompatActivity {
 
     @OnClick(R.id.bt_register)
     public void OnRegisterClick(){
+        account = et_account.getText().toString();
+        password = et_pass.getText().toString();
+        rePassword = et_repass.getText().toString();
         headimg=SpUtils.getInt(getApplicationContext(),"USER_IMG",0);
         nickname = et_nickname.getText().toString();
         sex=et_sex.getText().toString();
         birthday=et_birthday.getText().toString();
         sign=et_sign.getText().toString();
+        if (TextUtils.isEmpty(account)){
+            MCToast.show(R.string.no_null_account,getApplicationContext());
+        }
+        else if (TextUtils.isEmpty(password)){
+            MCToast.show(R.string.no_null_pass,getApplicationContext());
+        }
+        else if (TextUtils.isEmpty(rePassword)){
+            MCToast.show(R.string.no_null_repass,getApplicationContext());
+        }
         if (TextUtils.isEmpty(nickname)){
             MCToast.show(R.string.no_null_name,getApplicationContext());
         }
@@ -174,22 +190,6 @@ public class RegisterActivity extends AppCompatActivity {
             MCToast.show(R.string.no_null_sign,getApplicationContext());
         }
         else {
-            Account acc = new Account(account, password, nickname, 0,headimg,getSex(sex),birthday,sign);
-            //Log.i("信息", acc.getAccount()+":"+acc.getNickname());
-            Message msg = new Message(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
-            sendMsg.sendMessage(msg);
-            bt_next.setVisibility(View.VISIBLE);
-            ll_account.setVisibility(View.VISIBLE);
-            ll_info.setVisibility(View.GONE);
-            bt_register.setVisibility(View.GONE);
-        }
-    }
-    @OnClick(R.id.bt_next)
-    public void OnNextClick(){
-        account = et_account.getText().toString();
-        password = et_pass.getText().toString();
-        rePassword = et_repass.getText().toString();
-        if (!TextUtils.isEmpty(account)){
             if (account.substring(0,1)=="0"){
                 et_account.setText("");
                 MCToast.show(R.string.no_0,getApplicationContext());
@@ -198,32 +198,34 @@ public class RegisterActivity extends AppCompatActivity {
                 et_account.setText("");
                 MCToast.show(R.string.remind_8,getApplicationContext());
             }
-        }
-        else if (TextUtils.isEmpty(password)){
-            MCToast.show(R.string.no_null_pass,getApplicationContext());
-        }
-        else if (TextUtils.isEmpty(rePassword)){
-            MCToast.show(R.string.no_null_repass,getApplicationContext());
-        }
-        else if (!TextUtils.isEmpty(rePassword)){
-            if (!password.equals(rePassword)){
-                et_repass.setText("");
+            else if (!password.equals(rePassword)){
                 MCToast.show(R.string.no_same_pass,getApplicationContext());
             }
-        }
-        else {
-            Account acc = new Account(account, password, nickname, 0,headimg,getSex(sex),birthday,sign);
-            //Log.i("信息", acc.getAccount()+":"+acc.getNickname());
-            Message msg = new Message(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
-            sendMsg.sendMessage(msg);
-            String receiveMsg = intent.getStringExtra("backMsg");
-            if("注册成功".equals(receiveMsg)){
-            bt_next.setVisibility(View.GONE);
-            ll_account.setVisibility(View.GONE);
-            ll_info.setVisibility(View.VISIBLE);
-            bt_register.setVisibility(View.VISIBLE);
+            else {
+                Account acc = new Account(account, password, nickname, 0,headimg,getSex(sex),birthday,sign);
+                //Log.i("信息", acc.getAccount()+":"+acc.getNickname());
+                Message msg = new Message(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
+                sendMsg.sendMessage(msg);
+
+                MCIntent.sendIntentFromAnimLeft(this, LoginActivity.class);
             }
         }
+    }
+    @OnClick(R.id.et_sex)
+    public void OnSexClick(){
+        showSexDialog();
+    }
+    @OnClick(R.id.et_birthday)
+    public void OnBirthdayClick(){
+        final MyTimePickerDialog dialog = new MyTimePickerDialog(this, getResources().getColor(R.color.main_color));
+        dialog.show(new Date(), new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                et_birthday.setText(TimeUtils.getBirthDay(dialog.getSelTime()));
+            }
+        });
     }
     @Override
     protected void onStart() {
@@ -271,7 +273,8 @@ public class RegisterActivity extends AppCompatActivity {
             if("注册成功".equals(receiveMsg)){
                 Toast.makeText(getApplicationContext(), receiveMsg, Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-            }else if("账户已存在".equals(receiveMsg)){
+                finish();
+            }else if("注册失败".equals(receiveMsg)){
                 et_account.setText("");
                 Toast.makeText(getApplicationContext(), receiveMsg, Toast.LENGTH_SHORT).show();
             }
@@ -292,5 +295,15 @@ public class RegisterActivity extends AppCompatActivity {
         super.onDestroy();
         //解绑服务
         unbindService(mConnection);
+    }
+    private void showSexDialog() {
+        final String[] sex=getResources().getStringArray(R.array.sex);
+        AlertDialog.Builder builder= new AlertDialog.Builder(this);
+        builder.setItems(sex, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                et_sex.setText(sex[which]);
+            }
+        }).show();
     }
 }
