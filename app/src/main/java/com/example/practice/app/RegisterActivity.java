@@ -20,6 +20,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practice.R;
@@ -29,19 +31,43 @@ import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.view.MCToast;
 
 import java.util.Date;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by AMOBBS on 2016/11/7.
  */
 public class RegisterActivity extends AppCompatActivity {
+    @BindView(R.id.ll_account)
+    LinearLayout ll_account;
+    @BindView(R.id.ll_info)
+    LinearLayout ll_info;
+    @BindView(R.id.iv_headimg)
+    ImageView iv_headimg;
+    @BindView(R.id.et_account)
+    EditText et_account;
+    @BindView(R.id.et_pass)
+    EditText et_pass;
+    @BindView(R.id.et_repass)
+    EditText et_repass;
+    @BindView(R.id.et_nickname)
+    EditText et_nickname;
+    @BindView(R.id.et_sex)
+    TextView et_sex;
+    @BindView(R.id.et_birthday)
+    TextView et_birthday;
+    @BindView(R.id.et_sign)
+    EditText et_sign;
+    @BindView(R.id.bt_next)
+    Button bt_next;
+    @BindView(R.id.bt_register)
+    Button bt_register;
 
-    private EditText et_account;
-    private EditText et_pass;
-    private EditText et_repass;
-    private EditText et_nickname;
-    private ImageView iv_headimg;
     private GridView gridview;
 
     private Intent intent;
@@ -54,6 +80,8 @@ public class RegisterActivity extends AppCompatActivity {
             R.mipmap.ig1, R.mipmap.camera, R.mipmap.folder, R.mipmap.ic_launcher, R.mipmap.music, R.mipmap.picture, R.mipmap.video,
             R.mipmap.i3, R.mipmap.i4,R.mipmap.i5,R.mipmap.i6,R.mipmap.i7, R.mipmap.i8
     };
+    private String account,password,rePassword,nickname,sex,birthday,sign;
+    private int headimg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,13 +97,8 @@ public class RegisterActivity extends AppCompatActivity {
             //显示系统的返回键
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        initView();
         gridview=(GridView)findViewById(R.id.gridview_img);
-        iv_headimg = (ImageView) findViewById(R.id.iv_headimg);
-        et_account = (EditText) findViewById(R.id.et_account);
-        et_pass = (EditText) findViewById(R.id.et_pass);
-        et_repass = (EditText) findViewById(R.id.et_repass);
-        et_nickname = (EditText) findViewById(R.id.et_nickname);
-        Button bt_register = (Button) findViewById(R.id.bt_register);
 
         //默认头像
         SpUtils.putInt(getApplicationContext(),"USER_IMG",mThumbIds[0]);
@@ -119,33 +142,89 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
-        bt_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String account = et_account.getText().toString();
-                String password = et_pass.getText().toString();
-                String rePassword = et_repass.getText().toString();
-                String nickname = et_nickname.getText().toString();
-                int  headimg=SpUtils.getInt(getApplicationContext(),"USER_IMG",0);
-                if (!TextUtils.isEmpty(nickname)) {
-                    if (password.equals(rePassword)) {
-                        Account acc = new Account(account, password, nickname, 0,headimg);
-                        //Log.i("信息", acc.getAccount()+":"+acc.getNickname());
-                        Message msg = new Message(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
-                        sendMsg.sendMessage(msg);
-                    } else {
-                        et_repass.setText("");
-                        Toast.makeText(getApplicationContext(), "两次输入密码不一致", Toast.LENGTH_LONG).show();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "昵称不能为空", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
     }
 
+    /**
+     * 初始化UI
+     */
+    private void initView() {
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.bt_register)
+    public void OnRegisterClick(){
+        headimg=SpUtils.getInt(getApplicationContext(),"USER_IMG",0);
+        nickname = et_nickname.getText().toString();
+        sex=et_sex.getText().toString();
+        birthday=et_birthday.getText().toString();
+        sign=et_sign.getText().toString();
+        if (TextUtils.isEmpty(nickname)){
+            MCToast.show(R.string.no_null_name,getApplicationContext());
+        }
+        else if (headimg==0){
+            MCToast.show(R.string.upload_img,getApplicationContext());
+        }
+        else if (TextUtils.isEmpty(sex)){
+            MCToast.show(R.string.no_null_sex,getApplicationContext());
+        }
+        else if (TextUtils.isEmpty(birthday)){
+            MCToast.show(R.string.no_null_birthday,getApplicationContext());
+        }
+        else if (TextUtils.isEmpty(sign)){
+            MCToast.show(R.string.no_null_sign,getApplicationContext());
+        }
+        else {
+            Account acc = new Account(account, password, nickname, 0,headimg,getSex(sex),birthday,sign);
+            //Log.i("信息", acc.getAccount()+":"+acc.getNickname());
+            Message msg = new Message(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
+            sendMsg.sendMessage(msg);
+            bt_next.setVisibility(View.VISIBLE);
+            ll_account.setVisibility(View.VISIBLE);
+            ll_info.setVisibility(View.GONE);
+            bt_register.setVisibility(View.GONE);
+        }
+    }
+    @OnClick(R.id.bt_next)
+    public void OnNextClick(){
+        account = et_account.getText().toString();
+        password = et_pass.getText().toString();
+        rePassword = et_repass.getText().toString();
+        if (!TextUtils.isEmpty(account)){
+            if (account.substring(0,1)=="0"){
+                et_account.setText("");
+                MCToast.show(R.string.no_0,getApplicationContext());
+            }
+            else if (account.length()!=8){
+                et_account.setText("");
+                MCToast.show(R.string.remind_8,getApplicationContext());
+            }
+        }
+        else if (TextUtils.isEmpty(password)){
+            MCToast.show(R.string.no_null_pass,getApplicationContext());
+        }
+        else if (TextUtils.isEmpty(rePassword)){
+            MCToast.show(R.string.no_null_repass,getApplicationContext());
+        }
+        else if (!TextUtils.isEmpty(rePassword)){
+            if (!password.equals(rePassword)){
+                et_repass.setText("");
+                MCToast.show(R.string.no_same_pass,getApplicationContext());
+            }
+        }
+        else {
+            Account acc = new Account(account, password, nickname, 0,headimg,getSex(sex),birthday,sign);
+            //Log.i("信息", acc.getAccount()+":"+acc.getNickname());
+            Message msg = new Message(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
+            sendMsg.sendMessage(msg);
+            String receiveMsg = intent.getStringExtra("backMsg");
+            if("注册成功".equals(receiveMsg)){
+            bt_next.setVisibility(View.GONE);
+            ll_account.setVisibility(View.GONE);
+            ll_info.setVisibility(View.VISIBLE);
+            bt_register.setVisibility(View.VISIBLE);
+            }
+        }
+    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -180,12 +259,10 @@ public class RegisterActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     /**
      * 获取后台服务ReceiveService发过来的数据
      */
     public class MyBroadcastReceiver extends BroadcastReceiver {
-
         @Override
         public void onReceive(Context context, Intent intent) {
 
@@ -194,12 +271,22 @@ public class RegisterActivity extends AppCompatActivity {
             if("注册成功".equals(receiveMsg)){
                 Toast.makeText(getApplicationContext(), receiveMsg, Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-            }else if("注册失败".equals(receiveMsg)){
+            }else if("账户已存在".equals(receiveMsg)){
+                et_account.setText("");
                 Toast.makeText(getApplicationContext(), receiveMsg, Toast.LENGTH_SHORT).show();
             }
         }
     }
-
+    public int getSex(String a){
+        int  sex =-1;
+        if (a.equals("女")){
+            sex=1;
+        }
+        else if (a.equals("男")){
+            sex=0;
+        }
+        return sex;
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();

@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practice.R;
@@ -35,8 +36,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import java.util.Date;
 
-public class LoginActivity extends AppCompatActivity implements OnClickListener{
-    private Button bt_login;
+public class LoginActivity extends AppCompatActivity {
+    @BindView(R.id.bt_login)
+    Button bt_login;
     @BindView(R.id.et_account)
     EditText usernameEdit;
     @BindView(R.id.et_password)
@@ -45,6 +47,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     Button usernameClearBtn;
     @BindView(R.id.bt_psw_clear)
     Button passwordClearBtn;
+    @BindView(R.id.tv_register)
+    TextView tv_register;
+    @BindView(R.id.tv_nologin)
+    TextView tv_login;
     private Intent intent;
     private ServiceConnection mConnection;
     private ReceiveService.sendBinder sendMsg;
@@ -86,7 +92,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     }
 
     private void initView() {
-        bt_login = (Button) findViewById(R.id.bt_login);
         InputWatcher inputWatcher = new InputWatcher(usernameClearBtn, usernameEdit);
         usernameEdit.addTextChangedListener(inputWatcher);
         inputWatcher =new InputWatcher(passwordClearBtn,passwordEdit);
@@ -119,7 +124,14 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
             sendMsg.sendMessage(msg);
         }
     }
-
+    @OnClick(R.id.tv_nologin)
+    public  void OnNoLoginClick(){
+        MCIntent.sendIntentFromAnimLeft(this, RegisterActivity.class);
+    }
+    @OnClick(R.id.tv_register)
+    public  void OnResgisterClick(){
+        MCIntent.sendIntentFromAnimLeft(this, RegisterActivity.class);
+    }
     private boolean checkInput() {
         account = usernameEdit.getText().toString();
         if (TextUtils.isEmpty(account)) {
@@ -133,19 +145,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
             return false;
         }
         return true;
-    }
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_register:
-                MCIntent.sendIntentFromAnimLeft(this, RegisterActivity.class);
-                break;
-            case R.id.tv_nologin:
-                MCIntent.sendIntentFromAnimLeft(this, RegisterActivity.class);
-                break;
-            default:
-                break;
-        }
     }
 
     /**
