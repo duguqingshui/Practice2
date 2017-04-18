@@ -13,6 +13,9 @@ import com.example.practice.R;
 import com.example.practice.doman.Account;
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +23,9 @@ import java.util.List;
  */
 
 public class AddressBookAdapter extends BaseAdapter {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+    Date date = new Date();
+    int todayTime = Integer.parseInt(sdf.format(date));
     private List<Account> mList;
     public AddressBookAdapter(List<Account> list) {
         mList = list;
@@ -48,6 +54,7 @@ public class AddressBookAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.friends_nickname = (TextView) convertView.findViewById(R.id.friends_nickname);
             holder.friends_sex=(ImageView)convertView.findViewById(R.id.friends_sex);
+            holder.friends_age=(TextView)convertView.findViewById(R.id.friends_age);
             holder.friends_state = (TextView) convertView.findViewById(R.id.friends_state);
             holder.friends_photo= (RoundedImageView) convertView.findViewById(R.id.friends_photo);
             holder.friends_sign=(TextView)convertView.findViewById(R.id.friends_sign);
@@ -60,6 +67,16 @@ public class AddressBookAdapter extends BaseAdapter {
         int state = mList.get(position).getState();
         int headimg=mList.get(position).getHeadimg();
         int sex=mList.get(position).getSex();
+        String birthday=mList.get(position).getBirthday();
+        try {
+            Date date = sdf.parse(birthday);
+            int  selectTime=Integer.parseInt(sdf.format(date));;
+            System.out.println("选择时间："+selectTime);
+            int age=todayTime-selectTime;
+            holder.friends_age.setText(age+"岁");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         String sign=mList.get(position).getSign();
         holder.friends_photo.setImageResource(headimg);
         holder.friends_nickname.setText("昵称： " + name);
