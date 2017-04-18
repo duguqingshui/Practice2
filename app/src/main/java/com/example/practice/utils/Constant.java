@@ -80,7 +80,7 @@ public class Constant {
     public static final int CMD_REGISTER = 2;       //注册
     public static final int CMD_SENDMSG = 3;        //发送消息
     public static final int CMD_GETCHATINFO = 4;    //获取聊天记录
-    public static final int CMD_NOTIFY_NAME = 5;    //修改昵称
+    public static final int CMD_NOTIFY_NAME = 5;    //修改个人信息
     public static final int CMD_GETFRIEND_INFO = 6; //获取好友信息
     public static final int CMD_EXIT = 7;//退出登录
     public static final int CMD_SESSIONRECORD=8; //获取会话记录
