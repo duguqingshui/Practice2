@@ -30,6 +30,8 @@ import com.example.practice.view.MyEditView;
 import com.example.practice.view.MyTimePickerDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -58,6 +60,10 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     EditText edit_user_sign;
     private long todayEndTime;
     private long selectTime;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+    Date date = new Date();
+    int todayTime = Integer.parseInt(sdf.format(date));
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +96,17 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
         user_birthday.setOnClickListener(this);
         //初始化所有的时间
         todayEndTime = TimeUtils.getDateEndTimeFromDate(new Date()).getTime();
+
+        try {
+            Date date = sdf.parse(birthday);
+            int  selectTime=Integer.parseInt(sdf.format(date));;
+            System.out.println("选择时间："+selectTime);
+            int age=todayTime-selectTime;
+            user_age.setText(age+"岁");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -107,8 +124,11 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
                                 MCToast.show("不能选择将来时间哦", UserEditActivity.this);
                             }
                             else {
+                                int  selectTime=Integer.parseInt(sdf.format(date));
+                                int age=todayTime-selectTime;
                                 dialog.dismiss();
                                 user_birthday.setText(TimeUtils.getBirthDay(dialog.getSelTime()));
+                                user_age.setText(age+"岁");
                             }
                         }
                 });
