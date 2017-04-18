@@ -50,7 +50,6 @@ import java.util.List;
 public class AddressBookFragment extends Fragment {
     private View view;
     private ImageView iv_headimg;
-    private GridView gridview;
     private TextView tv_nickname;
     private TextView tv_onlinecount;
     private TextView tv_friendscount;
@@ -67,10 +66,6 @@ public class AddressBookFragment extends Fragment {
     private ArrayList<Account> mOnlineList;//在线集合
     private ArrayList<Account> mUnonlineList;//离线集合
     private ReceiveService.sendBinder sendMsg;
-    public Integer[] mThumbIds={//显示的图片数组
-            R.mipmap.ig1, R.mipmap.camera, R.mipmap.folder, R.mipmap.ic_launcher, R.mipmap.music, R.mipmap.picture, R.mipmap.video,
-            R.mipmap.i3, R.mipmap.i4,R.mipmap.i5,R.mipmap.i6,R.mipmap.i7, R.mipmap.i8
-    };
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //注册广播接收器
@@ -100,30 +95,6 @@ public class AddressBookFragment extends Fragment {
 
         headimg=SpUtils.getInt(getContext().getApplicationContext(),Constant.LOGIN_HEADIMAGE,1);
         iv_headimg.setImageResource(headimg);
-        gridview=(GridView)view.findViewById(R.id.gridview_img);
-        iv_headimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isOrNot==true){
-                    gridview.setVisibility(View.VISIBLE);
-                    isOrNot=false;
-                }else
-                {
-                    gridview.setVisibility(View.GONE);
-                    isOrNot=true;
-                }
-            }
-        });
-        gridview.setAdapter(new ImageAdapter(getContext()));//调用ImageAdapter.java
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener(){//监听事件
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                Toast.makeText(getContext().getApplicationContext(), ""+position,Toast.LENGTH_SHORT).show();//显示信息;
-                iv_headimg.setBackgroundResource(mThumbIds[position]);
-                // SpUtils.putInt(getApplicationContext(),"USER_IMG",mThumbIds[position]);
-                gridview.setVisibility(View.GONE);
-            }
-        });
 
         //响应listview条目点击事件
         lv_friends.setOnItemClickListener(new AdapterView.OnItemClickListener() {

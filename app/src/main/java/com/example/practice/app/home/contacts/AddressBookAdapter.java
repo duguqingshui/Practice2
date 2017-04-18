@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.practice.R;
 import com.example.practice.doman.Account;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;
 
@@ -45,9 +46,11 @@ public class AddressBookAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.activity_friend, null);
             holder = new ViewHolder();
-            holder.tv_nickname = (TextView) convertView.findViewById(R.id.tv_nickname);
-            holder.tv_state = (TextView) convertView.findViewById(R.id.tv_state);
-            holder.iv_photo= (ImageView) convertView.findViewById(R.id.iv_photo);
+            holder.friends_nickname = (TextView) convertView.findViewById(R.id.friends_nickname);
+            holder.friends_sex=(ImageView)convertView.findViewById(R.id.friends_sex);
+            holder.friends_state = (TextView) convertView.findViewById(R.id.friends_state);
+            holder.friends_photo= (RoundedImageView) convertView.findViewById(R.id.friends_photo);
+            holder.friends_sign=(TextView)convertView.findViewById(R.id.friends_sign);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -56,24 +59,35 @@ public class AddressBookAdapter extends BaseAdapter {
         String name = mList.get(position).getNickname();
         int state = mList.get(position).getState();
         int headimg=mList.get(position).getHeadimg();
-        holder.iv_photo.setImageResource(headimg);
-
-        holder.tv_nickname.setText("昵称： " + name);
+        int sex=mList.get(position).getSex();
+        String sign=mList.get(position).getSign();
+        holder.friends_photo.setImageResource(headimg);
+        holder.friends_nickname.setText("昵称： " + name);
+        holder.friends_sign.setText(sign);
         if (state == 1) {
-            holder.tv_state.setText("状态： onLine");
-            holder.tv_nickname.setTextColor(Color.RED);
-            holder.tv_state.setTextColor(Color.RED);
+            holder.friends_state.setText("[onLine]");
+            holder.friends_nickname.setTextColor(Color.RED);
+            holder.friends_state.setTextColor(Color.RED);
         } else {
-            holder.tv_state.setText("状态： offLine");
-            holder.tv_nickname.setTextColor(Color.GRAY);
-            holder.tv_state.setTextColor(Color.GRAY);
+            holder.friends_state.setText("[offLine]");
+            holder.friends_nickname.setTextColor(Color.GRAY);
+            holder.friends_state.setTextColor(Color.GRAY);
+        }
+        if (sex==0){
+            holder.friends_sex.setImageResource(R.drawable.man);
+        }
+        else {
+            holder.friends_sex.setImageResource(R.drawable.woman);
         }
         return convertView;
     }
     class ViewHolder {
-        TextView tv_nickname;
-        TextView tv_state;
-        ImageView iv_photo;
+        TextView friends_nickname;
+        TextView friends_state;
+        RoundedImageView friends_photo;
+        TextView friends_sign;
+        ImageView friends_sex;
+        TextView friends_age;
     }
 }
 
