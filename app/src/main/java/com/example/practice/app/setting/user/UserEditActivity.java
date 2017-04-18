@@ -25,6 +25,7 @@ import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.utils.TimeUtils;
 import com.example.practice.utils.UserEditUtil;
+import com.example.practice.view.MCToast;
 import com.example.practice.view.MyEditView;
 import com.example.practice.view.MyTimePickerDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
@@ -55,11 +56,9 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     TextView user_birthday;
     @BindView(R.id.edit_user_sign)
     EditText edit_user_sign;
-    Date date=new Date();
-    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-    private String selecttime;//选择的时间
-    private String currenttime;//系统时间
-    private MenuItem menuItem;
+    private long todayEndTime;
+    private long selectTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +88,8 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
         edit_user_sign.setText(sign);
         user_sex.setOnClickListener(this);
         user_birthday.setOnClickListener(this);
+        //初始化所有的时间
+        todayEndTime = TimeUtils.getDateEndTimeFromDate(new Date()).getTime();
     }
 
     @Override
@@ -100,9 +101,16 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
 
                     @Override
                     public void onClick(View v) {
-                        dialog.dismiss();
-                        user_birthday.setText(TimeUtils.getBirthDay(dialog.getSelTime()));
-                    }
+                        Date startDate = TimeUtils.getDateFromString(TimeUtils.getBirthDay(dialog.getSelTime()));
+                        selectTime = TimeUtils.getDateStartTimeFromDate(startDate).getTime();
+                            if (selectTime>todayEndTime){
+                                MCToast.show("不能选择将来时间哦", UserEditActivity.this);
+                            }
+                            else {
+                                dialog.dismiss();
+                                user_birthday.setText(TimeUtils.getBirthDay(dialog.getSelTime()));
+                            }
+                        }
                 });
                 break;
             case R.id.user_sex:
@@ -110,21 +118,6 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
                 break;
         }
     }
-
-
-    public String getDateToString(long time) {
-        Date d = new Date(time);
-        selecttime=df.format(d);
-        currenttime=df.format(date);
-        if (compareTime(selecttime,currenttime)<=0){
-            return selecttime;
-        }
-        else {
-            Toast.makeText(getApplicationContext(),"不能选择将来时间", Toast.LENGTH_SHORT).show();
-        }
-        return null;
-    }
-
     private void showSexDialog() {
         final String[] sex=getResources().getStringArray(R.array.sex);
         Builder builder= new Builder(UserEditActivity.this);
@@ -134,25 +127,6 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
                 user_sex.setText(sex[which]);
             }
         }).show();
-    }
-    private int  compareTime(String selecttime, String currenttime){
-        Calendar c1= Calendar.getInstance();
-        Calendar c2= Calendar.getInstance();
-        try
-        {
-            c1.setTime(df.parse(selecttime));
-            c2.setTime(df.parse(currenttime));
-        }catch(java.text.ParseException e){
-            System.err.println("格式不正确");
-        }
-        int result=c1.compareTo(c2);
-        if(result==0)
-            System.out.println("c1相等c2");
-        else if(result<0)
-            System.out.println("c1小于c2");
-        else
-            System.out.println("c1大于c2");
-        return  result;
     }
 
     @Override

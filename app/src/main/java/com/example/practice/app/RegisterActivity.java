@@ -39,6 +39,8 @@ import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
 import com.example.practice.view.MyTimePickerDialog;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -86,6 +88,8 @@ public class RegisterActivity extends AppCompatActivity {
     };
     private String account,password,rePassword,nickname,sex,birthday,sign;
     private int headimg;
+    private long todayEndTime;
+    private long selectTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +157,8 @@ public class RegisterActivity extends AppCompatActivity {
      */
     private void initView() {
         ButterKnife.bind(this);
+        //初始化所有的时间
+        todayEndTime = TimeUtils.getDateEndTimeFromDate(new Date()).getTime();
     }
 
     @OnClick(R.id.bt_register)
@@ -222,8 +228,15 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
-                et_birthday.setText(TimeUtils.getBirthDay(dialog.getSelTime()));
+                Date startDate = TimeUtils.getDateFromString(TimeUtils.getBirthDay(dialog.getSelTime()));
+                selectTime = TimeUtils.getDateStartTimeFromDate(startDate).getTime();
+                if (selectTime>todayEndTime){
+                    MCToast.show("不能选择将来时间哦", RegisterActivity.this);
+                }
+                else {
+                    dialog.dismiss();
+                    et_birthday.setText(TimeUtils.getBirthDay(dialog.getSelTime()));
+                }
             }
         });
     }
@@ -274,7 +287,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), receiveMsg, Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
-            }else if("注册失败".equals(receiveMsg)){
+            }else if("注册失败,账户已存在".equals(receiveMsg)){
                 et_account.setText("");
                 Toast.makeText(getApplicationContext(), receiveMsg, Toast.LENGTH_SHORT).show();
             }
@@ -306,4 +319,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }).show();
     }
+
 }
