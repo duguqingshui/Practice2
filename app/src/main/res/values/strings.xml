@@ -35,6 +35,11 @@
     <string name="no_same_pass">两次输入密码不一致！</string>
     <string name="upload_img">请上传图片</string>
     <string name="user_info">用户信息</string>
+
+    <!--修改密码-->
+    <string name="input_old_pass">请输入旧密码</string>
+    <string name="input_new_pass">请输入新密码</string>
+    <string name="show_pass">显示密码</string>
     <!--Pubic  公用-->
     <string name="send">发送</string>
     <string name="new_user">新用户</string>

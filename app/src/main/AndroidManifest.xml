@@ -60,6 +60,8 @@
         <activity android:name=".app.setting.privateandsafe.gesturelock.GuestureLockActivity"></activity>
         <!--手势锁 重设-->
         <activity android:name=".app.setting.privateandsafe.gesturelock.ResetPwdActivity"></activity>
+        <!--修改密码-->
+        <activity android:name=".app.setting.privateandsafe.changepss.ChangePassActicity"></activity>
         <!--提醒通知-->
         <activity android:name=".app.setting.remind.RemindActivity"></activity>
         <!--流量统计-->

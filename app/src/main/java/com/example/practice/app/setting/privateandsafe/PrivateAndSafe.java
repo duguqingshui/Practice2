@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.practice.R;
+import com.example.practice.app.setting.privateandsafe.changepss.ChangePassActicity;
 import com.example.practice.app.setting.privateandsafe.gesturelock.CreateGestureLockActivity;
 import com.example.practice.view.MCIntent;
 
@@ -40,6 +41,12 @@ public class PrivateAndSafe extends AppCompatActivity {
     @OnClick(R.id.gesture_lock)
     public void OnLockClick(){
         MCIntent.sendIntentFromAnimLeft(this, CreateGestureLockActivity.class);
+        finish();
+    }
+    @OnClick(R.id.change_pass)
+    public void OnChangePassClick(){
+        MCIntent.sendIntentFromAnimLeft(this, ChangePassActicity.class);
+        finish();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
