@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -29,6 +31,11 @@ public class CreateGestureLockActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_gesture);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.show();
+        actionBar.setHomeButtonEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        setTitle(R.string.gesture_lock);
         context=this;
         sp=getSharedPreferences("GuestureLockSP",MODE_PRIVATE);
         pwd = sp.getString("pwd", null);
@@ -63,5 +70,21 @@ public class CreateGestureLockActivity extends AppCompatActivity{
                 }
             }
         });
+    }
+    /**
+     * 点击返回按钮，返回上一个页面
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
