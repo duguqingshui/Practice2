@@ -12,15 +12,22 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.example.practice.R;
+import com.example.practice.app.LoginActivity;
 import com.example.practice.app.home.MainActivity;
 import com.example.practice.app.setting.privateandsafe.gesturelock.CreateGestureLockActivity;
 import com.example.practice.app.setting.user.UserEditActivity;
@@ -36,6 +43,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
 /**
@@ -53,9 +61,7 @@ public class ChangePassActicity extends AppCompatActivity{
     Button newClear;
     @BindView(R.id.submit)
     Button submit;
-    @BindView(R.id.show_pass)
-    CheckBox showPass;
-
+    private CheckBox showPass;
     private Intent intent;
     private ServiceConnection mConnection;
     private ReceiveService.sendBinder sendMsg;
@@ -91,7 +97,26 @@ public class ChangePassActicity extends AppCompatActivity{
 
     private void initView() {
         ButterKnife.bind(this);
+        InputWatcher inputWatcher = new InputWatcher(oldClear, oldPass);
+        oldPass.addTextChangedListener(inputWatcher);
+        inputWatcher =new InputWatcher(newClear,newPass);
+        newPass.addTextChangedListener(inputWatcher);
+        showPass=(CheckBox)findViewById(R.id.show_pass);
         account=SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, null);
+        showPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    //如果选中，显示密码
+                    oldPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    newPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }else{
+                    //否则隐藏密码
+                    oldPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    newPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
     }
     @OnClick(R.id.submit)
     public void OnSubmitCLick(){
@@ -116,6 +141,10 @@ public class ChangePassActicity extends AppCompatActivity{
                 MCToast.show("请输入正确的密码!", ChangePassActicity.this);
             }
         }
+
+    }
+    @OnCheckedChanged(R.id.show_pass)
+    public void OnShowPassClick(){
 
     }
     /**
@@ -164,5 +193,57 @@ public class ChangePassActicity extends AppCompatActivity{
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+    /**
+     * Edit 内容清空
+     */
+    public class InputWatcher implements TextWatcher {
+        private static final String TAG = "InputWatcher" ;
+        private Button mBtnClear;
+        private EditText mEtContainer ;
+
+        /**
+         *
+         * @param btnClear 清空按钮 可以是button的子类
+         * @param etContainer edittext
+         */
+        public InputWatcher(Button btnClear, EditText etContainer) {
+            if (btnClear == null || etContainer == null) {
+                throw new IllegalArgumentException("请确保btnClear和etContainer不为空");
+            }
+            this.mBtnClear = btnClear;
+            this.mEtContainer = etContainer;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (!TextUtils.isEmpty(s)) {
+                if (mBtnClear != null) {
+                    mBtnClear.setVisibility(View.VISIBLE);
+                    mBtnClear.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (mEtContainer != null) {
+                                mEtContainer.getText().clear();
+                            }
+                        }
+                    });
+                }
+            } else {
+                if (mBtnClear != null) {
+                    mBtnClear.setVisibility(View.GONE);
+                }
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
     }
 }
