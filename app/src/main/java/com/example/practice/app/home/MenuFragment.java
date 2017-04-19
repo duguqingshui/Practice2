@@ -91,7 +91,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                     public void onYesClick() {
                         //清空当前账号
                         SpUtils.putString(getContext(),Constant.LOGIN_ACCOUNT, "");
-                        startActivity(new Intent(getActivity(), LoginActivity.class));
+                        MCIntent.sendIntentFromAnimLeft(getActivity(), LoginActivity.class);
                         selfDialog.dismiss();
                     }
 

@@ -35,6 +35,7 @@ import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -104,7 +105,7 @@ public class AddressBookFragment extends Fragment {
                 SpUtils.putString(getContext().getApplicationContext(), Constant.CHAT_NICKNAME, friend_nickname);
                 int friend_headimg=list.get(position).getHeadimg();
                 SpUtils.putInt(getContext().getApplicationContext(), "friend_headimg", friend_headimg);
-                startActivity(new Intent(getContext().getApplicationContext(), ChatActivity.class));
+                MCIntent.sendIntentFromAnimLeft(getActivity(), ChatActivity.class);
             }
         });
     }

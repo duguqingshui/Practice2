@@ -11,10 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practice.R;
+import com.example.practice.app.LoginActivity;
 import com.example.practice.app.home.MainActivity;
 import com.example.practice.app.setting.privateandsafe.gesturelock.utils.Variate;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.Drawl;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.GuestureLockView;
+import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
 
 import butterknife.BindView;
@@ -83,8 +85,7 @@ public class GuestureLockActivity extends Activity {
                             Variate.PASSWORD=null;
                             MCToast.show(R.string.set_pass_lose, context);
                             // 跳回主页面需重新设置密码
-                            Intent intent=new Intent(GuestureLockActivity.this, CreateGestureLockActivity.class);
-                            startActivity(intent);
+                            MCIntent.sendIntentFromAnimLeft(GuestureLockActivity.this, CreateGestureLockActivity.class);
                             finish();
                         }
                     }
@@ -94,8 +95,7 @@ public class GuestureLockActivity extends Activity {
                     hint.setText(R.string.input_new_pass);
                     if(pwd.equals(password)){
                         //如果相同，密码正确，进入”搏击爱好者“页面
-                        Intent intent=new Intent(GuestureLockActivity.this,MainActivity.class);
-                        startActivity(intent);
+                        MCIntent.sendIntentFromAnimLeft(GuestureLockActivity.this, MainActivity.class);
                         finish();
                     }else {
                         //如果不相同，密码错误，刷新当前activity，需重新输入密码

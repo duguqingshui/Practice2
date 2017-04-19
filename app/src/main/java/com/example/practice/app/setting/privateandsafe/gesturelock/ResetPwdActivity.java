@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.practice.R;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.Drawl;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.GuestureLockView;
+import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
 
 
@@ -53,8 +54,7 @@ public class ResetPwdActivity extends Activity {
                 //password是用户输入的密码，如果两个和系统保存的密码一样直接重置
                 if(pwd.equals(password)){
                     sp.edit().putString("pwd","").commit();
-                    Intent intent=new Intent(ResetPwdActivity.this, GuestureLockActivity.class);
-                    startActivity(intent);
+                    MCIntent.sendIntentFromAnimLeft(ResetPwdActivity.this, GuestureLockActivity.class);
                     MCToast.show(R.string.reset_success, context);
                     finish();
                 }else {

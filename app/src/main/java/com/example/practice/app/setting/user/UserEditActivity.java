@@ -29,6 +29,8 @@ import android.widget.Toast;
 
 import com.example.practice.R;
 import com.example.practice.app.home.MainActivity;
+import com.example.practice.app.setting.privateandsafe.gesturelock.CreateGestureLockActivity;
+import com.example.practice.app.setting.privateandsafe.gesturelock.GuestureLockActivity;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
@@ -36,6 +38,7 @@ import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.utils.TimeUtils;
 import com.example.practice.utils.UserEditUtil;
+import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
 import com.example.practice.view.MyEditView;
 import com.example.practice.view.MyTimePickerDialog;
@@ -200,9 +203,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
                 Account acc=new Account(null,null,nickname,0,img,sex,birthday,sign);
                 Message msg = new Message(Constant.CMD_NOTIFY_NAME, acc, null, modifyNickname, new Date(), Constant.CHAT);
                 sendMsg.sendMessage(msg);
-                Intent intent = new Intent();
-                intent.setClass(UserEditActivity.this, MainActivity.class);
-                UserEditActivity.this.startActivity(intent);
+                MCIntent.sendIntentFromAnimLeft(UserEditActivity.this, MainActivity.class);
                 finish();
                 break;
             case android.R.id.home:

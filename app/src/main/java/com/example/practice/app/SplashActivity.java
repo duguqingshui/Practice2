@@ -17,6 +17,7 @@ import com.example.practice.app.setting.privateandsafe.gesturelock.GuestureLockA
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.view.MCIntent;
 
 /**
  * Created by AMOBBS on 2016/11/15.
@@ -64,9 +65,9 @@ public class SplashActivity extends AppCompatActivity {
                 //动画结束后跳转到登录界面
                 account = SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, "");
                 if(!"".equals(account)){
-                    startActivity(new Intent(getApplicationContext(), GuestureLockActivity.class));
+                    MCIntent.sendIntentFromAnimLeft(SplashActivity.this, GuestureLockActivity.class);
                 }else {
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    MCIntent.sendIntentFromAnimLeft(SplashActivity.this, LoginActivity.class);
                 }
                 finish();
             }
@@ -82,16 +83,15 @@ public class SplashActivity extends AppCompatActivity {
         bt_to_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it=new Intent(SplashActivity.this,LoginActivity.class);
-                startActivity(it);
+                MCIntent.sendIntentFromAnimLeft(SplashActivity.this, LoginActivity.class);
                 finish();
             }
         });
         bt_to_newuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MCIntent.sendIntentFromAnimLeft(SplashActivity.this, RegisterActivity.class);
                 Intent it=new Intent(SplashActivity.this,RegisterActivity.class);
-                startActivity(it);
                 finish();
             }
         });

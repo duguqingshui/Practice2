@@ -228,8 +228,7 @@ public class LoginActivity extends AppCompatActivity {
                     SpUtils.putString(getApplicationContext(), Constant.LOGIN_BIRTHDAY, birthday);
                     SpUtils.putString(getApplicationContext(),  Constant.LOGIN_SIGN, sign);
                     //登陆成功，进入主页面
-                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent1);
+                    MCIntent.sendIntentFromAnimLeft(LoginActivity.this, MainActivity.class);
                     finish();
                 }
             }

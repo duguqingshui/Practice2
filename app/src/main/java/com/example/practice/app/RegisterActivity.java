@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.example.practice.R;
 import com.example.practice.adapter.ImageAdapter;
+import com.example.practice.app.home.MainActivity;
 import com.example.practice.app.setting.user.UserEditActivity;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
@@ -285,7 +286,7 @@ public class RegisterActivity extends AppCompatActivity {
             Log.i("收到的消息RegisterActivity", receiveMsg);
             if("注册成功".equals(receiveMsg)){
                 Toast.makeText(getApplicationContext(), receiveMsg, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                MCIntent.sendIntentFromAnimLeft(RegisterActivity.this, LoginActivity.class);
                 finish();
             }else if("注册失败,账户已存在".equals(receiveMsg)){
                 et_account.setText("");

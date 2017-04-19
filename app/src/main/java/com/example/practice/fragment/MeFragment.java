@@ -12,9 +12,12 @@ import com.example.practice.R;
 import com.example.practice.app.setting.nodistrub.NoDistrubActivity;
 import com.example.practice.app.setting.normal.NormalActivity;
 import com.example.practice.app.setting.privateandsafe.PrivateAndSafe;
+import com.example.practice.app.setting.privateandsafe.gesturelock.CreateGestureLockActivity;
+import com.example.practice.app.setting.privateandsafe.gesturelock.GuestureLockActivity;
 import com.example.practice.app.setting.remind.RemindActivity;
 import com.example.practice.app.setting.statistics.StatisticalFlowActivity;
 import com.example.practice.app.setting.user.UserEditActivity;
+import com.example.practice.view.MCIntent;
 import com.example.practice.view.MeItemView;
 
 
@@ -53,8 +56,7 @@ public class MeFragment extends Fragment {
         miv_personal_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),
-                        UserEditActivity.class));
+                MCIntent.sendIntentFromAnimLeft(getActivity(), UserEditActivity.class);
             }
         });
     }
@@ -65,8 +67,7 @@ public class MeFragment extends Fragment {
         miv_personal_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),
-                        RemindActivity.class));
+                MCIntent.sendIntentFromAnimLeft(getActivity(), RemindActivity.class);
             }
         });
     }
@@ -77,8 +78,7 @@ public class MeFragment extends Fragment {
         miv_personal_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),
-                        RemindActivity.class));
+                MCIntent.sendIntentFromAnimLeft(getActivity(), RemindActivity.class);
             }
         });
     }
@@ -89,8 +89,7 @@ public class MeFragment extends Fragment {
         miv_personal_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),
-                        NoDistrubActivity.class));
+                MCIntent.sendIntentFromAnimLeft(getActivity(), NoDistrubActivity.class);
             }
         });
     }
@@ -101,8 +100,7 @@ public class MeFragment extends Fragment {
         miv_personal_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),
-                        PrivateAndSafe.class));
+                MCIntent.sendIntentFromAnimLeft(getActivity(), PrivateAndSafe.class);
             }
         });
     }
@@ -113,8 +111,7 @@ public class MeFragment extends Fragment {
         miv_personal_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),
-                        NormalActivity.class));
+                MCIntent.sendIntentFromAnimLeft(getActivity(), NormalActivity.class);
             }
         });
     }
@@ -125,8 +122,7 @@ public class MeFragment extends Fragment {
         miv_personal_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),
-                        StatisticalFlowActivity.class));
+                MCIntent.sendIntentFromAnimLeft(getActivity(), StatisticalFlowActivity.class);
             }
         });
     }

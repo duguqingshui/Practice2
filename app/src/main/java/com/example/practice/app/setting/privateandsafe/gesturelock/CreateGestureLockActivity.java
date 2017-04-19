@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.practice.R;
+import com.example.practice.app.ChatActivity;
+import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
 
 /**
@@ -52,8 +54,7 @@ public class CreateGestureLockActivity extends AppCompatActivity{
         tvSetPwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(CreateGestureLockActivity.this,GuestureLockActivity.class);
-                startActivity(intent);
+                MCIntent.sendIntentFromAnimLeft(CreateGestureLockActivity.this, GuestureLockActivity.class);
                 finish();
             }
         });
@@ -65,8 +66,7 @@ public class CreateGestureLockActivity extends AppCompatActivity{
                 if(TextUtils.isEmpty(pwd)){
                     MCToast.show(R.string.before_set_pass, context);
                 }else {
-                    Intent intent=new Intent(CreateGestureLockActivity.this, ResetPwdActivity.class);
-                    startActivity(intent);
+                    MCIntent.sendIntentFromAnimLeft(CreateGestureLockActivity.this, ResetPwdActivity.class);
                 }
             }
         });

@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
         }
         clickMenu(addressbook);
         //获取当前登录的账号和昵称
-        account = SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, "");
-        nickname = SpUtils.getString(getApplicationContext(), Constant.LOGIN_NICKNAME, "");
+        account = SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, null);
+        nickname = SpUtils.getString(getApplicationContext(), Constant.LOGIN_NICKNAME, null);
 
         //绑定服务
         intent = new Intent(this, ReceiveService.class);
@@ -211,5 +211,17 @@ public class MainActivity extends AppCompatActivity {
         //解绑服务
         unbindService(mConnection);
         //localBroadcastManager.unregisterReceiver(mReceiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String state=SpUtils.getString(getApplicationContext(),Constant.LOGIN_ACCOUNT, null);
+        if (state.equals("")){
+            Account acc = new Account(account, null, nickname, 1);
+            Message msg = new Message(Constant.CMD_EXIT, acc, null, nickname, new Date(), Constant.CHAT);
+            sendMsg.sendMessage(msg);
+        }
+
     }
 }
