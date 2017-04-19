@@ -210,32 +210,37 @@ public class LoginActivity extends AppCompatActivity {
             String receiveMsg = intent.getStringExtra("backMsg");
             Log.i("收到的消息LoginActivity123", receiveMsg);
             String nickname = receiveMsg.split(",")[0];
-            Toast.makeText(getApplicationContext(), receiveMsg.split(",")[5], Toast.LENGTH_SHORT).show();
-
-            if("登录成功".equals(receiveMsg.split(",")[5])){
-                String headinmg = receiveMsg.split(",")[1];
-                int img = Integer.parseInt(headinmg);
-                String loginsex= receiveMsg.split(",")[2];
-                int sex= Integer.parseInt(loginsex);
-                String birthday= receiveMsg.split(",")[3];
-                String sign= receiveMsg.split(",")[4];
-                //记录用户个人信息
-                SpUtils.putString(getApplicationContext(), Constant.LOGIN_ACCOUNT, account);
-                SpUtils.putString(getApplicationContext(), Constant.LOGIN_PASSWORD, password);
-                SpUtils.putString(getApplicationContext(), Constant.LOGIN_NICKNAME, nickname);
-                SpUtils.putInt(getApplicationContext(),  Constant.LOGIN_HEADIMAGE, img);
-                SpUtils.putInt(getApplicationContext(), Constant.LOGIN_SEX, sex);
-                SpUtils.putString(getApplicationContext(), Constant.LOGIN_BIRTHDAY, birthday);
-                SpUtils.putString(getApplicationContext(),  Constant.LOGIN_SIGN, sign);
-                //登陆成功，进入主页面
-                Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent1);
-                finish();
-            }else if("密码错误".equals(receiveMsg.split(",")[2])){
-                passwordEdit.setText("");
-            }else if("你还没有账号请注册...".equals(receiveMsg.split(",")[2])){
-                usernameEdit.setText("");
-                passwordEdit.setText("");
+            if (receiveMsg.split(",").length>5){
+                Toast.makeText(getApplicationContext(), receiveMsg.split(",")[5], Toast.LENGTH_SHORT).show();
+                if("登录成功".equals(receiveMsg.split(",")[5])){
+                    String headinmg = receiveMsg.split(",")[1];
+                    int img = Integer.parseInt(headinmg);
+                    String loginsex= receiveMsg.split(",")[2];
+                    int sex= Integer.parseInt(loginsex);
+                    String birthday= receiveMsg.split(",")[3];
+                    String sign= receiveMsg.split(",")[4];
+                    //记录用户个人信息
+                    SpUtils.putString(getApplicationContext(), Constant.LOGIN_ACCOUNT, account);
+                    SpUtils.putString(getApplicationContext(), Constant.LOGIN_PASSWORD, password);
+                    SpUtils.putString(getApplicationContext(), Constant.LOGIN_NICKNAME, nickname);
+                    SpUtils.putInt(getApplicationContext(),  Constant.LOGIN_HEADIMAGE, img);
+                    SpUtils.putInt(getApplicationContext(), Constant.LOGIN_SEX, sex);
+                    SpUtils.putString(getApplicationContext(), Constant.LOGIN_BIRTHDAY, birthday);
+                    SpUtils.putString(getApplicationContext(),  Constant.LOGIN_SIGN, sign);
+                    //登陆成功，进入主页面
+                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent1);
+                    finish();
+                }
+            }
+            else if (receiveMsg.split(",").length==2){
+                Toast.makeText(getApplicationContext(), receiveMsg.split(",")[1], Toast.LENGTH_SHORT).show();
+                if("密码错误".equals(receiveMsg.split(",")[1])){
+                    passwordEdit.setText("");
+                }else if("你还没有账号请注册...".equals(receiveMsg.split(",")[1])){
+                    usernameEdit.setText("");
+                    passwordEdit.setText("");
+                }
             }
         }
     }
