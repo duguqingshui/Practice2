@@ -34,7 +34,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
     TextView tv_username;
     TextView Personalizedsignature;
     TextView my_album;
-    TextView my_wallet;
     TextView exchange_skin;
     TextView my_expression;
     TextView aboutButton;
@@ -55,14 +54,12 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         tv_username=(TextView) view.findViewById(R.id.tv_username);
         Personalizedsignature=(TextView)view.findViewById(R.id.Personalizedsignature);
         my_album=(TextView)view.findViewById(R.id.my_album);
-        my_wallet=(TextView)view.findViewById(R.id.my_wallet);
         exchange_skin=(TextView)view.findViewById(R.id.exchange_skin);
         aboutButton=(TextView)view.findViewById(R.id.aboutButton);
         exitButton=(TextView)view.findViewById(R.id.exitButton);
         my_game=(TextView)view.findViewById(R.id.my_game);
         my_game.setOnClickListener(this);
          my_album.setOnClickListener(this);
-         my_wallet.setOnClickListener(this);
          exchange_skin.setOnClickListener(this);
          aboutButton.setOnClickListener(this);
          exitButton.setOnClickListener(this);

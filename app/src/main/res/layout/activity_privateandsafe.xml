@@ -25,12 +25,14 @@
 
     <View style="@style/style_listDivider" />
     <TextView
+        android:id="@+id/gesture_lock"
         android:background="@color/white"
         style="@style/txt_normal"
         android:text="@string/gesture_lock"/>
     <View style="@style/style_listDivider" />
 
     <TextView
+        android:id="@+id/change_pass"
         android:background="@color/white"
         style="@style/txt_normal"
         android:text="@string/change_pass"/>

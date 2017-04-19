@@ -90,19 +90,6 @@
                 android:text="@string/my_album"
                 android:background="@color/transparent"
                 />
-
-            <TextView
-                android:id="@+id/my_wallet"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/wallet"
-                android:drawableRight="@drawable/setting_arrow"
-                android:gravity="center"
-                android:padding="@dimen/margin_boundary"
-                android:text="@string/my_wallet"
-                android:textSize="@dimen/size18"
-                android:background="@color/transparent"
-                />
             <TextView
                 android:id="@+id/exchange_skin"
                 android:layout_width="match_parent"
