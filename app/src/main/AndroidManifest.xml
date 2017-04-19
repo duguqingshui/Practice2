@@ -54,8 +54,6 @@
         <!--手势锁-->
         <!--手势锁 开始页面-->
         <activity android:name=".app.setting.privateandsafe.gesturelock.CreateGestureLockActivity"></activity>
-        <!--手势锁 输入后 跳转页面-->
-        <activity android:name=".app.setting.privateandsafe.gesturelock.BoJiAiHaoZheActivity"></activity>
         <!--手势锁 设置页面-->
         <activity android:name=".app.setting.privateandsafe.gesturelock.GuestureLockActivity"></activity>
         <!--手势锁 重设-->

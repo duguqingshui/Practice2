@@ -7,20 +7,26 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practice.R;
+import com.example.practice.app.home.MainActivity;
 import com.example.practice.app.setting.privateandsafe.gesturelock.utils.ToastUtils;
 import com.example.practice.app.setting.privateandsafe.gesturelock.utils.Variate;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.Drawl;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.GuestureLockView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
  * Created by Administrator on 2016/5/29 0029.
  */
 public class GuestureLockActivity extends Activity {
-
+    @BindView(R.id.hint)
+    TextView hint;
     Context context;
 
     private FrameLayout mFrameLayout;
@@ -43,7 +49,7 @@ public class GuestureLockActivity extends Activity {
     }
 
     private void initView() {
-
+        ButterKnife.bind(this);
         mFrameLayout= (FrameLayout) findViewById(R.id.framelayout);
 
         mGuestureLockView=new GuestureLockView(context, new Drawl.GestureCallBack() {
@@ -52,12 +58,14 @@ public class GuestureLockActivity extends Activity {
 
                 //首先判断一下用户是否已经设置密码
                 if(TextUtils.isEmpty(pwd)){
+                    hint.setText("第一次设置密码");
                     //如果为空，代码没有设置密码，需要设置新的密码；
                     // 设置新密码需要设置两遍，防止用户误操作；
                     // 第一遍设置的新密码保存在Variate类的一个变量中，这个变量默认为null
                     if(TextUtils.isEmpty(Variate.PASSWORD)){
                         //如果这个变量为null，第一次将密码保存在Variate.PASSWORD提示再次输入密码，
                         Variate.PASSWORD=password;
+                        hint.setText("请再次输入密码");
                         ToastUtils.showToast(context,"请再次输入密码");
                         // 并且刷新当前页面
                         refresh();
@@ -67,6 +75,7 @@ public class GuestureLockActivity extends Activity {
                             //如果相同，将密码保存在当地sp中
                             sp.edit().putString("pwd",password).commit();
                             // 进入主页面，点击输入密码，输入设置的密码进入“搏击爱好者”页面
+                            hint.setText("请输入新密码");
                             ToastUtils.showToast(context,"密码设置成功，请输入新密码");
                             refresh();
                         }else {
@@ -75,7 +84,6 @@ public class GuestureLockActivity extends Activity {
                             ToastUtils.showToast(context,"密码设置失败");
                             // 跳回主页面需重新设置密码
                             Intent intent=new Intent(GuestureLockActivity.this, CreateGestureLockActivity.class);
-
                             startActivity(intent);
                             finish();
                         }
@@ -83,10 +91,10 @@ public class GuestureLockActivity extends Activity {
 
                 }else{
                     //如果已经设置密码，判断输入密码和保存密码是否相同
-
+                    hint.setText("请输入新密码");
                     if(pwd.equals(password)){
                         //如果相同，密码正确，进入”搏击爱好者“页面
-                        Intent intent=new Intent(GuestureLockActivity.this,BoJiAiHaoZheActivity.class);
+                        Intent intent=new Intent(GuestureLockActivity.this,MainActivity.class);
                         startActivity(intent);
                         finish();
                     }else {

@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 
 import com.example.practice.R;
 import com.example.practice.app.home.MainActivity;
+import com.example.practice.app.setting.privateandsafe.gesturelock.GuestureLockActivity;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
@@ -63,7 +64,7 @@ public class SplashActivity extends AppCompatActivity {
                 //动画结束后跳转到登录界面
                 account = SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, "");
                 if(!"".equals(account)){
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), GuestureLockActivity.class));
                 }else {
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 }

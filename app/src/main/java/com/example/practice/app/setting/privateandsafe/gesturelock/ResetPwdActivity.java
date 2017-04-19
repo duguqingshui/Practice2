@@ -43,7 +43,7 @@ public class ResetPwdActivity extends Activity {
         //系统保存的密码
         pwd = sp.getString("pwd",null);
 
-        mTextView= (TextView) findViewById(R.id.textview);
+        mTextView= (TextView) findViewById(R.id.hint);
         mTextView.setText("重置密码，请输入密码校验");
 
         mFrameLayout= (FrameLayout) findViewById(R.id.framelayout);

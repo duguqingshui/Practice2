@@ -17,8 +17,8 @@
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:id="@+id/textview"
+        android:id="@+id/hint"
         android:layout_margin="10dp"
-        android:text="搏击爱好者"/>
+        android:text="请输入密码"/>
 
 </RelativeLayout>
