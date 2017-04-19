@@ -4,14 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.practice.R;
-import com.example.practice.app.setting.privateandsafe.gesturelock.utils.ToastUtils;
+import com.example.practice.view.MCToast;
 
 /**
  * Created by AMOBBS on 2017/4/19.
@@ -38,9 +37,9 @@ public class CreateGestureLockActivity extends AppCompatActivity{
         tvResetPwd= (TextView) findViewById(R.id.tv2);
 
         if(TextUtils.isEmpty(pwd)){
-            tvSetPwd.setText("设置密码");
+            tvSetPwd.setText(R.string.set_lock);
         }else {
-            tvSetPwd.setText("输入密码");
+            tvSetPwd.setText(R.string.input_psw);
         }
 
         tvSetPwd.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +56,7 @@ public class CreateGestureLockActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(pwd)){
-                    ToastUtils.showToast(context,"请先设置密码");
+                    MCToast.show(R.string.before_set_pass, context);
                 }else {
                     Intent intent=new Intent(CreateGestureLockActivity.this, ResetPwdActivity.class);
                     startActivity(intent);

@@ -9,9 +9,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.practice.R;
-import com.example.practice.app.setting.privateandsafe.gesturelock.utils.ToastUtils;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.Drawl;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.GuestureLockView;
+import com.example.practice.view.MCToast;
 
 
 /**
@@ -44,7 +44,7 @@ public class ResetPwdActivity extends Activity {
         pwd = sp.getString("pwd",null);
 
         mTextView= (TextView) findViewById(R.id.hint);
-        mTextView.setText("重置密码，请输入密码校验");
+        mTextView.setText(R.string.reset_check);
 
         mFrameLayout= (FrameLayout) findViewById(R.id.framelayout);
         mGuestureLockView=new GuestureLockView(context,  new Drawl.GestureCallBack() {
@@ -55,10 +55,10 @@ public class ResetPwdActivity extends Activity {
                     sp.edit().putString("pwd","").commit();
                     Intent intent=new Intent(ResetPwdActivity.this, GuestureLockActivity.class);
                     startActivity(intent);
-                    ToastUtils.showToast(context,"密码重置成功，请设置新密码");
+                    MCToast.show(R.string.reset_success, context);
                     finish();
                 }else {
-                    ToastUtils.showToast(context,"密码不正确，重置失败");
+                    MCToast.show(R.string.reset_lose, context);
                     refresh();
                 }
             }

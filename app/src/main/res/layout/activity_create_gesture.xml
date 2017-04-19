@@ -2,6 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gesture_lock"
+        android:layout_gravity="center_horizontal"/>
     <TextView
         android:layout_margin="8dp"
         android:id="@+id/tv"
@@ -9,7 +15,7 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="设置密码"
+        android:text="@string/set_lock"
         android:padding="8dp"/>
 
     <TextView
@@ -19,6 +25,6 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="重置密码"
+        android:text="@string/reset_lock"
         android:padding="8dp"/>
 </LinearLayout>
