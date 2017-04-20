@@ -152,6 +152,7 @@
         <item>女</item>
     </string-array>
     <!-- 游戏-->
+    <string name="geme">游戏</string>
     <string name="luackyPan">幸运转盘</string>
     <string name="Wuziqi">五子棋</string>
     <!--关于-->

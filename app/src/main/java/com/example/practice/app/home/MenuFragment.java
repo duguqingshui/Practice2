@@ -1,4 +1,4 @@
-package com.example.practice.app.home.setting;
+package com.example.practice.app.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import com.example.practice.app.LoginActivity;
 import com.example.practice.app.menu.album.AblumActivity;
 import com.example.practice.app.menu.exchangeskin.ExchangeSkinActicity;
 import com.example.practice.app.menu.about.AboutActivity;
+import com.example.practice.app.menu.game.GameActivity;
 import com.example.practice.app.menu.game.luckypan.LuckpanActivity;
 import com.example.practice.app.menu.game.wuziqi.WuziqiActivity;
 import com.example.practice.utils.Constant;
@@ -76,7 +77,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                 MCIntent.sendIntentFromAnimLeft(getActivity(), ExchangeSkinActicity.class);
                 break;
             case R.id.my_game:
-                MCIntent.sendIntentFromAnimLeft(getActivity(), LuckpanActivity.class);
+                MCIntent.sendIntentFromAnimLeft(getActivity(), GameActivity.class);
                 break;
             case R.id.aboutButton:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), AboutActivity.class);

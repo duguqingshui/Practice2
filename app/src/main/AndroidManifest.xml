@@ -39,6 +39,7 @@
         <!--关于 -->
         <activity android:name=".app.menu.about.AboutActivity"></activity>
         <!--游戏 -->
+        <activity android:name=".app.menu.game.GameActivity"></activity>
         <!--抽奖转盘 -->
         <activity android:name=".app.menu.game.luckypan.LuckpanActivity"></activity>
         <!-- 五子棋-->

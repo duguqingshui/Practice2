@@ -16,7 +16,6 @@ import android.widget.RadioButton;
 
 import com.example.practice.R;
 import com.example.practice.app.home.contacts.AddressBookFragment;
-import com.example.practice.app.home.setting.MenuFragment;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
 import com.example.practice.app.home.sessionrecord.SessionRecordFragment;
