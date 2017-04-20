@@ -44,6 +44,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by AMOBBS on 2017/2/7.
  */
@@ -67,6 +70,7 @@ public class AddressBookFragment extends Fragment {
     private ArrayList<Account> mOnlineList;//在线集合
     private ArrayList<Account> mUnonlineList;//离线集合
     private ReceiveService.sendBinder sendMsg;
+    private TextView title;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //注册广播接收器
@@ -81,11 +85,15 @@ public class AddressBookFragment extends Fragment {
     }
 
     private void initView() {
+        ButterKnife.bind(getActivity());
+        title=(TextView)view.findViewById(R.id.tv_title);
         ll_info = (LinearLayout)view.findViewById(R.id.ll_info);
         tv_nickname = (TextView)view.findViewById(R.id.tv_nickname);
         tv_onlinecount = (TextView)view.findViewById(R.id.tv_onlinecount);
         tv_friendscount = (TextView)view.findViewById(R.id.tv_friendscount);
         lv_friends = (ListView)view. findViewById(R.id.lv_friends);
+
+        title.setText(R.string.addressBook);
 
         //获取当前登录的账号和昵称
         account = SpUtils.getString(getContext().getApplicationContext(), Constant.LOGIN_ACCOUNT, "");

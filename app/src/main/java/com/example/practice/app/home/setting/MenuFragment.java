@@ -1,4 +1,4 @@
-package com.example.practice.app.home;
+package com.example.practice.app.home.setting;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -16,10 +16,10 @@ import android.widget.RadioButton;
 
 import com.example.practice.R;
 import com.example.practice.app.home.contacts.AddressBookFragment;
+import com.example.practice.app.home.setting.MenuFragment;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Message;
 import com.example.practice.app.home.sessionrecord.SessionRecordFragment;
-import com.example.practice.fragment.MeFragment;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;

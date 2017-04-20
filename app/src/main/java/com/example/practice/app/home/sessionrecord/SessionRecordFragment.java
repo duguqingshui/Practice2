@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -33,6 +34,8 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+
 /**
  * Created by AMOBBS on 2017/2/7.
  */
@@ -45,10 +48,13 @@ public class SessionRecordFragment extends Fragment {
     private View view;
     private LocalBroadcastManager localBroadcastManager;
     private MyBroadcastReceiver mReceiver;
+    TextView title;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_chatrecord, container, false);
+        title=(TextView)view.findViewById(R.id.tv_title);
+        title.setText(R.string.message);
         mSwipeListView = (SwipeListView)view.findViewById(R.id.id_swipelistview);
 
         mAdapter = new DataAdapter(getContext(), mDatas , mSwipeListView);

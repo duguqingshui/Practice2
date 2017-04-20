@@ -1,4 +1,4 @@
-package com.example.practice.fragment;
+package com.example.practice.app.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.practice.R;
 import com.example.practice.app.setting.nodistrub.NoDistrubActivity;
@@ -20,6 +21,9 @@ import com.example.practice.app.setting.user.UserEditActivity;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.MeItemView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 /**
  * Created by AMOBBS on 2017/2/7.
@@ -27,11 +31,14 @@ import com.example.practice.view.MeItemView;
 
 public class MeFragment extends Fragment {
     private View view;
-
+    TextView title;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_me, container, false);
+        ButterKnife.bind(getActivity());
+        title=(TextView)view.findViewById(R.id.tv_title);
+        title.setText(R.string.setting);
         //1 个人信息
         initPersonal_info();
         //2. 消息提醒
