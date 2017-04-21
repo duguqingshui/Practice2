@@ -51,6 +51,9 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initUI() {
+        int user_img=SpUtils.getInt(getActivity(),Constant.LOGIN_HEADIMAGE,1);
+        String user_name=SpUtils.getString(getActivity(),Constant.LOGIN_NICKNAME,null);
+        String usre_sign=SpUtils.getString(getActivity(),Constant.LOGIN_SIGN,null);
         ri_user_image=(RoundedImageView)view.findViewById(R.id.ri_user_image);
         tv_username=(TextView) view.findViewById(R.id.tv_username);
         Personalizedsignature=(TextView)view.findViewById(R.id.Personalizedsignature);
@@ -59,6 +62,9 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         aboutButton=(TextView)view.findViewById(R.id.aboutButton);
         exitButton=(TextView)view.findViewById(R.id.exitButton);
         my_game=(TextView)view.findViewById(R.id.my_game);
+        Personalizedsignature.setText(usre_sign);
+        ri_user_image.setImageResource(user_img);
+        tv_username.setText(user_name);
         my_game.setOnClickListener(this);
          my_album.setOnClickListener(this);
          exchange_skin.setOnClickListener(this);
