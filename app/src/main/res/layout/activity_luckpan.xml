@@ -56,26 +56,19 @@
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <TextView
-                android:text="奖品1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                android:background="@drawable/earphone"
+                style="@style/textview_luckpan"
                 android:id="@+id/tv1"/>
             <TextView
-                android:text="奖品2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                android:background="@drawable/ipad"
+                style="@style/textview_luckpan"
                 android:id="@+id/tv2"/>
+
             <TextView
-                android:text="奖品3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:id="@+id/tv3"/>
+                android:id="@+id/tv3"
+                style="@style/textview_luckpan"
+                android:background="@drawable/thank"
+                />
 
         </LinearLayout>
         <LinearLayout
@@ -84,26 +77,17 @@
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <TextView
-                android:text="奖品8"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:gravity="center"
+                android:background="@drawable/schoolbow"
+                style="@style/textview_luckpan"
                 android:id="@+id/tv8"/>
             <TextView
-                android:textSize="20sp"
-                android:layout_weight="1"
+                style="@style/textview_luckpan"
                 android:text="开始抽奖"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:id="@+id/tvStart"/>
+                android:id="@+id/tvStart"
+                android:background="@color/color_red"/>
             <TextView
-                android:text="奖品4"
-                android:layout_weight="1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="center"
+                android:text="@string/GBA5"
+                style="@style/textview_luckpan"
                 android:id="@+id/tv4"/>
         </LinearLayout>
         <LinearLayout
@@ -112,25 +96,19 @@
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <TextView
-                android:text="奖品7"
-                android:layout_weight="1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="center"
+                android:background="@drawable/thank"
+                style="@style/textview_luckpan"
                 android:id="@+id/tv7"/>
             <TextView
-                android:text="奖品6"
-                android:layout_weight="1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="center"
+                android:text="@string/GBA10"
+                android:textColor="@color/bg_statusBar"
+                style="@style/textview_luckpan"
                 android:id="@+id/tv6"/>
             <TextView
                 android:layout_weight="1"
-                android:text="奖品5"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="center"
+                android:text="@string/GBA50"
+                android:textColor="@color/color_red"
+                style="@style/textview_luckpan"
                 android:id="@+id/tv5"/>
 
         </LinearLayout>

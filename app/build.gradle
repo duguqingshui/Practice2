@@ -3,6 +3,10 @@ apply plugin: 'android-apt'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
+    aaptOptions{
+        cruncherEnabled=false
+        useNewCruncher=false;
+    }
     defaultConfig {
         applicationId "com.example.practice"
         minSdkVersion 15

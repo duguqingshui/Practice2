@@ -8,11 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.practice.R;
-import com.example.practice.app.menu.game.luckypan.view.LuckyPanView;
 
 import java.util.LinkedList;
 import java.util.List;
