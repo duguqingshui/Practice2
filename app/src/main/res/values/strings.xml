@@ -154,6 +154,8 @@
     <!-- 游戏-->
     <string name="geme">游戏</string>
     <string name="luackyPan">幸运转盘</string>
+    <string name="GBA">积分</string>
+    <string name="prize">奖品</string>
     <string name="Wuziqi">五子棋</string>
     <!--关于-->
     <string name="string_about">关于微聊</string>
