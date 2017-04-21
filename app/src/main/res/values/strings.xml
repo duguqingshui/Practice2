@@ -156,6 +156,14 @@
     <string name="luackyPan">幸运转盘</string>
     <string name="GBA">积分</string>
     <string name="prize">奖品</string>
+    <string name="thank">谢谢参与</string>
+    <string name="GBA5">5点积分</string>
+    <string name="GBA10">10点积分</string>
+    <string name="GBA50">50点积分</string>
+    <string name="schoolbag">儿童书包一个</string>
+    <string name="earphone">耳机</string>
+    <string name="ipad">iPad</string>
+    <string name="very_thank">非常感谢你的参与！</string>
     <string name="Wuziqi">五子棋</string>
     <!--关于-->
     <string name="string_about">关于微聊</string>

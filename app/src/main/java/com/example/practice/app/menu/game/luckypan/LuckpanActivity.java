@@ -61,6 +61,11 @@ public class LuckpanActivity extends AppCompatActivity{
         tv6 = (TextView) findViewById(R.id.tv6);
         tv7 = (TextView) findViewById(R.id.tv7);
         tv8 = (TextView) findViewById(R.id.tv8);
+        tv1.setText(R.string.earphone);
+        tv2.setText(R.string.ipad);
+        tv3.setText(R.string.thank);
+        tv7.setText(R.string.thank);
+        tv8.setText(R.string.schoolbag);
         tvStart = (TextView) findViewById(R.id.tvStart);
         tvNotice = (TextView) findViewById(R.id.tv_notice);
         views.add(tv1);
@@ -155,7 +160,11 @@ public class LuckpanActivity extends AppCompatActivity{
             if (runCount==0&&lightPosition==8){
                 tvStart.setClickable(true);
                 tvStart.setEnabled(true);
-                tvNotice.setText("恭喜你抽中: "+views.get(lunckyPosition).getText().toString());
+                if (views.get(lunckyPosition).getText().toString().equals(R.string.thank)){
+                    tvNotice.setText(R.string.very_thank);
+                }else {
+                    tvNotice.setText("恭喜你抽中: "+views.get(lunckyPosition).getText().toString());
+                }
                 if (lunckyPosition!=views.size())
                     tvLast.setBackgroundColor(Color.TRANSPARENT);
 
