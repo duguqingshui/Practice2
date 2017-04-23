@@ -91,6 +91,18 @@
                 android:background="@color/transparent"
                 />
             <TextView
+                android:id="@+id/my_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/picture"
+                android:drawableRight="@drawable/setting_arrow"
+                android:gravity="center"
+                android:padding="@dimen/margin_boundary"
+                android:textSize="@dimen/size18"
+                android:text="@string/my_wallet"
+                android:background="@color/transparent"
+                />
+            <TextView
                 android:id="@+id/exchange_skin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

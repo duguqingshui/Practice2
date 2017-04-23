@@ -17,6 +17,7 @@ import com.example.practice.app.menu.about.AboutActivity;
 import com.example.practice.app.menu.game.GameActivity;
 import com.example.practice.app.menu.game.luckypan.LuckpanActivity;
 import com.example.practice.app.menu.game.wuziqi.WuziqiActivity;
+import com.example.practice.app.menu.wallet.WalletActivity;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
@@ -37,6 +38,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
     TextView my_album;
     TextView exchange_skin;
     TextView my_expression;
+    TextView my_wallet;
     TextView aboutButton;
     TextView exitButton;
     TextView my_game;
@@ -62,9 +64,11 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         aboutButton=(TextView)view.findViewById(R.id.aboutButton);
         exitButton=(TextView)view.findViewById(R.id.exitButton);
         my_game=(TextView)view.findViewById(R.id.my_game);
+        my_wallet=(TextView)view.findViewById(R.id.my_wallet);
         Personalizedsignature.setText(usre_sign);
         ri_user_image.setImageResource(user_img);
         tv_username.setText(user_name);
+        my_wallet.setOnClickListener(this);
         my_game.setOnClickListener(this);
          my_album.setOnClickListener(this);
          exchange_skin.setOnClickListener(this);
@@ -82,6 +86,9 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
             case R.id.exchange_skin:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), ExchangeSkinActicity.class);
                 break;
+            case R.id.my_wallet:
+                MCIntent.sendIntentFromAnimLeft(getActivity(), WalletActivity.class);
+
             case R.id.my_game:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), GameActivity.class);
                 break;
