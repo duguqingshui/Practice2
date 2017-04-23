@@ -93,7 +93,6 @@
                 style="@style/textview_luckpan"
                 android:id="@+id/tv1"/>
             <TextView
-                android:background="@drawable/ipad"
                 style="@style/textview_luckpan"
                 android:id="@+id/tv2"/>
 
