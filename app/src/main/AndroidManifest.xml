@@ -34,6 +34,8 @@
         <!--侧边菜单 -->
         <!--我的相册 -->
         <activity android:name=".app.menu.album.AblumActivity"></activity>
+        <!--我的钱包 -->
+        <activity android:name=".app.menu.wallet.WalletActivity"></activity>
         <!--换肤-->
         <activity android:name=".app.menu.exchangeskin.ExchangeSkinActicity"></activity>
         <!--关于 -->

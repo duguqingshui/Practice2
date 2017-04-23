@@ -11,7 +11,8 @@
         android:layout_height="70dp"
         android:background="@color/main_color"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
 
         <RadioButton
             android:id="@+id/rb_message"

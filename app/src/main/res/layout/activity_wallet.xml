@@ -1,17 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/my_wallet"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+     >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/wallet"
-        android:drawableRight="@drawable/setting_arrow"
+        android:layout_height="180dp"
+        >
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@id/vpager"
+        android:background="#80000000"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="新闻的介绍，哈哈哈哈哈哈"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_point"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+        </LinearLayout>
+        <GridView
+            android:id="@+id/gv_home"
+            android:numColumns="3"
+            android:verticalSpacing="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></GridView>
+    </LinearLayout>
+    <RadioGroup
+        android:id="@+id/rg_group"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/main_color"
         android:gravity="center"
-        android:padding="@dimen/margin_boundary"
-        android:text="@string/my_wallet"
-        android:textSize="@dimen/size18"
-        android:background="@color/transparent"
-        />
-</LinearLayout>
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <RadioButton
+            android:id="@+id/rb_message"
+            style="@style/Bottom_Tab_Style"
+            android:drawableTop="@drawable/tab_message_selector"
+            android:text="账户"
+            android:onClick="clickMenu"
+            />
+        <RadioButton
+            android:id="@+id/rb_addressbook"
+            style="@style/Bottom_Tab_Style"
+            android:drawableTop="@drawable/tab_addressbook_selector"
+            android:text="卡卷"
+            android:onClick="clickMenu"
+            android:checked="true"
+            />
+        <RadioButton
+            android:id="@+id/rb_setting"
+            style="@style/Bottom_Tab_Style"
+            android:drawableTop="@drawable/tab_me_selector"
+            android:text="付款码"
+            android:onClick="clickMenu"
+            />
+    </RadioGroup>
+
+
+</RelativeLayout>
