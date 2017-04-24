@@ -165,18 +165,18 @@
     <string name="ipad">iPad</string>
     <string name="very_thank">非常感谢你的参与！</string>
     <string name="rule_gba">积分规则</string>
-    <string name="rule_gba_content">1、每天消耗积分获得一次抽奖机会；
-2、每天有五次次抽奖机会，满足任意一个条件都可以参加抽奖，但单个Q号每台机器每个条件每天仅限一次；
-3、打开管家个人中心，即可进行抽奖：</string>
+    <string name="rule_gba_content">1、在本软件消费可以获得积分。2、新用户免费拥有一次抽奖机会。3、积分每年最后一天清空。
+    </string>
     <string name="rule_draw">抽奖规则</string>
-    <string name="rule_draw_content">1、每天消耗积分获得一次抽奖机会；
-2、每天有五次次抽奖机会，满足任意一个条件都可以参加抽奖，但单个Q号每台机器每个条件每天仅限一次；
-3、打开管家个人中心，即可进行抽奖：</string>
+    <string name="rule_draw_content">1、每次消耗30积分获得一次抽奖机会；</string>
     <string name="Wuziqi">五子棋</string>
     <string name="rule_game">游戏规则</string>
-    <string name="rule_game_content">1、每天消耗积分获得一次抽奖机会；
-2、每天有五次次抽奖机会，满足任意一个条件都可以参加抽奖，但单个Q号每台机器每个条件每天仅限一次；
-3、打开管家个人中心，即可进行抽奖：</string>
+    <string name="rule_game_content">1.棋盘
+五子棋专用棋盘为 15×15,盘面有纵横各十五条等距离垂直交叉的平行线构成,共225个交叉点。盘面正中一点为"天元"。
+2.行棋顺序
+黑先(Start)、白后,从天元(h8)开始相互顺序落子。黑方的第一个棋子应下在天元上,白方第一个棋子只能下在与天元为中心邻近的八个点上,黑方第二个棋子只能下在与天元为中心邻近5×5点上,白棋第二个棋子不受限制,可下在棋盘任意位置。
+3.判断胜负
+最先在棋盘横向、竖向、斜向形成连续的相同色五个棋子的一方为胜。</string>
 
     <string name="game2048">2048</string>
     <string name="game_introduce">玩法介绍</string>

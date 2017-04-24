@@ -128,19 +128,19 @@ public class AddressBookFragment extends Fragment {
         localBroadcastManager.registerReceiver(mReceiver, filter);
     }
 
+    @Override
+   public void onPause() {
+        super.onPause();
+        //结束广播
+        localBroadcastManager.unregisterReceiver(mReceiver);
+   }
+
 //    @Override
-//    public void onPause() {
-//        super.onPause();
+//    public void onDestroy() {
+//        super.onDestroy();
 //        //结束广播
 //        localBroadcastManager.unregisterReceiver(mReceiver);
 //    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        //结束广播
-        localBroadcastManager.unregisterReceiver(mReceiver);
-    }
 
     @Override
     public void onResume() {
@@ -165,20 +165,26 @@ public class AddressBookFragment extends Fragment {
             }
             mOnlineList = new ArrayList<Account>();
             mUnonlineList = new ArrayList<Account>();
-            for (Account acc : list) {
-                Log.i("好友信息MainActivity", acc.getNickname() + ":" + acc.getState());
-                if (acc.getState() == 1) {//在线
-                    mOnlineList.add(acc);
-                } else {
-                    mUnonlineList.add(acc);
+            if (list!=null){
+                for (Account acc : list) {
+                    Log.i("好友信息MainActivity", acc.getNickname() + ":" + acc.getState());
+                    if (acc.getState() == 1) {//在线
+                        mOnlineList.add(acc);
+                    } else {
+                        mUnonlineList.add(acc);
+                    }
+                }
+                if(mAdapter!=null){
+                    mAdapter = new AddressBookAdapter(list);
+                    lv_friends.setAdapter(mAdapter);
+                    mAdapter.notifyDataSetChanged();
+                    tv_friendscount.setText("好友人数 :" + list.size());
+                    int count = mOnlineList.size() + 1;
+                    tv_onlinecount.setText("在线人数 ：" + count);
                 }
             }
-                mAdapter = new AddressBookAdapter(list);
-                lv_friends.setAdapter(mAdapter);
-                mAdapter.notifyDataSetChanged();
-                tv_friendscount.setText("好友人数 :" + list.size());
-                int count = mOnlineList.size() + 1;
-                tv_onlinecount.setText("在线人数 ：" + count);
+
+
         }
     }
 
