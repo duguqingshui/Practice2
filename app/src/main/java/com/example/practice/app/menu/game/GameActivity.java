@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.example.practice.R;
+import com.example.practice.app.menu.game.game_2084.Game_2048Activity;
 import com.example.practice.app.menu.game.luckypan.LuckpanActivity;
 import com.example.practice.app.menu.game.wuziqi.WuziqiActivity;
 import com.example.practice.view.MCIntent;
@@ -43,6 +44,10 @@ public class GameActivity extends AppCompatActivity {
     @OnClick(R.id.wuziqi)
     public void OnWuziqiClick(){
         MCIntent.sendIntent(this, WuziqiActivity.class);
+    }
+    @OnClick(R.id.game2048)
+    public void  OnGame2048Click(){
+        MCIntent.sendIntent(this, Game_2048Activity.class);
     }
     /**
      * 点击返回按钮，返回上一个页面

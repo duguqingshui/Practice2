@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#EEE4DA"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/id_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="Score: 0"
+                android:textColor="#EA7821"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_rule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ll_statistics"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/game_introduce"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/game_introduce"
+            android:textColor="@color/bg_statusBar" />
+
+        <TextView
+            android:id="@+id/game_skill"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/game_skill"
+            android:textColor="@color/bg_statusBar" />
+    </LinearLayout>
+    <com.example.practice.app.menu.game.game_2084.view.Game2048Layout
+        android:id="@+id/id_game2048"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:layout_weight="1">
+    </com.example.practice.app.menu.game.game_2084.view.Game2048Layout>
+
+</LinearLayout>

@@ -17,6 +17,11 @@
             android:layout_height="200dp"
             android:background="@drawable/wuziqi"/>
         <ImageView
+            android:id="@+id/game2048"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/game2048"/>
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="@drawable/hope"/>

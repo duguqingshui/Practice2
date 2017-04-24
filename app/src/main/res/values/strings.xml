@@ -177,6 +177,17 @@
     <string name="rule_game_content">1、每天消耗积分获得一次抽奖机会；
 2、每天有五次次抽奖机会，满足任意一个条件都可以参加抽奖，但单个Q号每台机器每个条件每天仅限一次；
 3、打开管家个人中心，即可进行抽奖：</string>
+
+    <string name="game2048">2048</string>
+    <string name="game_introduce">玩法介绍</string>
+    <string name="game_skill">玩法技巧</string>
+    <string name="game2048_content">每次可以选择上下左右其中一个方向去滑动，每滑动一次，所有的数字方块都会往滑动的方向靠拢外，系统也会在空白的地方乱数出现一个数字方块，相同数字的方块在靠拢、相撞时会相加。不断的叠加最终拼凑出2048这个数字就算成功。</string>
+    <string name="game2048_skill">1、最大数尽可能放在角落。
+　　2、数字按顺序紧邻排列。
+　　3、首先满足最大数和次大数在的那一列/行是满的。
+　　4、时刻注意活动较大数（32以上）旁边要有相近的数。
+　　5、以大数所在的一行为主要移动方向
+　　6、不要急于“清理桌面”。</string>
     <!--关于-->
     <string name="string_about">关于微聊</string>
     <string name="string_connection">联系我们</string>

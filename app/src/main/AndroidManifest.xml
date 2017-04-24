@@ -46,7 +46,8 @@
         <activity android:name=".app.menu.game.luckypan.LuckpanActivity"></activity>
         <!-- 五子棋-->
         <activity android:name=".app.menu.game.wuziqi.WuziqiActivity"></activity>
-
+        <!-- 2084-->
+        <activity android:name=".app.menu.game.game_2084.Game_2048Activity"></activity>
         <!--设置 -->
         <!--勿扰模式-->
         <activity android:name=".app.setting.nodistrub.NoDistrubActivity"></activity>
