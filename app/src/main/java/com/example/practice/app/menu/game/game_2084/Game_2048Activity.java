@@ -85,7 +85,7 @@ public class Game_2048Activity extends AppCompatActivity implements Game2048Layo
         android.support.v7.app.AlertDialog alertDialog = new android.support.v7.app.AlertDialog.Builder(this)
                 .setTitle(R.string.game_introduce)
                 .setMessage(R.string .game2048_content)
-                .setNegativeButton(R.string.common_cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.common_close, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -98,7 +98,7 @@ public class Game_2048Activity extends AppCompatActivity implements Game2048Layo
         android.support.v7.app.AlertDialog alertDialog = new android.support.v7.app.AlertDialog.Builder(this)
                 .setTitle(R.string.game_skill)
                 .setMessage(R.string .game2048_skill)
-                .setNegativeButton(R.string.common_cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.common_close, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
