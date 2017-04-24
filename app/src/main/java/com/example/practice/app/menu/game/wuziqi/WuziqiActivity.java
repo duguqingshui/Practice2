@@ -7,8 +7,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.Window;
+import android.widget.TextView;
 
 import com.example.practice.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by AMOBBS on 2017/4/11.
@@ -18,7 +23,8 @@ public class WuziqiActivity extends AppCompatActivity {
     private WuziqiPanel mGamePanel;
     private AlertDialog.Builder alertBuilder;
     private AlertDialog alertDialog;
-
+    @BindView(R.id.rule_game)
+    TextView game_rule;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +34,7 @@ public class WuziqiActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.show();
         setTitle(R.string.Wuziqi);
+        ButterKnife.bind(this);
         //游戏结束时弹出对话框
         alertBuilder = new AlertDialog.Builder(WuziqiActivity.this);
         alertBuilder.setPositiveButton("再来一局", new DialogInterface.OnClickListener() {
@@ -81,17 +88,12 @@ public class WuziqiActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    private void exitConfirm(){
+    @OnClick(R.id.rule_game)
+    public void OnRuleGameClick(){
         AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setTitle(R.string.common_reminder)
-                .setMessage(R.string .not_saved_prompt)
-                .setPositiveButton(R.string.common_yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
-                .setNegativeButton(R.string.common_cancel, new DialogInterface.OnClickListener() {
+                .setTitle(R.string.rule_game)
+                .setMessage(R.string .rule_game_content)
+                .setNegativeButton(R.string.common_close, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 

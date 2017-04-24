@@ -164,7 +164,19 @@
     <string name="earphone">耳机</string>
     <string name="ipad">iPad</string>
     <string name="very_thank">非常感谢你的参与！</string>
+    <string name="rule_gba">积分规则</string>
+    <string name="rule_gba_content">1、每天消耗积分获得一次抽奖机会；
+2、每天有五次次抽奖机会，满足任意一个条件都可以参加抽奖，但单个Q号每台机器每个条件每天仅限一次；
+3、打开管家个人中心，即可进行抽奖：</string>
+    <string name="rule_draw">抽奖规则</string>
+    <string name="rule_draw_content">1、每天消耗积分获得一次抽奖机会；
+2、每天有五次次抽奖机会，满足任意一个条件都可以参加抽奖，但单个Q号每台机器每个条件每天仅限一次；
+3、打开管家个人中心，即可进行抽奖：</string>
     <string name="Wuziqi">五子棋</string>
+    <string name="rule_game">游戏规则</string>
+    <string name="rule_game_content">1、每天消耗积分获得一次抽奖机会；
+2、每天有五次次抽奖机会，满足任意一个条件都可以参加抽奖，但单个Q号每台机器每个条件每天仅限一次；
+3、打开管家个人中心，即可进行抽奖：</string>
     <!--关于-->
     <string name="string_about">关于微聊</string>
     <string name="string_connection">联系我们</string>

@@ -18,11 +18,19 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by AMOBBS on 2017/4/6.
  */
 
 public class LuckpanActivity extends AppCompatActivity{
+    @BindView(R.id.rule_GBA)
+    TextView gba_rule;
+    @BindView(R.id.rule_Draw)
+    TextView draw_rule;
     private TextView tv1;
     private TextView tv2;
     private TextView tv3;
@@ -53,6 +61,7 @@ public class LuckpanActivity extends AppCompatActivity{
     }
 
     private void init() {
+        ButterKnife.bind(this);
         tv1 = (TextView) findViewById(R.id.tv1);
         tv2 = (TextView) findViewById(R.id.tv2);
         tv3 = (TextView) findViewById(R.id.tv3);
@@ -97,7 +106,32 @@ public class LuckpanActivity extends AppCompatActivity{
         }
 
     }
+    @OnClick(R.id.rule_GBA)
+    public void OnRuleGBAClick(){
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.rule_gba)
+                .setMessage(R.string .rule_gba_content)
+                .setNegativeButton(R.string.common_close, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
+                    }
+                }).create();
+        alertDialog.show();
+    }
+    @OnClick(R.id.rule_Draw)
+    public void OnRuleDrawClick(){
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.rule_draw)
+                .setMessage(R.string .rule_draw_content)
+                .setNegativeButton(R.string.common_close, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).create();
+        alertDialog.show();
+    }
     /**
      * 生成随机数
      * @param minNum

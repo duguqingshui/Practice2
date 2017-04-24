@@ -1,7 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,6 +61,7 @@
             android:orientation="horizontal"
             android:layout_alignBottom="@+id/ll_statistics">
             <TextView
+                android:id="@+id/rule_GBA"
                 android:padding="10dp"
                 android:text="积分规则"
                 android:textColor="@color/bg_statusBar"
@@ -68,6 +70,7 @@
                 android:layout_weight="1"
                 android:gravity="center"/>
             <TextView
+                android:id="@+id/rule_Draw"
                 android:padding="10dp"
                 android:text="抽奖规则"
                 android:textColor="@color/bg_statusBar"
@@ -77,11 +80,20 @@
                 android:gravity="center"/>
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/layout3"
+        android:id="@+id/tv_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         >
         <LinearLayout
             android:id="@+id/layout1"
@@ -107,7 +119,8 @@
             android:id="@+id/layout2"
             android:layout_centerInParent="true"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:orientation="horizontal">
             <TextView
                 android:background="@drawable/schoolbow"
                 style="@style/textview_luckpan"
@@ -145,17 +158,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_marginTop="16dp"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:textColor="@color/colorAccent"
-            android:layout_below="@+id/layout3"
-            android:id="@+id/tv_notice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
-
-    </RelativeLayout>
-
-</RelativeLayout>
+</LinearLayout>
