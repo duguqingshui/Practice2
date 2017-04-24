@@ -30,7 +30,7 @@
 
     <color name="background_new_tag">#ff0000</color>
     <color name="text_new_tag">#ffffff</color>
-
+    <color name="tomato">#ff6347</color>
     <color name="text_gray">#575757</color> <!-- 字体颜色 -->
     <color name="main_bg_color">#f6f6f6</color> <!-- 页面背影颜色 -->
     <color name="main_text_color">#575757</color> <!-- 字体颜色 -->

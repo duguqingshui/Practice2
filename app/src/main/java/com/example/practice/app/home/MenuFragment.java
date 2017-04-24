@@ -40,7 +40,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
     TextView my_expression;
     TextView my_wallet;
     TextView aboutButton;
-    TextView exitButton;
     TextView my_game;
     private SelfDialog selfDialog;
     private View view;
@@ -62,7 +61,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         my_album=(TextView)view.findViewById(R.id.my_album);
         exchange_skin=(TextView)view.findViewById(R.id.exchange_skin);
         aboutButton=(TextView)view.findViewById(R.id.aboutButton);
-        exitButton=(TextView)view.findViewById(R.id.exitButton);
         my_game=(TextView)view.findViewById(R.id.my_game);
         my_wallet=(TextView)view.findViewById(R.id.my_wallet);
         Personalizedsignature.setText(usre_sign);
@@ -73,7 +71,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
          my_album.setOnClickListener(this);
          exchange_skin.setOnClickListener(this);
          aboutButton.setOnClickListener(this);
-         exitButton.setOnClickListener(this);
     }
 
     @Override
@@ -94,28 +91,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.aboutButton:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), AboutActivity.class);
-                break;
-            case R.id.exitButton:
-                selfDialog=new SelfDialog(getContext());
-                selfDialog.setTitle(R.string.common_reminder);
-                selfDialog.setMessage("您确定退出登录?");
-                selfDialog.show();
-                selfDialog.setYesOnclickListener("确定", new SelfDialog.onYesOnclickListener() {
-                    @Override
-                    public void onYesClick() {
-                        //清空当前账号
-                        SpUtils.putString(getContext(),Constant.LOGIN_ACCOUNT, "");
-                        MCIntent.sendIntentFromAnimLeft(getActivity(), LoginActivity.class);
-                        selfDialog.dismiss();
-                    }
-
-                });
-                selfDialog.setNoOnclickListener("取消", new SelfDialog.onNoOnclickListener() {
-                    @Override
-                    public void onNoClick() {
-                        selfDialog.dismiss();
-                    }
-                });
                 break;
         }
     }

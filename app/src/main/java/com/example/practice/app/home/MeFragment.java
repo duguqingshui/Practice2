@@ -1,5 +1,6 @@
 package com.example.practice.app.home;
 
+import android.accounts.AccountManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.practice.R;
+import com.example.practice.app.setting.accountManage.AccountManageActivity;
 import com.example.practice.app.setting.nodistrub.NoDistrubActivity;
 import com.example.practice.app.setting.normal.NormalActivity;
 import com.example.practice.app.setting.privateandsafe.PrivateAndSafe;
@@ -39,6 +41,8 @@ public class MeFragment extends Fragment {
         ButterKnife.bind(getActivity());
         title=(TextView)view.findViewById(R.id.tv_title);
         title.setText(R.string.setting);
+        //1.账户管理
+        initAccount_manage();
         //1 个人信息
         initPersonal_info();
         //2. 消息提醒
@@ -55,7 +59,17 @@ public class MeFragment extends Fragment {
         initTrafficStatistics();
         return view;
     }
-
+    private void initAccount_manage() {
+        MeItemView miv_personal_info = (MeItemView) view.findViewById(R.id.miv_account_manage);
+        miv_personal_info.setImage(R.mipmap.icon);
+        miv_personal_info.setTitle("账户管理");
+        miv_personal_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MCIntent.sendIntentFromAnimLeft(getActivity(), AccountManageActivity.class);
+            }
+        });
+    }
     private void initPersonal_info() {
         MeItemView miv_personal_info = (MeItemView) view.findViewById(R.id.miv_personal_info);
         miv_personal_info.setImage(R.mipmap.icon);
