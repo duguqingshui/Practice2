@@ -53,8 +53,6 @@
         <activity android:name=".app.setting.accountManage.AccountManageActivity"></activity>
         <!--个人信息 -->
         <activity android:name=".app.setting.user.UserEditActivity"></activity>
-        <!--勿扰模式-->
-        <activity android:name=".app.setting.nodistrub.NoDistrubActivity"></activity>
         <!--通用设置 -->
         <activity android:name=".app.setting.normal.NormalActivity"></activity>
         <!--隐私与安全-->

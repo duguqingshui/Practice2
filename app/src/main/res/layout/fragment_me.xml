@@ -21,7 +21,6 @@
             </com.example.practice.view.MeItemView>
             <com.example.practice.view.MeItemView
                 android:id="@+id/miv_personal_info"
-                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -29,22 +28,6 @@
             </com.example.practice.view.MeItemView>
             <com.example.practice.view.MeItemView
                 android:id="@+id/miv_remind"
-                android:layout_marginBottom="1dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                >
-            </com.example.practice.view.MeItemView>
-
-            <com.example.practice.view.MeItemView
-                android:id="@+id/miv_chatSettting"
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                >
-            </com.example.practice.view.MeItemView>
-
-            <com.example.practice.view.MeItemView
-                android:id="@+id/miv_noDistrub"
                 android:layout_marginBottom="1dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
