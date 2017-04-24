@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,12 +33,16 @@ public class WalletActivity extends AppCompatActivity{
     String[] titles;
     String[] mTitleStrs;
     int[] mDrawableIds;
+    private GridView gv_home;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallet);
         ll_point = (LinearLayout) findViewById(R.id.ll_point);
         tv_title = (TextView) findViewById(R.id.tv_title);
+        gv_home=(GridView) findViewById(R.id.gv_home);
+        //九宫格控件设置数据适配器
+
         //初始化数据
 
         titles = new String[]{"第一个小人在干嘛","第二幅图","第三幅图，哈哈","第四幅图，呵呵","第五幅图，哈哈"};
@@ -53,6 +58,7 @@ public class WalletActivity extends AppCompatActivity{
         imagesid = new int[]{R.drawable.tu1,R.drawable.tu2,R.drawable.tu3,R.drawable.tu4,R.drawable.tu5};
 
         imagesList = new ArrayList<ImageView>();
+        gv_home.setAdapter(new MyAdapter());
         ImageView iv;  //滚动的图片
         View point;    // 小点
         LinearLayout.LayoutParams params;

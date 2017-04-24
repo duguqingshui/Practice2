@@ -88,7 +88,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.my_wallet:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), WalletActivity.class);
-
+                break;
             case R.id.my_game:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), GameActivity.class);
                 break;
