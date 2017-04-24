@@ -27,6 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     private FrameLayout fl_root;
     private Button bt_to_login,bt_to_newuser;
     private   String account;
+    private boolean gesture_lock;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +65,15 @@ public class SplashActivity extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 //动画结束后跳转到登录界面
                 account = SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, "");
+                gesture_lock=SpUtils.getBoolean(getApplicationContext(), Constant.GESTURE_SWITCH, false);
+                System.out.println("手势锁开关状态:"+gesture_lock);
                 if(!"".equals(account)){
-                    MCIntent.sendIntentFromAnimLeft(SplashActivity.this, GuestureLockActivity.class);
+                    if (gesture_lock){
+                        MCIntent.sendIntentFromAnimLeft(SplashActivity.this, GuestureLockActivity.class);
+                    }
+                    else {
+                        MCIntent.sendIntentFromAnimLeft(SplashActivity.this, MainActivity.class);
+                    }
                 }else {
                     MCIntent.sendIntentFromAnimLeft(SplashActivity.this, LoginActivity.class);
                 }

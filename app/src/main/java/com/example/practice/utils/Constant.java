@@ -60,6 +60,11 @@ public class Constant {
      * 记录聊天时本地图片的路径
      */
     public static final String PIC_PATH = "pic_path";
+
+    /**
+     * 记录手势锁开关状态
+     */
+    public static final String GESTURE_SWITCH = "gesture_switch";
     /**
      * 服务器端的IP地址
      */

@@ -16,6 +16,8 @@ import com.example.practice.app.home.MainActivity;
 import com.example.practice.app.setting.privateandsafe.gesturelock.utils.Variate;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.Drawl;
 import com.example.practice.app.setting.privateandsafe.gesturelock.view.GuestureLockView;
+import com.example.practice.utils.Constant;
+import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
 
@@ -35,13 +37,12 @@ public class GuestureLockActivity extends Activity {
     private GuestureLockView mGuestureLockView;
     private SharedPreferences sp;
     String pwd;
-
+    private boolean gesture_lock;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guesture_lock);
         context=this;
-
         sp=getSharedPreferences("GuestureLockSP",MODE_PRIVATE);
 
         //从sp中获取保存的密码，判断用户是否已经设置密码
@@ -78,12 +79,16 @@ public class GuestureLockActivity extends Activity {
                             sp.edit().putString("pwd",password).commit();
                             // 进入主页面，点击输入密码，输入设置的密码进入“搏击爱好者”页面
                             hint.setText(R.string.input_new_pass);
+                            SpUtils.putBoolean(getApplicationContext(), Constant.GESTURE_SWITCH,true);
+                            gesture_lock=SpUtils.getBoolean(getApplicationContext(), Constant.GESTURE_SWITCH, false);
+                            System.out.println("手势锁开关状态:"+gesture_lock);
                             MCToast.show(R.string.input_new_pass_remind, context);
                             refresh();
                         }else {
                             //如果两次输入密码不一样，将Variate.PASSWORD设为null,提示密码设置失败
                             Variate.PASSWORD=null;
                             MCToast.show(R.string.set_pass_lose, context);
+                            SpUtils.putBoolean(getApplicationContext(), Constant.GESTURE_SWITCH,false);
                             // 跳回主页面需重新设置密码
                             MCIntent.sendIntentFromAnimLeft(GuestureLockActivity.this, CreateGestureLockActivity.class);
                             finish();
