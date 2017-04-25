@@ -164,14 +164,12 @@ public class AddressBookFragment extends Fragment {
                         mUnonlineList.add(acc);
                     }
                 }
-                if(mAdapter!=null){
                     mAdapter = new AddressBookAdapter(list);
                     lv_friends.setAdapter(mAdapter);
                     mAdapter.notifyDataSetChanged();
                     tv_friendscount.setText("好友人数 :" + list.size());
                     int count = mOnlineList.size() + 1;
                     tv_onlinecount.setText("在线人数 ：" + count);
-                }
             }
 
 
