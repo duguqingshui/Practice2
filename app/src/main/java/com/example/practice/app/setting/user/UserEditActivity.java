@@ -144,18 +144,25 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
 
                     @Override
                     public void onClick(View v) {
+
                         Date startDate = TimeUtils.getDateFromString(TimeUtils.getBirthDay(dialog.getSelTime()));
                         selectTime = TimeUtils.getDateStartTimeFromDate(startDate).getTime();
                             if (selectTime>todayEndTime){
                                 MCToast.show("不能选择将来时间哦", UserEditActivity.this);
                             }
                             else {
-                                int  selectTime=Integer.parseInt(sdf.format(date));
-                                int age=todayTime-selectTime;
                                 dialog.dismiss();
                                 user_birthday.setText(TimeUtils.getBirthDay(dialog.getSelTime()));
                                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_BIRTHDAY, TimeUtils.getBirthDay(dialog.getSelTime()));
-                                user_age.setText(age+"岁");
+                                String modifybirthday=SpUtils.getString(getApplicationContext(), Constant.LOGIN_BIRTHDAY, null);
+                                try {
+                                    Date date = sdf.parse(modifybirthday);
+                                    int  selectTime=Integer.parseInt(sdf.format(date));;
+                                    int age=todayTime-selectTime;
+                                    user_age.setText(age+"岁");
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }
                 });
