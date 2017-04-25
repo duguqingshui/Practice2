@@ -11,9 +11,12 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -39,7 +42,7 @@ import java.util.List;
  * Created by AMOBBS on 2017/2/22.
  */
 
-public class AblumActivity extends Activity implements ListImageDirPopupWindow.OnImageDirSelected {
+public class AblumActivity extends AppCompatActivity implements ListImageDirPopupWindow.OnImageDirSelected {
     private ProgressDialog mProgressDialog;
 
     /**
@@ -141,7 +144,11 @@ public class AblumActivity extends Activity implements ListImageDirPopupWindow.O
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.show();
+        actionBar.setHomeButtonEnabled(false);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        setTitle(R.string.my_album);
         DisplayMetrics outMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(outMetrics);
         mScreenHeight = outMetrics.heightPixels;
@@ -329,5 +336,14 @@ public class AblumActivity extends Activity implements ListImageDirPopupWindow.O
         mListImageDirPopupWindow.dismiss();
 
     }
-
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

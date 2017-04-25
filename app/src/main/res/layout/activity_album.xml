@@ -48,30 +48,5 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="3dip" >
     </GridView>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#e0000000">
-        <TextView
-            android:id="@+id/tv_image_enlarge"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="预览"
-            android:textColor="@android:color/holo_blue_light"/>
-        <TextView
-            android:id="@+id/tv_send"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:gravity="center_vertical"
-            android:paddingRight="10dp"
-            android:text="发送"
-            android:textColor="@android:color/holo_blue_light" />
-    </RelativeLayout>
 
 </LinearLayout>

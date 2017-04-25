@@ -105,10 +105,6 @@ public class RegisterActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         initView();
-        gridview=(GridView)findViewById(R.id.gridview_img);
-
-        //默认头像
-        SpUtils.putInt(getApplicationContext(),"USER_IMG",mThumbIds[0]);
         //绑定服务
         intent = new Intent(this, ReceiveService.class);
         mConnection = new ServiceConnection() {
@@ -124,31 +120,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         };
         bindService(intent, mConnection, BIND_AUTO_CREATE);
-
-        gridview.setAdapter(new ImageAdapter(this));//调用ImageAdapter.java
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener(){//监听事件
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                Toast.makeText(getApplicationContext(), ""+position,Toast.LENGTH_SHORT).show();//显示信息;
-                iv_headimg.setBackgroundResource(mThumbIds[position]);
-                SpUtils.putInt(getApplicationContext(),"USER_IMG",mThumbIds[position]);
-                System.out.println("发送者头像R"+mThumbIds[position]);
-                gridview.setVisibility(View.GONE);
-            }
-        });
-        iv_headimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isOrNot==true){
-                    gridview.setVisibility(View.VISIBLE);
-                    isOrNot=false;
-                }else
-                {
-                    gridview.setVisibility(View.GONE);
-                    isOrNot=true;
-                }
-            }
-        });
     }
 
     /**
@@ -215,6 +186,10 @@ public class RegisterActivity extends AppCompatActivity {
                 MCIntent.sendIntentFromAnimLeft(this, LoginActivity.class);
             }
         }
+    }
+    @OnClick(R.id.iv_headimg)
+    public void OnHeadimgClick(){
+        MCIntent.sendIntent(this,ImgSelectActivity.class);
     }
     @OnClick(R.id.et_sex)
     public void OnSexClick(){
@@ -319,4 +294,16 @@ public class RegisterActivity extends AppCompatActivity {
         }).show();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //默认头像
+        int  img =SpUtils.getInt(getApplicationContext(),"USER_IMG",0);
+        if (img ==0){
+            SpUtils.putInt(getApplicationContext(),"USER_IMG",mThumbIds[0]);
+        }
+        else {
+            iv_headimg.setImageResource(img);
+        }
+    }
 }

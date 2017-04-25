@@ -210,4 +210,6 @@
     <string name="mc_dialog_tip1">输出的</string>
     <string name="mc_dialog_tip2">数字有误，范围在0-</string>
     <string name="not_saved_prompt">信息未保存，确认放弃？</string>
+
+    <string name="img_select">头像选择</string>
 </resources>

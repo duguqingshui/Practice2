@@ -31,7 +31,8 @@
         <!--聊天室 -->
         <activity android:name=".app.ChatActivity"
             android:windowSoftInputMode="stateHidden"></activity>
-
+        <!--选择头像-->
+        <activity android:name=".app.ImgSelectActivity"></activity>
         <!--侧边菜单 -->
         <!--我的相册 -->
         <activity android:name=".app.menu.album.AblumActivity"

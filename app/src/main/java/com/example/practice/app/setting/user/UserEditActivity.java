@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 
 import com.example.practice.R;
+import com.example.practice.app.ImgSelectActivity;
 import com.example.practice.app.home.MainActivity;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Messages;
@@ -119,6 +120,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
         edit_user_sign.setText(sign);
         user_sex.setOnClickListener(this);
         user_birthday.setOnClickListener(this);
+        user_headimage.setOnClickListener(this);
         //初始化所有的时间
         todayEndTime = TimeUtils.getDateEndTimeFromDate(new Date()).getTime();
 
@@ -161,6 +163,9 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
             case R.id.user_sex:
                 showSexDialog();
                 break;
+            case R.id.user_headimage:
+                MCIntent.sendIntent(this, ImgSelectActivity.class);
+                break;
         }
     }
     private void showSexDialog() {
@@ -187,9 +192,12 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
             case R.id.save :
                 String modifyNickname = edit_user_name.getText().toString();//修改后的昵称
                 String modifySign=edit_user_sign.getText().toString();//修改后的签名
+                int  modifyImg=SpUtils.getInt(getApplicationContext(),Constant.LOGIN_HEADIMAGE,0);//修改后的头像
+                String modifyBirthday=SpUtils.getString(getApplicationContext(),Constant.LOGIN_BIRTHDAY,null);//修改后的出生日期
+                int modifySex=SpUtils.getInt(getApplicationContext(),Constant.LOGIN_SEX,0);//修改后的性别
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_NICKNAME, modifyNickname);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_SIGN, modifySign);
-                Account acc=new Account(null,null,nickname,0,img,sex,birthday,sign);
+                Account acc=new Account(null,null,nickname,0,modifyImg,modifySex,modifyBirthday,modifySign);
                 Messages msg = new Messages(Constant.CMD_NOTIFY_NAME, acc, null, modifyNickname, new Date(), Constant.CHAT);
                 sendMsg.sendMessage(msg);
                 MCIntent.sendIntentFromAnimLeft(UserEditActivity.this, MainActivity.class);
@@ -264,6 +272,17 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
         //结束广播
         localBroadcastManager.unregisterReceiver(mReceiver);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int head_img=SpUtils.getInt(getApplicationContext(),"USER_IMG",0);
+        if (img!=head_img){
+            user_headimage.setImageResource(head_img);
+            SpUtils.putInt(getApplicationContext(),Constant.LOGIN_HEADIMAGE,head_img);
+        }
+    }
+
     protected void onDestroy() {
         super.onDestroy();
         //解绑服务
