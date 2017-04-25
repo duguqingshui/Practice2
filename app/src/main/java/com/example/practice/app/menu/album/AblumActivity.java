@@ -1,5 +1,6 @@
 package com.example.practice.app.menu.album;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -175,7 +177,7 @@ public class AblumActivity extends Activity implements ListImageDirPopupWindow.O
                 Uri mImageUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                 ContentResolver mContentResolver = AblumActivity.this
                         .getContentResolver();
-
+                ActivityCompat.requestPermissions(AblumActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},99);
                 // 只查询jpeg和png的图片
                 Cursor mCursor = mContentResolver.query(mImageUri, null,
                         MediaStore.Images.Media.MIME_TYPE + "=? or "
