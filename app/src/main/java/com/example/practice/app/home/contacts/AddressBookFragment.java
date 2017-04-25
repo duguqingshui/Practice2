@@ -1,11 +1,9 @@
 package com.example.practice.app.home.contacts;
 
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.ServiceConnection;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,27 +14,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.example.practice.R;
-import com.example.practice.adapter.ImageAdapter;
 import com.example.practice.app.ChatActivity;
-import com.example.practice.app.LoginActivity;
 import com.example.practice.doman.Account;
-import com.example.practice.doman.Message;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
-import com.example.practice.view.MCToast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

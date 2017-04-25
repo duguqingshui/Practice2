@@ -1,7 +1,6 @@
 package com.example.practice.app.setting.user;
 
 import android.app.AlertDialog.Builder;
-import android.app.TimePickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -9,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
@@ -18,36 +16,27 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.example.practice.R;
 import com.example.practice.app.home.MainActivity;
-import com.example.practice.app.setting.privateandsafe.gesturelock.CreateGestureLockActivity;
-import com.example.practice.app.setting.privateandsafe.gesturelock.GuestureLockActivity;
 import com.example.practice.doman.Account;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.utils.TimeUtils;
-import com.example.practice.utils.UserEditUtil;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
-import com.example.practice.view.MyEditView;
 import com.example.practice.view.MyTimePickerDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -201,7 +190,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_NICKNAME, modifyNickname);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_SIGN, modifySign);
                 Account acc=new Account(null,null,nickname,0,img,sex,birthday,sign);
-                Message msg = new Message(Constant.CMD_NOTIFY_NAME, acc, null, modifyNickname, new Date(), Constant.CHAT);
+                Messages msg = new Messages(Constant.CMD_NOTIFY_NAME, acc, null, modifyNickname, new Date(), Constant.CHAT);
                 sendMsg.sendMessage(msg);
                 MCIntent.sendIntentFromAnimLeft(UserEditActivity.this, MainActivity.class);
                 finish();

@@ -94,9 +94,9 @@ public class ReceiveService extends Service {
 
     public class sendBinder extends Binder {
 
-        public void sendMessage(com.example.practice.doman.Message message) {
+        public void sendMessage(com.example.practice.doman.Messages message) {
             Gson gson = new Gson();
-            String json = gson.toJson(message, com.example.practice.doman.Message.class);
+            String json = gson.toJson(message, com.example.practice.doman.Messages.class);
             Log.i("message==========", message.toString());
             Log.i("json=============", json);
             try {

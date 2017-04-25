@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 
 import com.example.practice.R;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.view.swipelistview.SwipeListView;
 
 import java.util.ArrayList;
@@ -20,11 +20,11 @@ import java.util.List;
 public class DataAdapter extends BaseAdapter
 {
 
-    private List<Message> mDatas=new ArrayList<Message>();
+    private List<Messages> mDatas=new ArrayList<Messages>();
     private LayoutInflater mInflater;
     private SwipeListView mSwipeListView ;
 
-    public DataAdapter(Context context, List<Message> datas , SwipeListView swipeListView)
+    public DataAdapter(Context context, List<Messages> datas , SwipeListView swipeListView)
     {
         this.mDatas = datas;
         mInflater = LayoutInflater.from(context);

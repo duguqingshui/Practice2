@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practice.R;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 
@@ -29,11 +29,11 @@ import java.util.List;
  */
 
 public class ChatAdapter extends BaseAdapter {
-    private List<Message> msgList;
+    private List<Messages> msgList;
     //录音
     private MediaPlayer mPlay = null;
     private boolean isShowOrNot = false;
-    public ChatAdapter(List<Message> msgList) {
+    public ChatAdapter(List<Messages> msgList) {
         this.msgList = msgList;
     }
     @Override
@@ -54,7 +54,7 @@ public class ChatAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         final Context context = parent.getContext();
-        final Message message= (Message) getItem(position);
+        final Messages message= (Messages) getItem(position);
         int headimg= SpUtils.getInt(context,Constant.LOGIN_HEADIMAGE,0);//发送者头像
         int friend_headimg=SpUtils.getInt(context,"friend_headimg",0);//接受者头像
         String loginNickname=SpUtils.getString(context, Constant.LOGIN_NICKNAME, "");

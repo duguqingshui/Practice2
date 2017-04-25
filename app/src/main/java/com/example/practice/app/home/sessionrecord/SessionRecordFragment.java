@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 
 import com.example.practice.R;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.HttpUtils;
 import com.example.practice.view.swipelistview.BaseSwipeListViewListener;
@@ -44,7 +44,7 @@ public class SessionRecordFragment extends Fragment {
     protected static final String TAG = "Activity";
     private SwipeListView mSwipeListView;
     private DataAdapter mAdapter;
-    private List<Message> mDatas=new ArrayList<Message>();
+    private List<Messages> mDatas=new ArrayList<Messages>();
     private View view;
     private LocalBroadcastManager localBroadcastManager;
     private MyBroadcastReceiver mReceiver;
@@ -193,8 +193,8 @@ public class SessionRecordFragment extends Fragment {
             if (!TextUtils.isEmpty(chatInfo)) {
                 JsonReader reader = new JsonReader(new StringReader(chatInfo));
                 reader.setLenient(true);
-                mDatas = new Gson().fromJson(reader, new TypeToken<List<Message>>(){}.getType());
-                for(final Message message : mDatas){
+                mDatas = new Gson().fromJson(reader, new TypeToken<List<Messages>>(){}.getType());
+                for(final Messages message : mDatas){
                     if(message.getType() != Constant.CHAT){
                         //如果消息类型不是语音
                         //eg--http://192.168.0.109:8080/LoadServlet/r1481187782643.amr

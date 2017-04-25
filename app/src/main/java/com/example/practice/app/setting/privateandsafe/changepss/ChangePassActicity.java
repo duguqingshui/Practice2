@@ -13,7 +13,6 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -27,12 +26,9 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.example.practice.R;
-import com.example.practice.app.LoginActivity;
 import com.example.practice.app.home.MainActivity;
-import com.example.practice.app.setting.privateandsafe.gesturelock.CreateGestureLockActivity;
-import com.example.practice.app.setting.user.UserEditActivity;
 import com.example.practice.doman.Account;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
@@ -128,7 +124,7 @@ public class ChangePassActicity extends AppCompatActivity{
         }else {
             if (oldpassword.equals(password)){
                 Account acc=new Account(account,oldpassword,null,0);
-                Message msg = new Message(Constant.CMD_CHANGE_PASS, acc, null, newpassword, new Date(), Constant.CHAT);
+                Messages msg = new Messages(Constant.CMD_CHANGE_PASS, acc, null, newpassword, new Date(), Constant.CHAT);
                 sendMsg.sendMessage(msg);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_PASSWORD,newpassword);
                 String pass= SpUtils.getString(getApplicationContext(), Constant.LOGIN_PASSWORD,null);

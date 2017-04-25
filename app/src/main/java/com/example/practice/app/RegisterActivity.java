@@ -28,10 +28,8 @@ import android.widget.Toast;
 
 import com.example.practice.R;
 import com.example.practice.adapter.ImageAdapter;
-import com.example.practice.app.home.MainActivity;
-import com.example.practice.app.setting.user.UserEditActivity;
 import com.example.practice.doman.Account;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
@@ -211,7 +209,7 @@ public class RegisterActivity extends AppCompatActivity {
             else {
                 Account acc = new Account(account, password, nickname, 0,headimg,getSex(sex),birthday,sign);
                 //Log.i("信息", acc.getAccount()+":"+acc.getNickname());
-                Message msg = new Message(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
+                Messages msg = new Messages(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
                 sendMsg.sendMessage(msg);
 
                 MCIntent.sendIntentFromAnimLeft(this, LoginActivity.class);

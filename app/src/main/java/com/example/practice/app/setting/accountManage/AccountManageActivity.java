@@ -16,15 +16,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.practice.R;
 import com.example.practice.app.LoginActivity;
-import com.example.practice.app.setting.user.UserEditActivity;
 import com.example.practice.doman.Account;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
@@ -103,7 +100,7 @@ public class AccountManageActivity extends AppCompatActivity{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Account acc = new Account(null, null, nickname, 0);
-                        Message msg = new Message(Constant.CMD_EXIT, acc, null, nickname, new Date(), Constant.CHAT);
+                        Messages msg = new Messages(Constant.CMD_EXIT, acc, null, nickname, new Date(), Constant.CHAT);
                         sendMsg.sendMessage(msg);
                         SpUtils.putString(getApplicationContext(),Constant.LOGIN_ACCOUNT, "");
                         MCIntent.sendIntentFromAnimLeft(AccountManageActivity.this, LoginActivity.class);

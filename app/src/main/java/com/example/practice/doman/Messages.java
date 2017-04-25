@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by AMOBBS on 2016/11/24.
  */
 
-public class Message {
+public class Messages {
 
     public int cmd;
     public Account sender;
@@ -22,7 +22,7 @@ public class Message {
         return sex;
     }
 
-    public Message(int cmd, Account sender, Account receicer, String content, Date time, int type) {
+    public Messages(int cmd, Account sender, Account receicer, String content, Date time, int type) {
         this.cmd = cmd;
         this.sender = sender;
         this.receicer = receicer;
@@ -106,7 +106,7 @@ public class Message {
         this.time = time;
     }
 
-    public Message(int cmd, Account sender, Account receicer, String content, Date time, int type, int sex, String birthday, String sign) {
+    public Messages(int cmd, Account sender, Account receicer, String content, Date time, int type, int sex, String birthday, String sign) {
         this.cmd = cmd;
         this.sender = sender;
         this.receicer = receicer;

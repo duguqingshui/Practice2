@@ -17,8 +17,8 @@ import android.widget.RadioButton;
 import com.example.practice.R;
 import com.example.practice.app.home.contacts.AddressBookFragment;
 import com.example.practice.doman.Account;
-import com.example.practice.doman.Message;
 import com.example.practice.app.home.sessionrecord.SessionRecordFragment;
+import com.example.practice.doman.Messages;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getSessionRecord() {
         Account acc = new Account(account, null, nickname, 0);
-        Message msg = new Message(Constant.CMD_SESSIONRECORD, acc, null, null, new Date(), Constant.CHAT);
+        Messages msg = new Messages(Constant.CMD_SESSIONRECORD, acc, null, null, new Date(), Constant.CHAT);
         sendMsg.sendMessage(msg);
     }
 
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void getFriendsData() {
         Account acc = new Account(account, null, nickname, 0);
-        Message msg = new Message(Constant.CMD_GETFRIEND_INFO, acc, null, null, new Date(), Constant.CHAT);
+        Messages msg = new Messages(Constant.CMD_GETFRIEND_INFO, acc, null, null, new Date(), Constant.CHAT);
         sendMsg.sendMessage(msg);
     }
 
@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         String state=SpUtils.getString(getApplicationContext(),Constant.LOGIN_ACCOUNT, null);
         if (state.equals("")){
             Account acc = new Account(account, null, nickname, 1);
-            Message msg = new Message(Constant.CMD_EXIT, acc, null, nickname, new Date(), Constant.CHAT);
+            Messages msg = new Messages(Constant.CMD_EXIT, acc, null, nickname, new Date(), Constant.CHAT);
             sendMsg.sendMessage(msg);
         }
 

@@ -25,7 +25,7 @@ import android.widget.Toast;
 import com.example.practice.R;
 import com.example.practice.app.home.MainActivity;
 import com.example.practice.doman.Account;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
         if (checkInput()){
             Account acc = new Account(account, password, null, 0);
 
-            Message msg = new Message(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT);
+            Messages msg = new Messages(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT);
             //调用服务的方法登录账号
             sendMsg.sendMessage(msg);
         }

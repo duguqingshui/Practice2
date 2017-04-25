@@ -9,9 +9,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -28,21 +25,17 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practice.R;
 import com.example.practice.doman.Account;
-import com.example.practice.doman.Message;
+import com.example.practice.doman.Messages;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.HttpUtils;
@@ -89,7 +82,7 @@ public class ChatActivity extends AppCompatActivity {
     private ServiceConnection mConnection;
     public ReceiveService.sendBinder sendMsg;
     private LocalBroadcastManager localBroadcastManager;
-    private List<Message> msgList;
+    private List<Messages> msgList;
     private String account;
     private boolean isShowOrNot = false;
     private int headimg,friend_headimg;
@@ -172,7 +165,7 @@ public class ChatActivity extends AppCompatActivity {
                 if(!TextUtils.isEmpty(msg)){
                     Account loginAcc = new Account(account, null, loginNickname, 0);
                     Account friendAcc = new Account(null, null, nickname, 0);
-                    Message message = new Message(Constant.CMD_SENDMSG, loginAcc, friendAcc, msg, new Date(),Message.SEND_TYPE_TXT);
+                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, msg, new Date(),Messages.SEND_TYPE_TXT);
                     sendMsg.sendMessage(message);
                     //更新聊天界面
                     msgList.add(message);
@@ -253,7 +246,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     Account loginAcc = new Account(account, null, loginNickname, 0);
                     Account friendAcc = new Account(null, null, nickname, 0);
-                    Message message = new Message(Constant.CMD_SENDMSG, loginAcc, friendAcc, fileDownLoadUrl, new Date(), 1);
+                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, fileDownLoadUrl, new Date(), 1);
 
                     sendMsg.sendMessage(message);
                     //更新聊天界面
@@ -302,7 +295,7 @@ public class ChatActivity extends AppCompatActivity {
     private void getChatRecord(String loginNickname, String nickname) {
         Account loginAcc = new Account(account, null, loginNickname, 0);
         Account friendAcc = new Account(null, null, nickname, 0);
-        Message message = new Message(Constant.CMD_GETCHATINFO, loginAcc, friendAcc, null, new Date(), Constant.CHAT);
+        Messages message = new Messages(Constant.CMD_GETCHATINFO, loginAcc, friendAcc, null, new Date(), Constant.CHAT);
         sendMsg.sendMessage(message);
     }
 
@@ -364,8 +357,8 @@ public class ChatActivity extends AppCompatActivity {
             if (!TextUtils.isEmpty(chatInfo)) {
                 JsonReader reader = new JsonReader(new StringReader(chatInfo));
                 reader.setLenient(true);
-                msgList = new Gson().fromJson(reader, new TypeToken<List<Message>>(){}.getType());
-                for(final Message message : msgList){
+                msgList = new Gson().fromJson(reader, new TypeToken<List<Messages>>(){}.getType());
+                for(final Messages message : msgList){
                     if(message.getType() != Constant.CHAT){
                         //如果消息类型不是语音
                         //eg--http://192.168.0.109:8080/LoadServlet/r1481187782643.amr
@@ -409,7 +402,7 @@ public class ChatActivity extends AppCompatActivity {
                     //向服务器发送消息
                     Account loginAcc = new Account(account, null, loginNickname, 0);
                     Account friendAcc = new Account(null, null, nickname, 0);
-                    Message message = new Message(Constant.CMD_SENDMSG, loginAcc, friendAcc, picDownLoadUrl, new Date(), 2);
+                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, picDownLoadUrl, new Date(), 2);
                     sendMsg.sendMessage(message);
                     //更新聊天界面
                     msgList.add(message);
@@ -437,7 +430,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     Account loginAcc1 = new Account(account, null, loginNickname, 0);
                     Account friendAcc1 = new Account(null, null, nickname, 0);
-                    Message message1 = new Message(Constant.CMD_SENDMSG, loginAcc1, friendAcc1, picDownLoadUrl, new Date(), 2);
+                    Messages message1 = new Messages(Constant.CMD_SENDMSG, loginAcc1, friendAcc1, picDownLoadUrl, new Date(), 2);
                     sendMsg.sendMessage(message1);
                     //更新聊天界面
                     msgList.add(message1);
