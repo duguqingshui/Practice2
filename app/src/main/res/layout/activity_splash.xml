@@ -5,36 +5,15 @@
     android:background="@mipmap/bc2"
     android:orientation="vertical"
     android:id="@+id/fl_root">
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_version_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="10dp"
-        >
-        <Button
-            android:id="@+id/bt_to_login"
-            style="@style/style_all_wrap"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/login"
-            android:layout_weight="1"
-            android:background="@color/white_color"
-            android:visibility="gone"
-            />
-        <Button
-            android:id="@+id/bt_to_newuser"
-            style="@style/style_all_wrap"
-            android:padding="16dp"
-            android:text="@string/new_user"
-            android:textColor="@color/white_color"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:background="@color/black"
-            android:visibility="gone"
-            />
-        />
-    </LinearLayout>
-
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowColor="#f00"
+        android:shadowRadius="1"
+        android:textSize="16sp"
+        android:text="版本名称"
+        android:layout_gravity="bottom||center_horizontal"/>
 </FrameLayout>

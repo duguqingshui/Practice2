@@ -10,7 +10,9 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
+import com.example.practice.BuildConfig;
 import com.example.practice.R;
 import com.example.practice.app.home.MainActivity;
 import com.example.practice.app.setting.privateandsafe.gesturelock.GuestureLockActivity;
@@ -25,7 +27,7 @@ import com.example.practice.view.MCIntent;
 
 public class SplashActivity extends AppCompatActivity {
     private FrameLayout fl_root;
-    private Button bt_to_login,bt_to_newuser;
+    private TextView version_name;
     private   String account;
     private boolean gesture_lock;
     @Override
@@ -38,8 +40,6 @@ public class SplashActivity extends AppCompatActivity {
         startService(new Intent(this, ReceiveService.class));
         // 初始化UI
         initUI();
-        //初始化数据
-        initData();
         // 初始化动画
         initAnimation();
     }
@@ -56,8 +56,6 @@ public class SplashActivity extends AppCompatActivity {
             public void onAnimationStart(Animation animation) {
                 if(!"".equals(account)){
                 }else {
-                  bt_to_newuser.setVisibility(View.GONE);
-                    bt_to_login.setVisibility(View.GONE);
                 }
             }
 
@@ -87,28 +85,14 @@ public class SplashActivity extends AppCompatActivity {
         });
     }
 
-    private void initData() {
-        bt_to_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MCIntent.sendIntentFromAnimLeft(SplashActivity.this, LoginActivity.class);
-                finish();
-            }
-        });
-        bt_to_newuser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MCIntent.sendIntentFromAnimLeft(SplashActivity.this, RegisterActivity.class);
-                Intent it=new Intent(SplashActivity.this,RegisterActivity.class);
-                finish();
-            }
-        });
-    }
 
     private void initUI() {
         fl_root = (FrameLayout) findViewById(R.id.fl_root);
-        bt_to_login = (Button) findViewById(R.id.bt_to_login);
-        bt_to_newuser = (Button) findViewById(R.id.bt_to_newuser);
+        version_name.setText(" 版本号 ：V ");
+        version_name.append(BuildConfig.VERSION_NAME);
+        if (BuildConfig.DEBUG) {
+            version_name.append("");
+        }
     }
     /**
      * 返回当前程序版本名
