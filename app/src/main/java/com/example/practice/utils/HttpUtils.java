@@ -137,18 +137,20 @@ public class HttpUtils {
                     //connection.setRequestProperty("Charset", "utf-8");  //设置编码
 
                     Log.i("响应码", connection.getResponseCode() + "");
-
-                    if (connection.getResponseCode() == 200) {
-                        in = connection.getInputStream();
-                        fos = new FileOutputStream(fileName);
-                        byte[] b = new byte[1024];
-                        int len = 0;
-                        while ((len = in.read(b)) != -1) {
-                            fos.write(b, 0, len);
+                    if (connection!=null){
+                        if (connection.getResponseCode() == 200) {
+                            in = connection.getInputStream();
+                            fos = new FileOutputStream(fileName);
+                            byte[] b = new byte[1024];
+                            int len = 0;
+                            while ((len = in.read(b)) != -1) {
+                                fos.write(b, 0, len);
+                            }
+                        } else {
+                            Log.i("downLoadFile", "文件下载失败");
                         }
-                    } else {
-                        Log.i("downLoadFile", "文件下载失败");
                     }
+
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

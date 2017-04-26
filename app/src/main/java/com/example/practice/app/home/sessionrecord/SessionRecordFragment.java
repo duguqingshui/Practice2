@@ -57,9 +57,6 @@ public class SessionRecordFragment extends Fragment {
         title.setText(R.string.message);
         mSwipeListView = (SwipeListView)view.findViewById(R.id.id_swipelistview);
 
-        mAdapter = new DataAdapter(getContext(), mDatas , mSwipeListView);
-        mSwipeListView.setAdapter(mAdapter);
-
         mSwipeListView.setSwipeListViewListener(new BaseSwipeListViewListener()
         {
             @Override
@@ -172,14 +169,10 @@ public class SessionRecordFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        mAdapter.notifyDataSetChanged();
+        if (mAdapter!=null){
+            mAdapter.notifyDataSetChanged();
+        }
     }
-    //    private void initDatas()
-//    {
-//        mDatas = new ArrayList<String>();
-//        for (int i = 'A'; i <= 'Z'; i++)
-//            mDatas.add((char) i + "");
-//    }
     /**
      * 获取后台服务ReceiveService发过来的数据
      */
@@ -194,23 +187,7 @@ public class SessionRecordFragment extends Fragment {
                 JsonReader reader = new JsonReader(new StringReader(chatInfo));
                 reader.setLenient(true);
                 mDatas = new Gson().fromJson(reader, new TypeToken<List<Messages>>(){}.getType());
-                for(final Messages message : mDatas){
-                    if(message.getType() != Constant.CHAT){
-                        //如果消息类型不是语音
-                        //eg--http://192.168.0.109:8080/LoadServlet/r1481187782643.amr
-                        //eg--http://192.168.0.109:8080/LoadServlet/p1481269307460.jpg
-                        try {
-                            String name = message.getContent().split("/")[4];
-                            File saveFile = new File(Environment.getExternalStorageDirectory().getCanonicalFile()+"/"+name);
-                            if(!saveFile.exists() || saveFile == null){
-                                HttpUtils.downLodaFile(message.getContent(), saveFile);
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                mAdapter = new DataAdapter(getActivity(),mDatas,mSwipeListView);
+                mAdapter = new DataAdapter(mDatas);
                 mSwipeListView.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
                 mSwipeListView.setSelection(mDatas.size() - 1);
