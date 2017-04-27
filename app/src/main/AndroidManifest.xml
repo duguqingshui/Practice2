@@ -56,8 +56,6 @@
         <activity android:name=".app.setting.accountManage.AccountManageActivity"></activity>
         <!--个人信息 -->
         <activity android:name=".app.setting.user.UserEditActivity"></activity>
-        <!--通用设置 -->
-        <activity android:name=".app.setting.normal.NormalActivity"></activity>
         <!--隐私与安全-->
         <activity android:name=".app.setting.privateandsafe.PrivateAndSafe"></activity>
         <!--手势锁-->
@@ -71,8 +69,6 @@
         <activity android:name=".app.setting.privateandsafe.changepss.ChangePassActicity"></activity>
         <!--提醒通知-->
         <activity android:name=".app.setting.remind.RemindActivity"></activity>
-        <!--流量统计-->
-        <activity android:name=".app.setting.statistics.StatisticalFlowActivity"></activity>
 
 
 

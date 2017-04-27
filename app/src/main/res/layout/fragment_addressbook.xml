@@ -13,8 +13,8 @@
             android:layout_margin="10dp">
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/iv_headimg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@mipmap/icon"
                 app:riv_oval="true"
                 />

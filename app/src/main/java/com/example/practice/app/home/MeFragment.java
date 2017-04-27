@@ -10,10 +10,8 @@ import android.widget.TextView;
 
 import com.example.practice.R;
 import com.example.practice.app.setting.accountManage.AccountManageActivity;
-import com.example.practice.app.setting.normal.NormalActivity;
 import com.example.practice.app.setting.privateandsafe.PrivateAndSafe;
 import com.example.practice.app.setting.remind.RemindActivity;
-import com.example.practice.app.setting.statistics.StatisticalFlowActivity;
 import com.example.practice.app.setting.user.UserEditActivity;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.MeItemView;
@@ -44,10 +42,6 @@ public class MeFragment extends Fragment {
         initRemind();
         //4.我的隐私
         initPrivate();
-        //5.通用设置
-        initPublic();
-        //6.流量统计
-        initTrafficStatistics();
         return view;
     }
     private void initAccount_manage() {
@@ -91,28 +85,6 @@ public class MeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 MCIntent.sendIntentFromAnimLeft(getActivity(), PrivateAndSafe.class);
-            }
-        });
-    }
-    private void initPublic() {
-        MeItemView miv_personal_info = (MeItemView) view.findViewById(R.id.miv_public);
-        miv_personal_info.setImage(R.drawable.publicset);
-        miv_personal_info.setTitle("通用设置");
-        miv_personal_info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MCIntent.sendIntentFromAnimLeft(getActivity(), NormalActivity.class);
-            }
-        });
-    }
-    private void initTrafficStatistics() {
-        MeItemView miv_personal_info = (MeItemView) view.findViewById(R.id.miv_trafficStatistics);
-        miv_personal_info.setImage(R.drawable.statistics);
-        miv_personal_info.setTitle("流量统计");
-        miv_personal_info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MCIntent.sendIntentFromAnimLeft(getActivity(), StatisticalFlowActivity.class);
             }
         });
     }

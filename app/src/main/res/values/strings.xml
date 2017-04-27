@@ -190,7 +190,7 @@
 　　6、不要急于“清理桌面”。</string>
     <!--关于-->
     <string name="string_about">关于微聊</string>
-    <string name="string_connection">联系我们</string>
+    <string name="string_connection">联系</string>
     <string name="string_about_content">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;动态心电图仪工作站是一款方便医生对心电采集患者进行管理的软件，医生可以在软件中针对患者进行设备绑定、设备状态管理、采集时长管理等操作，方便医生对多台设备多个患者同时管理，软件操作界面简洁明了，大大提升医生的工作效率。</string>
     <string name="setting_about_test_version">检测新版本</string>
     <string name="setting_about_newapk">您使用的为最新版本</string>

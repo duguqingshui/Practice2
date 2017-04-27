@@ -56,15 +56,15 @@ public class WalletActivity extends AppCompatActivity{
 
         titles = new String[]{"第一个小人在干嘛","第二幅图","第三幅图，哈哈","第四幅图，呵呵","第五幅图，哈哈"};
         mTitleStrs = new String[]{
-                "手机防盗","通信卫士","软件管理","进程管理","流量统计","手机杀毒","缓存清理","高级设置","设置中心"
+                "话费.流量","游戏充值","滴滴出行","电影票","京东购物","手机红包","美团外卖","火车票","资金.理财"
         };
         mDrawableIds=new int[]{
-                R.drawable.home_safe,R.drawable.home_callmsgsafe,
-                R.drawable.home_apps,R.drawable.home_taskmanager,
-                R.drawable.home_netmanager,R.drawable.home_trojan,
-                R.drawable.home_sysoptimize,R.drawable.home_tools,R.drawable.home_settings,
+                R.drawable.bill,R.drawable.recharge,
+                R.drawable.go_out,R.drawable.cinema_ticket,
+                R.drawable.jingdong,R.drawable.red_paper,
+                R.drawable.take_out,R.drawable.tran_ticket,R.drawable.financing,
         };
-        imagesid = new int[]{R.drawable.tu1,R.drawable.tu2,R.drawable.tu3,R.drawable.tu4,R.drawable.tu5};
+        imagesid = new int[]{R.drawable.acticity1,R.drawable.acticity2,R.drawable.tu3,R.drawable.tu4,R.drawable.tu5};
 
         imagesList = new ArrayList<ImageView>();
         gv_home.setAdapter(new MyAdapter());

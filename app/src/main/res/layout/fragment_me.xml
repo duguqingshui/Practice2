@@ -39,24 +39,11 @@
                 android:layout_marginBottom="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginTop="20dp"
                 >
             </com.example.practice.view.MeItemView>
 
-            <com.example.practice.view.MeItemView
-                android:id="@+id/miv_public"
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                >
-            </com.example.practice.view.MeItemView>
 
-            <com.example.practice.view.MeItemView
-                android:id="@+id/miv_trafficStatistics"
-                android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                >
-            </com.example.practice.view.MeItemView>
         </LinearLayout>
     </ScrollView>
 
