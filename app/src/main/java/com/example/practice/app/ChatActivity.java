@@ -60,6 +60,7 @@ import java.util.List;
 
 /**
  * Created by AMOBBS on 2016/11/17.
+ * 聊天室
  */
 public class ChatActivity extends AppCompatActivity {
     /**

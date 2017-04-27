@@ -19,6 +19,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by AMOBBS on 2017/4/25.
+ * 头像选择页面
  */
 
 public class ImgSelectActivity extends AppCompatActivity {

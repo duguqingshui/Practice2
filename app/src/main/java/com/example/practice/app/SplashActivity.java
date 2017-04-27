@@ -25,6 +25,7 @@ import com.example.practice.view.MCIntent;
 
 /**
  * Created by AMOBBS on 2016/11/15.
+ * 闪屏页
  */
 
 public class SplashActivity extends AppCompatActivity {

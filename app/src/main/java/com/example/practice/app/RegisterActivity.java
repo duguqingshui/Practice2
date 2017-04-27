@@ -48,6 +48,7 @@ import butterknife.OnClick;
 
 /**
  * Created by AMOBBS on 2016/11/7.
+ * 注册页面
  */
 public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.ll_account)

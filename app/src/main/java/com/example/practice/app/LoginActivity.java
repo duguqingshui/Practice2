@@ -37,6 +37,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import java.util.Date;
 
+/**
+ * Created by AMOBBS on 2017/4/25.
+ * 登录页面
+ */
 public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.bt_login)
     Button bt_login;

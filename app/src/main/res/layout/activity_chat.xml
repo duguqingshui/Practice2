@@ -19,7 +19,8 @@
             android:id="@+id/iv_add"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@drawable/add" />
+            android:background="@drawable/add"
+            android:layout_weight="0.14" />
         <EditText
             android:id="@+id/et_message"
             android:layout_width="0dp"
