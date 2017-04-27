@@ -10,6 +10,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.practice.BuildConfig;
@@ -26,7 +28,7 @@ import com.example.practice.view.MCIntent;
  */
 
 public class SplashActivity extends AppCompatActivity {
-    private FrameLayout fl_root;
+    private RelativeLayout fl_root;
     private TextView version_name;
     private   String account;
     private boolean gesture_lock;
@@ -48,7 +50,7 @@ public class SplashActivity extends AppCompatActivity {
      */
     private void initAnimation() {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
-        alphaAnimation.setDuration(3000);
+        alphaAnimation.setDuration(5000);
         fl_root.startAnimation(alphaAnimation);
 
         alphaAnimation.setAnimationListener(new Animation.AnimationListener() {
@@ -87,7 +89,8 @@ public class SplashActivity extends AppCompatActivity {
 
 
     private void initUI() {
-        fl_root = (FrameLayout) findViewById(R.id.fl_root);
+        fl_root = (RelativeLayout) findViewById(R.id.fl_root);
+        version_name = (TextView) findViewById(R.id.tv_version_name);
         version_name.setText(" 版本号 ：V ");
         version_name.append(BuildConfig.VERSION_NAME);
         if (BuildConfig.DEBUG) {
