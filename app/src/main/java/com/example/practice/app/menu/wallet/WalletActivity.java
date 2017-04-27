@@ -1,5 +1,7 @@
 package com.example.practice.app.menu.wallet;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
@@ -10,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -38,6 +41,8 @@ public class WalletActivity extends AppCompatActivity{
     String[] mTitleStrs;
     int[] mDrawableIds;
     private GridView gv_home;
+    private  Uri uri;
+    private Intent intent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +73,61 @@ public class WalletActivity extends AppCompatActivity{
 
         imagesList = new ArrayList<ImageView>();
         gv_home.setAdapter(new MyAdapter());
+        gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    //跳转到手机防盗功能列表界面
+                    case 0:
+                        //开启对话框
+                        break;
+                    case 1:
+                        //跳转到通信卫士功能列表界面
+                        break;
+                    //跳转到 滴滴出行
+                    case 2:
+                        Uri uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    //跳转到 电影票
+                    case 3:
+                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+
+                    case 4:   //跳转到 京东购物
+                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    case 5: //跳转到 手机红包
+                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    case 6:
+                        //跳转 美团外卖
+                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    case 7:
+                        //跳转到 火车票
+                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    case 8:
+                        //跳转到 资金.理财
+                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
         ImageView iv;  //滚动的图片
         View point;    // 小点
         LinearLayout.LayoutParams params;
@@ -110,13 +170,6 @@ public class WalletActivity extends AppCompatActivity{
                     View point = ll_point.getChildAt(i);
 
                     point.setEnabled(realposition == i);
-					/*
-					if(position == i){
-						point.setEnabled(true);
-					}else{
-						point.setEnabled(false);
-					}
-					*/
                 }
 
             }
@@ -237,9 +290,6 @@ public class WalletActivity extends AppCompatActivity{
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-            //super.destroyItem(container, position, object);
-            //int realposition = position%imagesList.size();
-            //System.out.println("destroyItem的条目："+position);
             container.removeView((View) object);
         }
     }
