@@ -69,8 +69,10 @@
         <activity android:name=".app.setting.privateandsafe.changepss.ChangePassActicity"></activity>
         <!--提醒通知-->
         <activity android:name=".app.setting.remind.RemindActivity"></activity>
-
-
+        <!--详情信息页-->
+        <activity android:name=".app.DetailsActicity"></activity>
+        <!--好友详情信息页-->
+        <activity android:name=".app.FriendDetailActivity"></activity>
 
         <!--服务 -->
         <service android:name=".service.ReceiveService"></service>

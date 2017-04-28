@@ -15,7 +15,7 @@
             android:gravity="center_horizontal"
             android:background="@color/main_color">
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/user_img"
+                android:id="@+id/friend_img"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@mipmap/icon"
@@ -23,7 +23,7 @@
                 android:layout_marginBottom="10dp"
                 />
             <TextView
-                android:id="@+id/user_name"
+                android:id="@+id/friend_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/user_sex"
+                    android:id="@+id/friend_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -42,7 +42,7 @@
                     android:src="@drawable/man"/>
                 <TextView
                     android:paddingLeft="10dp"
-                    android:id="@+id/user_age"
+                    android:id="@+id/friend_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -66,7 +66,7 @@
                 android:gravity="center_vertical"
                 />
             <TextView
-                android:id="@+id/user_account"
+                android:id="@+id/friend_account"
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 style="@style/editText"
@@ -92,7 +92,7 @@
                 android:gravity="center_vertical"
                 />
             <TextView
-                android:id="@+id/user_birthday"
+                android:id="@+id/friend_birthday"
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 style="@style/editText"
@@ -118,7 +118,7 @@
                 android:gravity="center_vertical"
                 />
             <TextView
-                android:id="@+id/user_sign"
+                android:id="@+id/friend_sign"
                 android:paddingLeft="10dp"
                 android:layout_width="match_parent"
                 style="@style/editText"

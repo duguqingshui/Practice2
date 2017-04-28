@@ -48,6 +48,7 @@ import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.HttpUtils;
 import com.example.practice.utils.SpUtils;
+import com.example.practice.view.MCIntent;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -345,7 +346,19 @@ public class ChatActivity extends AppCompatActivity {
             }
             //设置数据
             holder.iv_left.setImageResource(friend_headimg);
+            holder.iv_left.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MCIntent.sendIntent(ChatActivity.this,FriendDetailActivity.class);
+                }
+            });
             holder.iv_right.setImageResource(headimg);
+            holder.iv_right.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MCIntent.sendIntent(ChatActivity.this,DetailsActicity.class);
+                }
+            });
             //接受者
             if(msgList.get(position).getReceicer().getNickname().equals(loginNickname)){
                 holder.ll_left.setVisibility(View.VISIBLE);

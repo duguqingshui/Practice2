@@ -18,7 +18,7 @@
     <string name="input_next_psw">请输入重复密码</string>
     <string name="input_name">请输入昵称</string>
     <string name="input_sex">请输入性别</string>
-    <string name="input_birthday">请输入生日日期</string>
+    <string name="input_birthday">请输入出生日期</string>
     <string name="input_sign">请输入签名</string>
     <string name="register">注册</string>
     <string name="next">下一步</string>
@@ -35,7 +35,9 @@
     <string name="no_same_pass">两次输入密码不一致！</string>
     <string name="upload_img">请上传图片</string>
     <string name="user_info">用户信息</string>
-
+    <!--Detail  详情信息-->
+    <string name="detail">详情信息</string>
+    <string name="account_info">账号信息</string>
     <!--修改密码-->
     <string name="input_old_pass">请输入旧密码</string>
     <string name="input_new_pass">请输入新密码</string>
@@ -100,9 +102,9 @@
     <string name="user_name">昵称</string>
     <string name="user_id">ID&#160;&#160;&#160;&#160;&#160;</string>
     <string name="user_account">账号</string>
-    <string name="user_sex">性别</string>
+    <string name="user_sex">性   别</string>
     <string name="user_age">年龄</string>
-    <string name="user_birthday">生日</string>
+    <string name="user_birthday">出生日期</string>
     <string name="user_sign">个性签名</string>
     <!--message remind  消息提醒-->
     <string name="message_remind">消息提醒</string>

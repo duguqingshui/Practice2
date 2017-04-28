@@ -90,6 +90,7 @@ public class Constant {
     public static final int CMD_EXIT = 7;//退出登录
     public static final int CMD_SESSIONRECORD=8; //获取会话记录
     public static final int CMD_CHANGE_PASS=9;//修改密码
+    public static final int CMD_DETAIL_FRIEND=10;//好友详情信息
 
     //消息类型
     public static final int CHAT = 0;          //聊天
