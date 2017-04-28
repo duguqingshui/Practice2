@@ -99,10 +99,18 @@ public class AddressBookFragment extends Fragment {
         lv_friends.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String friend_account=list.get(position).getAccount();
                 String friend_nickname = list.get(position).getNickname();
-                SpUtils.putString(getContext().getApplicationContext(), Constant.CHAT_NICKNAME, friend_nickname);
                 int friend_headimg=list.get(position).getHeadimg();
-                SpUtils.putInt(getContext().getApplicationContext(), "friend_headimg", friend_headimg);
+                int friend_sex=list.get(position).getSex();
+                String friend_birthday=list.get(position).getBirthday();
+                String friend_sign=list.get(position).getSign();
+                SpUtils.putString(getContext().getApplicationContext(), Constant.CHAT_NICKNAME, friend_nickname);
+                SpUtils.putString(getContext().getApplicationContext(), Constant.CHAT_ACCOUNT, friend_account);
+                SpUtils.putInt(getContext().getApplicationContext(), Constant.FRIEND_HEDDIMG, friend_headimg);
+                SpUtils.putInt(getContext().getApplicationContext(), Constant.FRIEND_SEX, friend_sex);
+                SpUtils.putString(getContext().getApplicationContext(), Constant.FRIEND_BIRTHDAY, friend_birthday);
+                SpUtils.putString(getContext().getApplicationContext(), Constant.FRIEND_SIGN, friend_sign);
                 MCIntent.sendIntentFromAnimLeft(getActivity(), ChatActivity.class);
             }
         });

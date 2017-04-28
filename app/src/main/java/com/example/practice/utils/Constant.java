@@ -47,7 +47,26 @@ public class Constant {
      * 记录聊天时好友的昵称
      */
     public static final String CHAT_NICKNAME = "chat_nickname";
-
+    /**
+     * 记录聊天时好友的账号
+     */
+    public static final String CHAT_ACCOUNT = "chat_account";
+    /**
+     * 记录聊天时好友的头像
+     */
+    public static final String FRIEND_HEDDIMG = "friend_headimg";
+    /**
+     * 记录聊天时好友的性别
+     */
+    public static final String FRIEND_SEX = "friend_sex";
+    /**
+     * 记录聊天时好友的出生日期
+     */
+    public static final String FRIEND_BIRTHDAY = "friend_birthday";
+    /**
+     * 记录聊天时好友的个性签名
+     */
+    public static final String FRIEND_SIGN= "friend_sign";
     /**
      * 记录聊天是发送的录音文件路径
      */
@@ -90,7 +109,6 @@ public class Constant {
     public static final int CMD_EXIT = 7;//退出登录
     public static final int CMD_SESSIONRECORD=8; //获取会话记录
     public static final int CMD_CHANGE_PASS=9;//修改密码
-    public static final int CMD_DETAIL_FRIEND=10;//好友详情信息
 
     //消息类型
     public static final int CHAT = 0;          //聊天
