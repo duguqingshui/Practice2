@@ -22,7 +22,7 @@
             android:drawableLeft="@drawable/user_login_userlogo"
             android:hint="@string/input_account"
             android:singleLine="true"
-            android:maxLength="10"
+            android:maxLength="8"
             android:inputType="number"
             android:layout_weight="1"/>
             <Button

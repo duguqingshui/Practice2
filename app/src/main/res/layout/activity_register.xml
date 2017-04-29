@@ -62,17 +62,21 @@
                 android:id="@+id/et_pass"
                 style="@style/editText"
                 android:drawableLeft="@drawable/user_login_pswlogolo"
-                android:hint="@string/input_psw"/>
+                android:hint="@string/input_psw"
+                android:inputType="textPassword"/>
             <View
                 style="@style/style_listDivider"
                 android:paddingLeft="@dimen/margin_boundary"
                 android:paddingRight="@dimen/margin_boundary"
                 />
+
             <EditText
                 android:id="@+id/et_repass"
                 style="@style/editText"
                 android:drawableLeft="@drawable/user_login_pswlogolo"
-                android:hint="@string/input_next_psw" />
+                android:hint="@string/input_next_psw"
+                android:inputType="textPassword"/>
+
             <View
                 style="@style/style_listDivider"
                 android:paddingLeft="@dimen/margin_boundary"
