@@ -82,6 +82,9 @@ public class RegisterActivity extends AppCompatActivity {
     private LocalBroadcastManager localBroadcastManager;
     private MyBroadcastReceiver mReceiver;
     private  boolean isOrNot=false;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    Date date = new Date();
+    String todayTime = sdf.format(date);
     public Integer[] mThumbIds={//显示的图片数组
             R.mipmap.ig1, R.mipmap.camera, R.mipmap.folder, R.mipmap.ic_launcher, R.mipmap.music, R.mipmap.picture, R.mipmap.video,
             R.mipmap.i3, R.mipmap.i4,R.mipmap.i5,R.mipmap.i6,R.mipmap.i7, R.mipmap.i8
@@ -181,7 +184,7 @@ public class RegisterActivity extends AppCompatActivity {
             else {
                 Account acc = new Account(account, password, nickname, 0,headimg,getSex(sex),birthday,sign);
                 //Log.i("信息", acc.getAccount()+":"+acc.getNickname());
-                Messages msg = new Messages(Constant.CMD_REGISTER, acc, null, null, new Date(), Constant.CHAT);
+                Messages msg = new Messages(Constant.CMD_REGISTER, acc, null, null, todayTime, Constant.CHAT);
                 sendMsg.sendMessage(msg);
 
                 MCIntent.sendIntentFromAnimLeft(this, LoginActivity.class);

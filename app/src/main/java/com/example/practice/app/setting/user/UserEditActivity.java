@@ -67,7 +67,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
     Date date = new Date();
     int todayTime = Integer.parseInt(sdf.format(date));
-
+    String todayTime1 = sdf.format(date);
     private Intent intent;
     private ServiceConnection mConnection;
     private ReceiveService.sendBinder sendMsg;
@@ -205,7 +205,7 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_NICKNAME, modifyNickname);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_SIGN, modifySign);
                 Account acc=new Account(null,null,nickname,0,modifyImg,modifySex,modifyBirthday,modifySign);
-                Messages msg = new Messages(Constant.CMD_NOTIFY_NAME, acc, null, modifyNickname, new Date(), Constant.CHAT);
+                Messages msg = new Messages(Constant.CMD_NOTIFY_NAME, acc, null, modifyNickname, todayTime1, Constant.CHAT);
                 sendMsg.sendMessage(msg);
                 MCIntent.sendIntentFromAnimLeft(UserEditActivity.this, MainActivity.class);
                 finish();

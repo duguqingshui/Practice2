@@ -25,6 +25,7 @@ import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCToast;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -58,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
     private ReceiveService.sendBinder sendMsg;
     private MenuFragment menuFragment;
     private HomeFragment homeFragment;
-
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    Date date = new Date();
+    String todayTime = sdf.format(date);
     //布局管理器
     private FragmentManager fManager;
     @Override
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getSessionRecord() {
         Account acc = new Account(account, null, nickname, 0);
-        Messages msg = new Messages(Constant.CMD_SESSIONRECORD, acc, null, null, new Date(), Constant.CHAT);
+        Messages msg = new Messages(Constant.CMD_SESSIONRECORD, acc, null, null, todayTime, Constant.CHAT);
         sendMsg.sendMessage(msg);
     }
 
@@ -123,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void getFriendsData() {
         Account acc = new Account(account, null, nickname, 0);
-        Messages msg = new Messages(Constant.CMD_GETFRIEND_INFO, acc, null, null, new Date(), Constant.CHAT);
+        Messages msg = new Messages(Constant.CMD_GETFRIEND_INFO, acc, null, null, todayTime, Constant.CHAT);
         sendMsg.sendMessage(msg);
     }
 
@@ -226,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
         String state=SpUtils.getString(getApplicationContext(),Constant.LOGIN_ACCOUNT, null);
         if (state.equals("")){
             Account acc = new Account(account, null, nickname, 1);
-            Messages msg = new Messages(Constant.CMD_EXIT, acc, null, nickname, new Date(), Constant.CHAT);
+            Messages msg = new Messages(Constant.CMD_EXIT, acc, null, nickname, todayTime, Constant.CHAT);
             sendMsg.sendMessage(msg);
         }
 

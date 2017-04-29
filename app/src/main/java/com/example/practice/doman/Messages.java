@@ -12,7 +12,7 @@ public class Messages {
     public Account sender;
     public Account receicer;
     public String content;
-    public Date time;
+    public String time;
     public int type;//发送类型
     public int sex;//性别
     public String birthday;//出生日期
@@ -22,7 +22,7 @@ public class Messages {
         return sex;
     }
 
-    public Messages(int cmd, Account sender, Account receicer, String content, Date time, int type) {
+    public Messages(int cmd, Account sender, Account receicer, String content, String time, int type) {
         this.cmd = cmd;
         this.sender = sender;
         this.receicer = receicer;
@@ -98,15 +98,15 @@ public class Messages {
         this.content = content;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public Messages(int cmd, Account sender, Account receicer, String content, Date time, int type, int sex, String birthday, String sign) {
+    public Messages(int cmd, Account sender, Account receicer, String content, String time, int type, int sex, String birthday, String sign) {
         this.cmd = cmd;
         this.sender = sender;
         this.receicer = receicer;

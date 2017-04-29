@@ -35,6 +35,7 @@ import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.MCToast;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -65,6 +66,10 @@ public class ChangePassActicity extends AppCompatActivity{
     private MyBroadcastReceiver mReceiver;
     private String account;
     private  boolean isOrNotTrue=true;
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    Date date = new Date();
+    String todayTime = sdf.format(date);
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +129,7 @@ public class ChangePassActicity extends AppCompatActivity{
         }else {
             if (oldpassword.equals(password)){
                 Account acc=new Account(account,oldpassword,null,0);
-                Messages msg = new Messages(Constant.CMD_CHANGE_PASS, acc, null, newpassword, new Date(), Constant.CHAT);
+                Messages msg = new Messages(Constant.CMD_CHANGE_PASS, acc, null, newpassword, todayTime, Constant.CHAT);
                 sendMsg.sendMessage(msg);
                 SpUtils.putString(getApplicationContext(), Constant.LOGIN_PASSWORD,newpassword);
                 String pass= SpUtils.getString(getApplicationContext(), Constant.LOGIN_PASSWORD,null);

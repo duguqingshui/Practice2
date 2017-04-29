@@ -56,6 +56,7 @@ import com.google.gson.stream.JsonReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -109,6 +110,10 @@ public class ChatActivity extends AppCompatActivity {
     private String picName;
     private String picDownLoadUrl;
     int notifyId = 100;
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    Date date = new Date();
+    String todayTime = sdf.format(date);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -181,7 +186,7 @@ public class ChatActivity extends AppCompatActivity {
                 if(!TextUtils.isEmpty(msg)){
                     Account loginAcc = new Account(account, null, loginNickname, 0);
                     Account friendAcc = new Account(null, null, nickname, 0);
-                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, msg, new Date(),Messages.SEND_TYPE_TXT);
+                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, msg, todayTime,Messages.SEND_TYPE_TXT);
                     sendMsg.sendMessage(message);
                     //更新聊天界面
                     msgList.add(message);
@@ -262,7 +267,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     Account loginAcc = new Account(account, null, loginNickname, 0);
                     Account friendAcc = new Account(null, null, nickname, 0);
-                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, fileDownLoadUrl, new Date(), 1);
+                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, fileDownLoadUrl, todayTime, 1);
 
                     sendMsg.sendMessage(message);
                     //更新聊天界面
@@ -504,7 +509,7 @@ public class ChatActivity extends AppCompatActivity {
     private void getChatRecord(String loginNickname, String nickname) {
         Account loginAcc = new Account(account, null, loginNickname, 0);
         Account friendAcc = new Account(null, null, nickname, 0);
-        Messages message = new Messages(Constant.CMD_GETCHATINFO, loginAcc, friendAcc, null, new Date(), Constant.CHAT);
+        Messages message = new Messages(Constant.CMD_GETCHATINFO, loginAcc, friendAcc, null, todayTime, Constant.CHAT);
         sendMsg.sendMessage(message);
     }
 
@@ -611,7 +616,7 @@ public class ChatActivity extends AppCompatActivity {
                     //向服务器发送消息
                     Account loginAcc = new Account(account, null, loginNickname, 0);
                     Account friendAcc = new Account(null, null, nickname, 0);
-                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, picDownLoadUrl, new Date(), 2);
+                    Messages message = new Messages(Constant.CMD_SENDMSG, loginAcc, friendAcc, picDownLoadUrl, todayTime, 2);
                     sendMsg.sendMessage(message);
                     //更新聊天界面
                     msgList.add(message);
@@ -639,7 +644,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     Account loginAcc1 = new Account(account, null, loginNickname, 0);
                     Account friendAcc1 = new Account(null, null, nickname, 0);
-                    Messages message1 = new Messages(Constant.CMD_SENDMSG, loginAcc1, friendAcc1, picDownLoadUrl, new Date(), 2);
+                    Messages message1 = new Messages(Constant.CMD_SENDMSG, loginAcc1, friendAcc1, picDownLoadUrl,todayTime, 2);
                     sendMsg.sendMessage(message1);
                     //更新聊天界面
                     msgList.add(message1);

@@ -35,6 +35,8 @@ import com.example.practice.view.MCToast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -64,7 +66,9 @@ public class LoginActivity extends AppCompatActivity {
     private String account;
     private String password;
     private Account act=new Account();
-
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    Date date = new Date();
+    String todayTime = sdf.format(date);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
         if (checkInput()){
             Account acc = new Account(account, password, null, 0);
 
-            Messages msg = new Messages(Constant.CMD_LOGIN, acc, null, null, new Date(), Constant.CHAT);
+            Messages msg = new Messages(Constant.CMD_LOGIN, acc, null, null, todayTime, Constant.CHAT);
             //调用服务的方法登录账号
             sendMsg.sendMessage(msg);
         }

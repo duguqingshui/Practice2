@@ -28,6 +28,7 @@ import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
 import com.makeramen.roundedimageview.RoundedImageView;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import butterknife.BindView;
@@ -47,6 +48,10 @@ public class AccountManageActivity extends AppCompatActivity{
     TextView user_account;
     @BindView(R.id.exitButton)
     TextView exit_login;
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    Date date = new Date();
+    String todayTime = sdf.format(date);
 
     private String account,nickname;
     private int img;
@@ -100,7 +105,7 @@ public class AccountManageActivity extends AppCompatActivity{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Account acc = new Account(null, null, nickname, 0);
-                        Messages msg = new Messages(Constant.CMD_EXIT, acc, null, nickname, new Date(), Constant.CHAT);
+                        Messages msg = new Messages(Constant.CMD_EXIT, acc, null, nickname, todayTime, Constant.CHAT);
                         sendMsg.sendMessage(msg);
                         SpUtils.putString(getApplicationContext(),Constant.LOGIN_ACCOUNT, "");
                         MCIntent.sendIntentFromAnimLeft(AccountManageActivity.this, LoginActivity.class);
