@@ -29,6 +29,7 @@ import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,6 +49,7 @@ public class AddressBookFragment extends Fragment {
     private TextView tv_onlinecount;
     private TextView tv_friendscount;
     private ListView lv_friends;
+    private RoundedImageView user_img;
     private LinearLayout ll_info;
     private String account;
     private String nickname;
@@ -82,7 +84,9 @@ public class AddressBookFragment extends Fragment {
         tv_onlinecount = (TextView)view.findViewById(R.id.tv_onlinecount);
         tv_friendscount = (TextView)view.findViewById(R.id.tv_friendscount);
         lv_friends = (ListView)view. findViewById(R.id.lv_friends);
-
+        user_img=(RoundedImageView)view.findViewById(R.id.user_image);
+        int img=SpUtils.getInt(getActivity(),Constant.LOGIN_HEADIMAGE,0);
+        user_img.setImageResource(img);
         title.setText(R.string.addressBook);
 
         //获取当前登录的账号和昵称

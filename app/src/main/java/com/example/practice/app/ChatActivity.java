@@ -67,12 +67,12 @@ public class ChatActivity extends AppCompatActivity {
     /**
      * 上传路径
      */
-    private static String requestURL = "http://192.168.0.121:8080/FileTest/servlet/UploadServlet";
+    private static String requestURL = "http://192.168.1.106:8080/FileTest/servlet/UploadServlet";
 
     /**
      *下载路径
      */
-    private static String downURL = "http://192.168.0.121:8080/FileTest";
+    private static String downURL = "http://192.168.1.106:8080/FileTest";
 
     private RadioButton rb_picture;
     private RadioButton rb_record;

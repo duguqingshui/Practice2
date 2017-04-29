@@ -22,11 +22,13 @@ import com.example.practice.R;
 import com.example.practice.doman.Messages;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.HttpUtils;
+import com.example.practice.utils.SpUtils;
 import com.example.practice.view.swipelistview.BaseSwipeListViewListener;
 import com.example.practice.view.swipelistview.SwipeListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,6 +50,7 @@ public class SessionRecordFragment extends Fragment {
     private View view;
     private LocalBroadcastManager localBroadcastManager;
     private MyBroadcastReceiver mReceiver;
+    private RoundedImageView user_img;
     TextView title;
     @Nullable
     @Override
@@ -56,7 +59,9 @@ public class SessionRecordFragment extends Fragment {
         title=(TextView)view.findViewById(R.id.tv_title);
         title.setText(R.string.message);
         mSwipeListView = (SwipeListView)view.findViewById(R.id.id_swipelistview);
-
+        user_img=(RoundedImageView)view.findViewById(R.id.user_image);
+        int img= SpUtils.getInt(getActivity(),Constant.LOGIN_HEADIMAGE,0);
+        user_img.setImageResource(img);
         mSwipeListView.setSwipeListViewListener(new BaseSwipeListViewListener()
         {
             @Override

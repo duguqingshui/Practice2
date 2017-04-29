@@ -13,8 +13,11 @@ import com.example.practice.app.setting.accountManage.AccountManageActivity;
 import com.example.practice.app.setting.privateandsafe.PrivateAndSafe;
 import com.example.practice.app.setting.remind.RemindActivity;
 import com.example.practice.app.setting.user.UserEditActivity;
+import com.example.practice.utils.Constant;
+import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCIntent;
 import com.example.practice.view.MeItemView;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +30,7 @@ import butterknife.ButterKnife;
 public class MeFragment extends Fragment {
     private View view;
     TextView title;
+    private RoundedImageView user_img;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +38,9 @@ public class MeFragment extends Fragment {
         ButterKnife.bind(getActivity());
         title=(TextView)view.findViewById(R.id.tv_title);
         title.setText(R.string.setting);
+        user_img=(RoundedImageView)view.findViewById(R.id.user_image);
+        int img= SpUtils.getInt(getActivity(), Constant.LOGIN_HEADIMAGE,0);
+        user_img.setImageResource(img);
         //1.账户管理
         initAccount_manage();
         //2 个人信息
