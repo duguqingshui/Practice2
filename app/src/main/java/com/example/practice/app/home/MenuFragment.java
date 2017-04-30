@@ -10,13 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.practice.R;
-import com.example.practice.app.LoginActivity;
 import com.example.practice.app.menu.album.AblumActivity;
-import com.example.practice.app.menu.exchangeskin.ExchangeSkinActicity;
 import com.example.practice.app.menu.about.AboutActivity;
 import com.example.practice.app.menu.game.GameActivity;
-import com.example.practice.app.menu.game.luckypan.LuckpanActivity;
-import com.example.practice.app.menu.game.wuziqi.WuziqiActivity;
 import com.example.practice.app.menu.wallet.WalletActivity;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
@@ -24,8 +20,6 @@ import com.example.practice.view.MCIntent;
 import com.example.practice.view.SelfDialog;
 import com.makeramen.roundedimageview.RoundedImageView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by AMOBBS on 2017/2/22.
@@ -36,7 +30,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
     TextView tv_username;
     TextView Personalizedsignature;
     TextView my_album;
-    TextView exchange_skin;
     TextView my_expression;
     TextView my_wallet;
     TextView aboutButton;
@@ -59,7 +52,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         tv_username=(TextView) view.findViewById(R.id.tv_username);
         Personalizedsignature=(TextView)view.findViewById(R.id.Personalizedsignature);
         my_album=(TextView)view.findViewById(R.id.my_album);
-        exchange_skin=(TextView)view.findViewById(R.id.exchange_skin);
         aboutButton=(TextView)view.findViewById(R.id.aboutButton);
         my_game=(TextView)view.findViewById(R.id.my_game);
         my_wallet=(TextView)view.findViewById(R.id.my_wallet);
@@ -69,7 +61,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         my_wallet.setOnClickListener(this);
         my_game.setOnClickListener(this);
          my_album.setOnClickListener(this);
-         exchange_skin.setOnClickListener(this);
          aboutButton.setOnClickListener(this);
     }
 
@@ -79,9 +70,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         switch (id){
             case R.id.my_album:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), AblumActivity.class);
-                break;
-            case R.id.exchange_skin:
-                MCIntent.sendIntentFromAnimLeft(getActivity(), ExchangeSkinActicity.class);
                 break;
             case R.id.my_wallet:
                 MCIntent.sendIntentFromAnimLeft(getActivity(), WalletActivity.class);

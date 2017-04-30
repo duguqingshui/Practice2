@@ -56,8 +56,6 @@ public class LoginActivity extends AppCompatActivity {
     Button passwordClearBtn;
     @BindView(R.id.tv_register)
     TextView tv_register;
-    @BindView(R.id.tv_nologin)
-    TextView tv_login;
     private Intent intent;
     private ServiceConnection mConnection;
     private ReceiveService.sendBinder sendMsg;
@@ -138,10 +136,6 @@ public class LoginActivity extends AppCompatActivity {
             //调用服务的方法登录账号
             sendMsg.sendMessage(msg);
         }
-    }
-    @OnClick(R.id.tv_nologin)
-    public  void OnNoLoginClick(){
-        MCIntent.sendIntentFromAnimLeft(this, RegisterActivity.class);
     }
     @OnClick(R.id.tv_register)
     public  void OnResgisterClick(){
