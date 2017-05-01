@@ -60,6 +60,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.practice.utils.Constant.SERVER_IP_ADDRESS;
+
 /**
  * Created by AMOBBS on 2016/11/17.
  * 聊天室
@@ -68,12 +70,12 @@ public class ChatActivity extends AppCompatActivity {
     /**
      * 上传路径
      */
-    private static String requestURL = "http://192.168.1.106:8080/FileTest/servlet/UploadServlet";
+    private static String requestURL = "http://"+SERVER_IP_ADDRESS+"/FileTest/servlet/UploadServlet";
 
     /**
      *下载路径
      */
-    private static String downURL = "http://192.168.1.106:8080/FileTest";
+    private static String downURL = "http://"+SERVER_IP_ADDRESS+"/FileTest";
 
     private RadioButton rb_picture;
     private RadioButton rb_record;
@@ -261,7 +263,7 @@ public class ChatActivity extends AppCompatActivity {
 
                     //将录音文件上传到服务器
                     //String url = "http://"+Constant.SERVER_IP_ADDRESS+":8080/FileTest/servlet/UploadServlet?name="+ FileRecordName;
-                    String   fileDownLoadUrl = "http://"+ Constant.SERVER_IP_ADDRESS+":8080/FileTest/"+ FileRecordName;
+                    String   fileDownLoadUrl = "http://"+ SERVER_IP_ADDRESS+":8080/FileTest/"+ FileRecordName;
                     System.out.println("录音文件2："+FileRecordName);
                     HttpUtils.uploadFile(fileRecordName, requestURL);
 
@@ -609,8 +611,8 @@ public class ChatActivity extends AppCompatActivity {
             switch (requestCode) {
                 case 1:
                     //上传图片到Tomcat
-                    String url = "http://"+Constant.SERVER_IP_ADDRESS+":8080/LoadServlet/UploadServlet?name="+picName;
-                    picDownLoadUrl = "http://"+ Constant.SERVER_IP_ADDRESS+":8080/LoadServlet/" + picName;
+                    String url = "http://"+ SERVER_IP_ADDRESS+":8080/LoadServlet/UploadServlet?name="+picName;
+                    picDownLoadUrl = "http://"+ SERVER_IP_ADDRESS+":8080/LoadServlet/" + picName;
                     HttpUtils.uploadFile(new File(picPath), url);
 
                     //向服务器发送消息
@@ -638,8 +640,8 @@ public class ChatActivity extends AppCompatActivity {
                     String picPath=SpUtils.getString(getApplicationContext(),"picPath",null);
                     String imagePath2 = SpUtils.getString(getApplicationContext(), Constant.PIC_PATH, null);
 
-                    String url1 = "http://"+Constant.SERVER_IP_ADDRESS+":8080/FileTest/servlet/UploadServlet?name="+imagePath2;
-                    String picDownLoadUrl = "http://"+ Constant.SERVER_IP_ADDRESS+":8080/FileTest/" + imagePath2;
+                    String url1 = "http://"+ SERVER_IP_ADDRESS+":8080/FileTest/servlet/UploadServlet?name="+imagePath2;
+                    String picDownLoadUrl = "http://"+ SERVER_IP_ADDRESS+":8080/FileTest/" + imagePath2;
                     HttpUtils.uploadFile(new File(picPath), url1);
 
                     Account loginAcc1 = new Account(account, null, loginNickname, 0);
