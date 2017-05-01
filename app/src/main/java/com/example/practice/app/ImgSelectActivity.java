@@ -11,7 +11,6 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.example.practice.R;
-import com.example.practice.adapter.ImageAdapter;
 import com.example.practice.utils.SpUtils;
 
 import butterknife.BindView;

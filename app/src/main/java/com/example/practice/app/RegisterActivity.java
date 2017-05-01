@@ -17,7 +17,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -27,7 +26,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.practice.R;
-import com.example.practice.adapter.ImageAdapter;
 import com.example.practice.doman.Account;
 import com.example.practice.doman.Messages;
 import com.example.practice.service.ReceiveService;
@@ -39,7 +37,6 @@ import com.example.practice.view.MCToast;
 import com.example.practice.view.MyTimePickerDialog;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import butterknife.BindView;

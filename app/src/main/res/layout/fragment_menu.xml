@@ -103,18 +103,6 @@
                 android:background="@color/transparent"
                 />
             <TextView
-                android:id="@+id/exchange_skin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/exchangeskin"
-                android:drawableRight="@drawable/setting_arrow"
-                android:gravity="center"
-                android:padding="@dimen/margin_boundary"
-                android:text="@string/exchange_skin"
-                android:textSize="@dimen/size18"
-                android:background="@color/transparent"
-                />
-            <TextView
                 android:id="@+id/my_game"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
