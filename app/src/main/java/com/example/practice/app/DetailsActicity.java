@@ -12,6 +12,10 @@ import com.example.practice.R;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -36,8 +40,12 @@ public class DetailsActicity extends AppCompatActivity{
     @BindView(R.id.user_sign)
     TextView user_sign;
 
+
     private String account,nickname,birthday,sign;
     private int sex,img;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+    Date date = new Date();
+    int todayTime = Integer.parseInt(sdf.format(date));
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +65,18 @@ public class DetailsActicity extends AppCompatActivity{
         sex= SpUtils.getInt(getApplicationContext(), Constant.LOGIN_SEX, 0);
         birthday=SpUtils.getString(getApplicationContext(), Constant.LOGIN_BIRTHDAY, null);
         sign= SpUtils.getString(getApplicationContext(),  Constant.LOGIN_SIGN, null);
+
+        Date date = null;
+        try {
+            date = sdf.parse(birthday);
+            int  selectTime=Integer.parseInt(sdf.format(date));;
+            System.out.println("选择时间："+selectTime);
+            int age=todayTime-selectTime;
+            user_age.setText(age+"岁");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
 
         user_img.setImageResource(img);
         user_name.setText(nickname);

@@ -96,6 +96,7 @@
     <string name="message">消息</string>
     <string name="addressBook">通讯录</string>
     <string name="setting">设置</string>
+    <string name="account_manage">账号管理</string>
     <!--UserInfo 用户个人信息-->
     <string name="perinfo_title">个人信息</string>
     <string name="user_head_image">头像</string>

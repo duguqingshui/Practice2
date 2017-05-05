@@ -23,6 +23,10 @@ import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -49,6 +53,9 @@ public class FriendDetailActivity extends AppCompatActivity{
     private String account,nickname,birthday,sign;
     private int sex,img;
 
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+    Date date = new Date();
+    int todayTime = Integer.parseInt(sdf.format(date));
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +78,18 @@ public class FriendDetailActivity extends AppCompatActivity{
 
         friend_img.setImageResource(img);
         friend_name.setText(nickname);
+        Date date = null;
+        try {
+            date = sdf.parse(birthday);
+            int  selectTime=Integer.parseInt(sdf.format(date));;
+            System.out.println("选择时间："+selectTime);
+            int age=todayTime-selectTime;
+            friend_age.setText(age+"岁");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         if (sex==0){
             friend_sex.setImageResource(R.drawable.man);
         }

@@ -66,7 +66,7 @@ public class AccountManageActivity extends AppCompatActivity{
         setContentView(R.layout.activity_accountmanage);
         ButterKnife.bind(this);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(R.string.perinfo_title);
+        actionBar.setTitle(R.string.account_manage);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.show();
         initView();
