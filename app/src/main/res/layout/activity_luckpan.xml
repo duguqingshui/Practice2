@@ -101,7 +101,6 @@
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <TextView
-                android:background="@drawable/earphone"
                 style="@style/textview_luckpan"
                 android:id="@+id/tv1"/>
             <TextView
@@ -111,7 +110,6 @@
             <TextView
                 android:id="@+id/tv3"
                 style="@style/textview_luckpan"
-                android:background="@drawable/thank"
                 />
 
         </LinearLayout>
@@ -122,7 +120,6 @@
             android:layout_height="100dp"
             android:orientation="horizontal">
             <TextView
-                android:background="@drawable/schoolbow"
                 style="@style/textview_luckpan"
                 android:id="@+id/tv8"/>
             <TextView
@@ -141,7 +138,6 @@
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <TextView
-                android:background="@drawable/thank"
                 style="@style/textview_luckpan"
                 android:id="@+id/tv7"/>
             <TextView
