@@ -59,7 +59,7 @@ public class WalletActivity extends AppCompatActivity{
 
         //初始化数据
 
-        titles = new String[]{"第一个小人在干嘛","第二幅图","第三幅图，哈哈","第四幅图，呵呵","第五幅图，哈哈"};
+        titles = new String[]{"点赞赢话费","美食节","京东双11","传统美食","话费充值特惠"};
         mTitleStrs = new String[]{
                 "话费.流量","游戏充值","滴滴出行","电影票","京东购物","手机红包","美团外卖","火车票","资金.理财"
         };
@@ -69,7 +69,7 @@ public class WalletActivity extends AppCompatActivity{
                 R.drawable.jingdong,R.drawable.red_paper,
                 R.drawable.take_out,R.drawable.tran_ticket,R.drawable.financing,
         };
-        imagesid = new int[]{R.drawable.acticity1,R.drawable.acticity2,R.drawable.tu3,R.drawable.tu4,R.drawable.tu5};
+        imagesid = new int[]{R.drawable.fare,R.drawable.food,R.drawable.jingdong1,R.drawable.food1,R.drawable.fare1};
 
         imagesList = new ArrayList<ImageView>();
         gv_home.setAdapter(new MyAdapter());

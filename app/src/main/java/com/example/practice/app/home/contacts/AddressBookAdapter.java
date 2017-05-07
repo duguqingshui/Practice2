@@ -71,7 +71,6 @@ public class AddressBookAdapter extends BaseAdapter {
         try {
             Date date = sdf.parse(birthday);
             int  selectTime=Integer.parseInt(sdf.format(date));;
-            System.out.println("选择时间："+selectTime);
             int age=todayTime-selectTime;
             holder.friends_age.setText(age+"岁");
         } catch (ParseException e) {
