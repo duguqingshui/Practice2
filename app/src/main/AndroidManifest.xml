@@ -79,6 +79,7 @@
         <receiver android:name=".app.home.contacts.AddressBookFragment$MyBroadcastReceiver"></receiver>
         <receiver android:name=".app.LoginActivity$MyBroadcastReceiver"></receiver>
         <receiver android:name=".app.RegisterActivity$MyBroadcastReceiver"></receiver>
+        <receiver android:name=".app.home.sessionrecord.SessionRecordFragment$MyBroadcastReceiver"></receiver>
 
     </application>
 

@@ -2,7 +2,8 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawerLayout"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,11 +17,11 @@
     </FrameLayout>
         <include layout="@layout/top2"/>
     </LinearLayout>
-    <FrameLayout
+    <fragment
         android:id="@+id/containerMenu"
-        android:layout_width="@dimen/drawer_width"
+        android:name="com.example.practice.app.home.MenuFragment"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:background="?android:attr/windowBackground"
         android:layout_gravity="left"
-        />
+        android:tag="LEFT" />
 </android.support.v4.widget.DrawerLayout>

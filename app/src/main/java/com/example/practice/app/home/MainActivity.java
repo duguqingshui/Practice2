@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
@@ -24,6 +25,7 @@ import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
 import com.example.practice.utils.SpUtils;
 import com.example.practice.view.MCToast;
+import com.nineoldandroids.view.ViewHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -42,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.rb_setting)
     RadioButton setting;
 
-    @BindView(R.id.containerMenu)
-    FrameLayout containerMenu;
     @BindView(R.id.drawerLayout)
     DrawerLayout drawerLayout;
     //通讯录
@@ -78,17 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 .penaltyLog().penaltyDeath().build());
         getSupportActionBar().hide();
         fManager = getSupportFragmentManager();
-
-        String settTag = String.valueOf(R.id.containerMenu);
-        if (savedInstanceState != null) {
-            menuFragment = (MenuFragment) fManager.findFragmentByTag(settTag);
-        }
-        if (homeFragment == null) {
-            menuFragment = new MenuFragment();
-            fManager.beginTransaction()
-                    .add(R.id.containerMenu, menuFragment, settTag)
-                    .commit();
-        }
+        initView();
+        initEvents();
         clickMenu(addressbook);
         //获取当前登录的账号和昵称
         account = SpUtils.getString(getApplicationContext(), Constant.LOGIN_ACCOUNT, null);
@@ -234,4 +225,71 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    private void initEvents()
+    {
+        drawerLayout.setDrawerListener(new DrawerLayout.DrawerListener()
+        {
+            @Override
+            public void onDrawerStateChanged(int newState)
+            {
+            }
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset)
+            {
+                View mContent = drawerLayout.getChildAt(0);
+                View mMenu = drawerView;
+                float scale = 1 - slideOffset;
+                float rightScale = 0.8f + scale * 0.2f;
+
+                if (drawerView.getTag().equals("LEFT"))
+                {
+
+                    float leftScale = 1 - 0.3f * scale;
+
+                    ViewHelper.setScaleX(mMenu, leftScale);
+                    ViewHelper.setScaleY(mMenu, leftScale);
+                    ViewHelper.setAlpha(mMenu, 0.6f + 0.4f * (1 - scale));
+                    ViewHelper.setTranslationX(mContent,
+                            mMenu.getMeasuredWidth() * (1 - scale));
+                    ViewHelper.setPivotX(mContent, 0);
+                    ViewHelper.setPivotY(mContent,
+                            mContent.getMeasuredHeight() / 2);
+                    mContent.invalidate();
+                    ViewHelper.setScaleX(mContent, rightScale);
+                    ViewHelper.setScaleY(mContent, rightScale);
+                } else
+                {
+                    ViewHelper.setTranslationX(mContent,
+                            -mMenu.getMeasuredWidth() * slideOffset);
+                    ViewHelper.setPivotX(mContent, mContent.getMeasuredWidth());
+                    ViewHelper.setPivotY(mContent,
+                            mContent.getMeasuredHeight() / 2);
+                    mContent.invalidate();
+                    ViewHelper.setScaleX(mContent, rightScale);
+                    ViewHelper.setScaleY(mContent, rightScale);
+                }
+
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView)
+            {
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView)
+            {
+                drawerLayout.setDrawerLockMode(
+                        DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.RIGHT);
+            }
+        });
+    }
+
+    private void initView()
+    {
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED,
+                Gravity.RIGHT);
+    }
+
 }

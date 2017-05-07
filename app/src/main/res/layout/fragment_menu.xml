@@ -88,6 +88,7 @@
                 android:padding="@dimen/margin_boundary"
                 android:textSize="@dimen/size18"
                 android:text="@string/my_album"
+                android:textColor="@color/white"
                 android:background="@color/transparent"
                 />
             <TextView
@@ -100,6 +101,7 @@
                 android:padding="@dimen/margin_boundary"
                 android:textSize="@dimen/size18"
                 android:text="@string/my_wallet"
+                android:textColor="@color/white"
                 android:background="@color/transparent"
                 />
             <TextView
@@ -112,6 +114,7 @@
                 android:padding="@dimen/margin_boundary"
                 android:text="@string/my_game"
                 android:textSize="@dimen/size18"
+                android:textColor="@color/white"
                 android:background="@color/transparent"
                 />
         </LinearLayout>
@@ -132,6 +135,7 @@
         android:padding="@dimen/margin_boundary"
         android:text="@string/common_about"
         android:textSize="@dimen/size18"
+        android:textColor="@color/white"
         android:background="@color/transparent"
         />
 </RelativeLayout>
