@@ -57,7 +57,8 @@
             android:id="@+id/rb_message"
             style="@style/Bottom_Tab_Style"
             android:drawableTop="@drawable/wallet_account"
-            android:text="账户  0.00" />
+            android:text="账户  0.00"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/rb_addressbook"

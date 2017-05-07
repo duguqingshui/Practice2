@@ -86,19 +86,19 @@ public class WalletActivity extends AppCompatActivity{
                         break;
                     //跳转到 滴滴出行
                     case 2:
-                        Uri uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        Uri uri = Uri.parse("http://www.xiaojukeji.com/index/index");
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         break;
                     //跳转到 电影票
                     case 3:
-                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        uri = Uri.parse("http://hshi.meituan.com/dianying/");
                         intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         break;
 
                     case 4:   //跳转到 京东购物
-                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        uri = Uri.parse("https://www.jd.com/");
                         intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         break;
@@ -109,19 +109,19 @@ public class WalletActivity extends AppCompatActivity{
                         break;
                     case 6:
                         //跳转 美团外卖
-                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        uri = Uri.parse("http://waimai.meituan.com/?utm_campaign=baidu&utm_source=1522");
                         intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         break;
                     case 7:
                         //跳转到 火车票
-                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        uri = Uri.parse("http://www.12306.cn/mormhweb/");
                         intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         break;
                     case 8:
                         //跳转到 资金.理财
-                        uri = Uri.parse("http://baike.baidu.com/view/753813.htm");
+                        uri = Uri.parse("https://bao.alipay.com/yeb/index.htm");
                         intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                         break;
