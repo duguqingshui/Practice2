@@ -20,6 +20,7 @@
             android:drawableTop="@drawable/tab_message_selector"
             android:text="消息"
             android:onClick="clickMenu"
+            android:visibility="gone"
             />
         <RadioButton
             android:id="@+id/rb_addressbook"

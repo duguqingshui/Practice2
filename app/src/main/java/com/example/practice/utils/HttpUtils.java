@@ -137,7 +137,7 @@ public class HttpUtils {
                     //connection.setRequestProperty("Charset", "utf-8");  //设置编码
 
                     Log.i("响应码", connection.getResponseCode() + "");
-                    if (connection!=null){
+                    if (connection.getResponseCode()!=404){
                         if (connection.getResponseCode() == 200) {
                             in = connection.getInputStream();
                             fos = new FileOutputStream(fileName);
@@ -150,6 +150,10 @@ public class HttpUtils {
                             Log.i("downLoadFile", "文件下载失败");
                         }
                     }
+                    else {
+                        Log.i("downLoadFile", "文件下载失败");
+                    }
+
 
                 } catch (MalformedURLException e) {
                     e.printStackTrace();

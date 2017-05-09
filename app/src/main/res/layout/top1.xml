@@ -48,6 +48,7 @@
     				android:id="@+id/add"
     				android:layout_marginRight="20dip"
     				android:src="@drawable/actionbar_add_icon"
+					 android:visibility="gone"
                     />
             </LinearLayout>
 </LinearLayout>
