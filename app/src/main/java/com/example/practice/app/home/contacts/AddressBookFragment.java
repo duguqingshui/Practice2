@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.example.practice.R;
 import com.example.practice.app.ChatActivity;
+import com.example.practice.app.DetailsActicity;
 import com.example.practice.doman.Account;
 import com.example.practice.service.ReceiveService;
 import com.example.practice.utils.Constant;
@@ -48,6 +49,7 @@ public class AddressBookFragment extends Fragment {
     private TextView tv_nickname;
     private TextView tv_onlinecount;
     private TextView tv_friendscount;
+    private TextView user_info;
     private ListView lv_friends;
     private RoundedImageView user_img;
     private LinearLayout ll_info;
@@ -79,6 +81,7 @@ public class AddressBookFragment extends Fragment {
     private void initView() {
         ButterKnife.bind(getActivity());
         title=(TextView)view.findViewById(R.id.tv_title);
+        user_info=(TextView)view.findViewById(R.id.user_info);
         ll_info = (LinearLayout)view.findViewById(R.id.ll_info);
         tv_nickname = (TextView)view.findViewById(R.id.tv_nickname);
         tv_onlinecount = (TextView)view.findViewById(R.id.tv_onlinecount);
@@ -98,6 +101,13 @@ public class AddressBookFragment extends Fragment {
 
         headimg=SpUtils.getInt(getContext().getApplicationContext(),Constant.LOGIN_HEADIMAGE,1);
         iv_headimg.setImageResource(headimg);
+
+        user_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MCIntent.sendIntent(getActivity(),DetailsActicity.class);
+            }
+        });
 
         //响应listview条目点击事件
         lv_friends.setOnItemClickListener(new AdapterView.OnItemClickListener() {

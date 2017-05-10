@@ -31,6 +31,7 @@ public class MeFragment extends Fragment {
     private View view;
     TextView title;
     private RoundedImageView user_img;
+    private  TextView user_info;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +40,8 @@ public class MeFragment extends Fragment {
         title=(TextView)view.findViewById(R.id.tv_title);
         title.setText(R.string.setting);
         user_img=(RoundedImageView)view.findViewById(R.id.user_image);
+        user_info=(TextView)view.findViewById(R.id.user_info);
+        user_info.setVisibility(View.GONE);
         int img= SpUtils.getInt(getActivity(), Constant.LOGIN_HEADIMAGE,0);
         user_img.setImageResource(img);
         //1.账户管理
