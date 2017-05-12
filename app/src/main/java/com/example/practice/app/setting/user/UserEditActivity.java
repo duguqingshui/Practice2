@@ -283,10 +283,17 @@ public class UserEditActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onResume() {
         super.onResume();
+
         int head_img=SpUtils.getInt(getApplicationContext(),"USER_IMG",0);
         if (img!=head_img){
-            user_headimage.setImageResource(head_img);
-            SpUtils.putInt(getApplicationContext(),Constant.LOGIN_HEADIMAGE,head_img);
+            if (head_img==0){
+                user_headimage.setImageResource(img);
+            }
+            else {
+                user_headimage.setImageResource(head_img);
+                SpUtils.putInt(getApplicationContext(),Constant.LOGIN_HEADIMAGE,head_img);
+            }
+
         }
     }
 

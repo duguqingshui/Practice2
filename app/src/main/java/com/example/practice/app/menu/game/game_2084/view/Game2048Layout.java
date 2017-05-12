@@ -33,7 +33,7 @@ public class Game2048Layout extends RelativeLayout
 	/**
 	 * Item横向与纵向的边距
 	 */
-	private int mMargin = 10;
+	private int mMargin = 5;
 	/**
 	 * 面板的padding
 	 */

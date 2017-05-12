@@ -61,7 +61,7 @@
         android:layout_height="fill_parent"
         android:layout_centerInParent="true"
         android:background="#ffffff"
-        android:padding="10dp"
+        android:padding="5dp"
         android:layout_weight="1">
     </com.example.practice.app.menu.game.game_2084.view.Game2048Layout>
 

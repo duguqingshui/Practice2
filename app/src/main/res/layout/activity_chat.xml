@@ -48,13 +48,15 @@
             android:drawableTop="@mipmap/soundrecorder"
             android:checked="true"
             android:text="录音"
+            android:visibility="gone"
             />
         <RadioButton
             android:id="@+id/rb_camera"
             style="@style/Bottom_Tab_Style"
             android:drawableTop="@mipmap/camera"
             android:checked="true"
-            android:text="拍照" />
+            android:text="拍照"
+            android:visibility="gone"/>
         <RadioButton
             android:id="@+id/rb_picture"
             style="@style/Bottom_Tab_Style"
