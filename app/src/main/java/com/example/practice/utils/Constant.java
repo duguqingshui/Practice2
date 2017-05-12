@@ -87,7 +87,7 @@ public class Constant {
     /**
      * 服务器端的IP地址
      */
-    public static final String SERVER_IP_ADDRESS = "192.168.1.107";
+    public static final String SERVER_IP_ADDRESS = "192.168.1.100";
 
     /**
      * 服务器的端口地址

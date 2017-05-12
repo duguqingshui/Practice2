@@ -31,6 +31,9 @@ public class LuckpanActivity extends AppCompatActivity{
     TextView gba_rule;
     @BindView(R.id.rule_Draw)
     TextView draw_rule;
+    @BindView(R.id.count)
+    TextView count;
+    int counts=0;
     private TextView tv1;
     private TextView tv2;
     private TextView tv3;
@@ -194,9 +197,25 @@ public class LuckpanActivity extends AppCompatActivity{
             if (runCount==0&&lightPosition==8){
                 tvStart.setClickable(true);
                 tvStart.setEnabled(true);
-                if (views.get(lunckyPosition).getText().toString().equals(R.string.thank)){
+                if (views.get(lunckyPosition).getText().toString().equals("谢谢参与")){
                     tvNotice.setText(R.string.very_thank);
-                }else {
+                }
+                else if (views.get(lunckyPosition).getText().toString().equals("5点积分")){
+                    counts+=5;
+                    count.setText(""+counts);
+                    tvNotice.setText("恭喜你抽中: "+views.get(lunckyPosition).getText().toString());
+                }
+                else if (views.get(lunckyPosition).getText().toString().equals("10点积分")){
+                    counts+=10;
+                    count.setText(""+counts);
+                    tvNotice.setText("恭喜你抽中: "+views.get(lunckyPosition).getText().toString());
+                }
+                else if (views.get(lunckyPosition).getText().toString().equals("50点积分")){
+                    counts+=50;
+                    count.setText(""+counts);
+                    tvNotice.setText("恭喜你抽中: "+views.get(lunckyPosition).getText().toString());
+                }
+                else {
                     tvNotice.setText("恭喜你抽中: "+views.get(lunckyPosition).getText().toString());
                 }
                 if (lunckyPosition!=views.size())

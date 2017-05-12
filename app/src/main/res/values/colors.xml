@@ -18,6 +18,7 @@
     <color name="white_color">#ffffffff</color><!-- 透明 -->
     <color name="color_red">#f00</color>
     <color name="white">#ffffffff</color><!-- 透明 -->
+    <color name="green">#00cc00</color>
     <!-- Commons -->
     <color name="background_app">#dedede</color>
     <color name="gray_light">#F8F8F8</color>  <!-- 点击变灰色 -->

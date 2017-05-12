@@ -36,7 +36,6 @@
                 android:layout_height="@dimen/icon_big"
                 android:layout_margin="@dimen/margin_boundary"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/icon"
                 app:riv_oval="true"
                 />
         </LinearLayout>
