@@ -93,15 +93,19 @@ public class LuckpanActivity extends AppCompatActivity{
             tvStart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    tvStart.setClickable(false);
-                    tvStart.setEnabled(false);
-                    tvNotice.setText("");
-                    runCount = 10;
-                    timeC = 100;
-                    views.get(lunckyPosition).setBackgroundColor(Color.TRANSPARENT);
-                    lunckyPosition = randomNum(0,7);
-                    new TimeCount(timeC*9,timeC).start();
-
+                    if (counts>30){
+                        tvStart.setClickable(false);
+                        tvStart.setEnabled(false);
+                        tvNotice.setText("");
+                        runCount = 10;
+                        timeC = 100;
+                        views.get(lunckyPosition).setBackgroundColor(Color.TRANSPARENT);
+                        lunckyPosition = randomNum(0,7);
+                        new TimeCount(timeC*9,timeC).start();
+                    }
+                    else {
+                        tvNotice.setText("您的积分不足30，请充值！");
+                    }
                 }
             });
         } catch (Exception e) {
