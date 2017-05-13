@@ -167,8 +167,9 @@ public class RegisterActivity extends AppCompatActivity {
             MCToast.show(R.string.no_null_sign,getApplicationContext());
         }
         else {
-            if (account.substring(0,1)=="0"){
+            if (account.subSequence(0,1)=="0"){
                 et_account.setText("");
+                System.out.println("账号首字母："+account.subSequence(0,1));
                 MCToast.show(R.string.no_0,getApplicationContext());
             }
             else if (account.length()!=8){

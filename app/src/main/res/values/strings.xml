@@ -22,7 +22,7 @@
     <string name="input_sign">请输入签名</string>
     <string name="register">注册</string>
     <string name="next">下一步</string>
-    <string name="remind">注意：账号必须是非0开头的8位数字</string>
+    <string name="remind">注意：账号必须是8位数字</string>
     <string name="no_null_account">账号不能为空</string>
     <string name="no_null_pass">密码不能为空</string>
     <string name="no_null_repass">重复密码不能为空</string>
